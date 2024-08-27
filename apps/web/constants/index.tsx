@@ -1,4 +1,3 @@
-import { faGlobe, faEnvelope, faPhone } from '@fortawesome/pro-'
 import { Resume } from '../types'
 import {
    faLinkedin,
