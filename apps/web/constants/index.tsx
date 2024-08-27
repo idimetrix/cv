@@ -4,6 +4,7 @@ import {
    faGithub,
    faTelegram,
    faNpm,
+   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 
 export const WEBSITE = {
@@ -79,6 +80,11 @@ export const RESUME: Resume = {
             name: 'Telegram',
             url: 'https://t.me/idimetrix',
             icon: faTelegram,
+         },
+         {
+            name: 'Twitter',
+            url: 'https://x.com/idimetrix',
+            icon: faTwitter,
          },
       ],
    },
