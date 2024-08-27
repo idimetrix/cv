@@ -24,16 +24,16 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "turbo": "2.0.14"
+    "turbo": "2.1.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "14.2.6",
+    "@next/eslint-plugin-next": "14.2.7",
     "@typescript-eslint/eslint-plugin": "8.3.0",
     "@typescript-eslint/parser": "8.3.0",
-    "eslint-config-next": "14.2.6",
+    "eslint-config-next": "14.2.7",
     "@trivago/prettier-plugin-sort-imports": "4.3.0",
     "eslint-config-prettier": "9.1.0",
-    "eslint-config-turbo": "2.0.14",
+    "eslint-config-turbo": "2.1.0",
     "eslint-plugin-prettier": "5.2.1",
     "prettier": "3.3.3",
     "prettier-plugin-organize-imports": "4.0.0",
