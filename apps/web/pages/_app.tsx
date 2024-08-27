@@ -128,81 +128,81 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
          <GlobalProvider>
             {/*<ContextProvider>*/}
-               {confetti.isConfetti && (
-                  <div className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 ">
-                     <Confetti
-                        width={windowSize.width}
-                        height={windowSize.height}
-                        numberOfPieces={500}
-                        onConfettiComplete={() => confetti.setConfetti(false)}
-                        recycle={false}
-                        gravity={0.2}
-                     />
-                  </div>
-               )}
+            {confetti.isConfetti && (
+               <div className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 ">
+                  <Confetti
+                     width={windowSize.width}
+                     height={windowSize.height}
+                     numberOfPieces={500}
+                     onConfettiComplete={() => confetti.setConfetti(false)}
+                     recycle={false}
+                     gravity={0.2}
+                  />
+               </div>
+            )}
 
-               <ThemeProvider
-                  attribute="class"
-                  enableSystem={false}
-                  defaultTheme="dark"
-               >
-                  {getLayout(<Component {...pageProps} />)}
-               </ThemeProvider>
+            <ThemeProvider
+               attribute="class"
+               enableSystem={false}
+               defaultTheme="dark"
+            >
+               {getLayout(<Component {...pageProps} />)}
+            </ThemeProvider>
 
-               <Analytics />
+            <Analytics />
 
-               <Toaster
-                  position="top-center"
-                  containerClassName=""
-                  containerStyle={{}}
-                  toastOptions={{
-                     duration: 5000,
+            <Toaster
+               position="top-center"
+               containerClassName=""
+               containerStyle={{}}
+               toastOptions={{
+                  duration: 5000,
+                  style: {
+                     background: 'var(--color-blue-1)',
+                     border: 'none',
+                     boxShadow: 'none',
+                     color: '#ffffff',
+                     fontSize: '16px',
+                     borderRadius: '4px',
+                  },
+                  success: {
+                     style: {
+                        background: 'var(--color-green-2)',
+                        color: '#fff',
+                     },
+                     iconTheme: {
+                        primary: '#fff',
+                        secondary: 'var(--color-green-2)',
+                     },
+                  },
+                  error: {
+                     style: {
+                        background: 'var(--color-red-1)',
+                        color: '#fff',
+                     },
+                     iconTheme: {
+                        primary: '#fff',
+                        secondary: 'var(--color-red-1)',
+                     },
+                  },
+                  loading: {
                      style: {
                         background: 'var(--color-blue-1)',
-                        border: 'none',
-                        boxShadow: 'none',
-                        color: '#ffffff',
-                        fontSize: '16px',
-                        borderRadius: '4px',
+                        color: '#fff',
                      },
-                     success: {
-                        style: {
-                           background: 'var(--color-green-2)',
-                           color: '#fff',
-                        },
-                        iconTheme: {
-                           primary: '#fff',
-                           secondary: 'var(--color-green-2)',
-                        },
+                     icon: (
+                        <FontAwesomeIcon
+                           icon={faSpinnerThird}
+                           className="h-[20px] w-[20px] animate-spin text-white"
+                        />
+                     ),
+                     iconTheme: {
+                        primary: '#fff',
+                        secondary: 'var(--color-blue-1)',
                      },
-                     error: {
-                        style: {
-                           background: 'var(--color-red-1)',
-                           color: '#fff',
-                        },
-                        iconTheme: {
-                           primary: '#fff',
-                           secondary: 'var(--color-red-1)',
-                        },
-                     },
-                     loading: {
-                        style: {
-                           background: 'var(--color-blue-1)',
-                           color: '#fff',
-                        },
-                        icon: (
-                           <FontAwesomeIcon
-                              icon={faSpinnerThird}
-                              className="h-[20px] w-[20px] animate-spin text-white"
-                           />
-                        ),
-                        iconTheme: {
-                           primary: '#fff',
-                           secondary: 'var(--color-blue-1)',
-                        },
-                     },
-                  }}
-               />
+                  },
+               }}
+            />
             {/*</ContextProvider>*/}
          </GlobalProvider>
       </>
