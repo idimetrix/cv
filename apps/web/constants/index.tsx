@@ -209,6 +209,17 @@ export const RESUME: Resume = {
          description: `Skills: JavaScript · HTML5 · CSS3`,
       },
 
+      {
+         company: 'Oryol State Technical University (Oryol STU)',
+         link: 'https://int.oreluniver.ru/en',
+         badges: ['In-Person', 'Internship'],
+         title: 'Front-end | Back-end: Trainee Developer',
+         logo: undefined,
+         start: 'Sep 2009',
+         end: 'Sep 2011',
+         description: `Skills: JavaScript · MySQL · Node.js · HTML5 · CSS3`,
+      },
+
       // {
       //    company: '',
       //    link: '',
@@ -283,15 +294,108 @@ export const RESUME: Resume = {
          description: `This online hotel reservation service sets the gold standard. With a seamless user interface, an extensive range of options, and impeccable customer support.`,
       },
 
+      {
+         company: `Super Studios`,
+         link: 'https://www.superstudios.io',
+         badges: ['WEB3', 'Nuxt.js', 'Vue.js', 'Crypto', 'Token'],
+         title: `Super Studios`,
+         logo: undefined,
+         start: undefined,
+         end: undefined,
+         description: `Build decentralized Web3 products to accelerate the world's adoption of crypto technology.`,
+      },
+
+      {
+         company: `Super Verse`,
+         link: 'https://superverse.co',
+         badges: ['WEB3', 'Nuxt.js', 'Vue.js', 'Crypto', 'Token'],
+         title: `Super Verse`,
+         logo: undefined,
+         start: undefined,
+         end: undefined,
+         description: `The decentralized autonomous organization that powers the SUPER ecosystem.`,
+      },
+
+      {
+         company: `Impostors`,
+         link: 'https://impostors.gg',
+         badges: ['WEB3', 'Nuxt.js', 'Vue.js', 'Crypto', 'NFT'],
+         title: `Impostors`,
+         logo: undefined,
+         start: undefined,
+         end: undefined,
+         description: `A Free-to-Play Social Deduction Game Riddled with Intrigue, Excitement, and a Dash of Mystery`,
+      },
+
+      {
+         company: `DFinance`,
+         link: 'https://dfinance.co',
+         badges: [
+            'WEB3',
+            'Nuxt.js',
+            'Vue.js',
+            'React.js',
+            'Next.js',
+            'Cosmos',
+            'Move',
+         ],
+         title: `DFinance`,
+         logo: undefined,
+         start: undefined,
+         end: undefined,
+         description: `Dfinance enables you to create and trade your own blockchain-based financial instruments with natural language tools.`,
+      },
+
+      {
+         company: `Pontem Network`,
+         link: 'https://pontem.network',
+         badges: ['WEB3', 'Wallet', 'Explorer', 'React.js', 'Next.js', 'AI'],
+         title: `Pontem Network`,
+         logo: undefined,
+         start: undefined,
+         end: undefined,
+         description: `Pontem is the multichain product studio behind Lumio — the L2 for every VM on every chain. Build once, deploy everywhere with Lumio.`,
+      },
+
+      {
+         company: `Z-Tech`,
+         link: 'https://www.linkedin.com/company/z-tech',
+         badges: [
+            'Node.js',
+            'JavaScript',
+            'TypeScript',
+            'React.js',
+            'Next.js',
+            'NoSQL',
+            'SQL',
+         ],
+         title: `Z-Tech`,
+         logo: undefined,
+         start: undefined,
+         end: undefined,
+         description: `Z-Tech is an innovation group part of Anheuser-Busch Inbev which mission is to empower small and medium-size businesses to change the world through technology.`,
+      },
+
+      {
+         company: `Tier1 Financial Solutions`,
+         link: 'https://tier1fin.com',
+         badges: ['MySQL', 'PostgreSQL', 'Node.js', 'Nest.js', 'CI/CD'],
+         title: `Tier1 Financial Solutions`,
+         logo: undefined,
+         start: undefined,
+         end: undefined,
+         description: `Global leader in CRM software for capital markets & investment banking.`,
+      },
+
       // {
-      //    company: `Company ${index}`,
+      //    company: ``,
       //    link: '',
-      //    badges: ['badge1', 'badge2', 'badge3'],
-      //    title: `Title ${index}`,
+      //    badges: [''],
+      //    title: ``,
       //    logo: undefined,
       //    start: undefined,
       //    end: undefined,
-      //    description: `Description ${index}`,
-      // }
+      //    description: ``,
+      // },
    ],
 }
