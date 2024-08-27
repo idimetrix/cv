@@ -1,0 +1,21 @@
+{
+  "name": "@cv/lib",
+  "author": "Dmitrii Selikhov <dmitrii.selikhov@gmail.com>",
+  "version": "0.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "type": "tsc --noEmit --incremental",
+    "tsc:clean": "tsc --build --clean"
+  },
+  "dependencies": {
+    "clsx": "2.1.1",
+    "tailwind-merge": "2.5.2"
+  },
+  "devDependencies": {
+    "@cv/tsconfig": "workspace:*",
+    "@cv/types": "workspace:*",
+    "@types/node": "22.5.0",
+    "typescript": "5.5.4"
+  }
+}

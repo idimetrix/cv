@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <body>
+    <script src="./dove.js"></script>
+    <script>
+      const test = async (files = {}, name = "test") => {
+        await wasm_bindgen("./dove_bg.wasm");
+
+        const dove = await wasm_bindgen.Dove.new();
+
+        const project = await dove.create_project(name);
+
+        await dove.select_project(project.id);
+
+        for (const [path, content] of Object.entries(files))
+          await dove.write_project_file(path.trim(), content.trim());
+
+        try {
+          await dove.test_project();
+
+          return true;
+        } catch (error) {
+          //
+        }
+
+        return false;
+      };
+
+      window.test = test;
+    </script>
+  </body>
+</html>

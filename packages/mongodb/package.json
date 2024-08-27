@@ -1,0 +1,25 @@
+{
+  "name": "@cv/mongodb",
+  "author": "Dmitrii Selikhov <dmitrii.selikhov@gmail.com>",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "type": "tsc --noEmit --incremental",
+    "tsc:clean": "tsc --build --clean"
+  },
+  "dependencies": {
+    "@cv/tsconfig": "workspace:*",
+    "@typegoose/typegoose": "12.6.0",
+    "dotenv": "16.4.5",
+    "mongodb": "6.8.0",
+    "mongoose": "8.5.4",
+    "nanoid": "5.0.7"
+  },
+  "devDependencies": {
+    "@types/node": "22.5.0",
+    "ts-node": "10.9.2",
+    "typescript": "5.5.4"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@cv/tsconfig",
+  "author": "Dmitrii Selikhov <dmitrii.selikhov@gmail.com>",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "nextjs.json"
+  ],
+  "devDependencies": {
+    "tsconfig-paths": "4.2.0"
+  }
+}

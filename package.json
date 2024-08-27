@@ -1,0 +1,45 @@
+{
+  "name": "cv",
+  "version": "0.0.0",
+  "private": true,
+  "npmClient": "pnpm",
+  "packageManager": "pnpm@9.9.0",
+  "engines": {
+    "node": ">=20.x",
+    "npm": ">=10.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "clean": "find . -name node_modules -o -name tsconfig.tsbuildinfo -o -name pnpm-lock.yaml -o -name .next -o -name .turbo -o -name dist -type f -prune -type d -prune | xargs rm -rf",
+    "web:dev": "turbo run dev --filter=\"@cv/web\"",
+    "web:build": "turbo run build --filter=\"@cv/web\"",
+    "web:start": "turbo run start --filter=\"@cv/web\"",
+    "lint": "turbo run lint",
+    "type": "turbo run type",
+    "tsc:clean": "turbo run tsc:clean",
+    "prettier": "prettier --ignore-unknown --no-error-on-unmatched-pattern --write \"**/*.{js,jsx,ts,tsx,json,md,xml,svg}\"",
+    "format": "pnpm prettier && pnpm lint && pnpm type",
+    "bootstrap": "pnpm install && pnpm format",
+    "lt": "lt --port 3000 --subdomain blogs",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "turbo": "2.0.14"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "14.2.6",
+    "@typescript-eslint/eslint-plugin": "8.3.0",
+    "@typescript-eslint/parser": "8.3.0",
+    "eslint-config-next": "14.2.6",
+    "@trivago/prettier-plugin-sort-imports": "4.3.0",
+    "eslint-config-prettier": "9.1.0",
+    "eslint-config-turbo": "2.0.14",
+    "eslint-plugin-prettier": "5.2.1",
+    "prettier": "3.3.3",
+    "prettier-plugin-organize-imports": "4.0.0",
+    "prettier-plugin-tailwindcss": "0.6.6",
+    "husky": "9.1.5",
+    "localtunnel": "2.0.2",
+    "eslint-plugin-unused-imports": "4.1.3"
+  }
+}

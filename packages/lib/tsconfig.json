@@ -1,0 +1,8 @@
+{
+  "extends": "@cv/tsconfig/base.json",
+  "compilerOptions": {
+    "target": "es5"
+  },
+  "include": [".", "../../apps/web/next-auth.d.ts"],
+  "exclude": ["dist", "build", "node_modules"]
+}

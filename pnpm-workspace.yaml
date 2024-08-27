@@ -1,0 +1,10 @@
+packages:
+  - apps/web
+  - packages/config
+  - packages/dayjs
+  - packages/lib
+  - packages/mongodb
+  - packages/scripts
+  - packages/trpc
+  - packages/tsconfig
+  - packages/types

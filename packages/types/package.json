@@ -1,0 +1,11 @@
+{
+  "name": "@cv/types",
+  "author": "Dmitrii Selikhov <dmitrii.selikhov@gmail.com>",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@cv/tsconfig": "workspace:*"
+  }
+}

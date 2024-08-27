@@ -1,0 +1,10 @@
+{
+  "name": "@cv/dayjs",
+  "version": "1.0.0",
+  "main": "./index.ts",
+  "scripts": {},
+  "dependencies": {
+    "dayjs": "1.11.13"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,7 @@
+{
+  "extends": "@cv/tsconfig/node18.json",
+  "compilerOptions": {
+    "lib": ["DOM"],
+    "allowJs": true
+  }
+}
