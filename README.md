@@ -1,4 +1,4 @@
-![cv](https://github.com/idimetrix/cv/apps/web/public/full.png)
+![cv](https://raw.githubusercontent.com/idimetrix/cv/main/apps/web/public/full.png)
 
 # Minimalist CV [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/idimetrix/cv)
 
