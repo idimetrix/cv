@@ -1,3 +1,7 @@
 export default function ServerErrorPage() {
-   return <div>ServerErrorPage</div>
+   return (
+      <div className="h-screen flex justify-center items-center">
+         Server Error
+      </div>
+   )
 }

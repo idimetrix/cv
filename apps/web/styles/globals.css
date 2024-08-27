@@ -4,3 +4,99 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --color-white: #fff;
+    --color-black: #000;
+    --color-border: #ddd;
+    --color-dark-1: #051036;
+    --color-dark-2: #0d2857;
+    --color-dark-3: #13357b;
+    --color-dark-4: #163c8c;
+    --color-light-1: #697488;
+    --color-light-2: #f5f5f5;
+    --color-light-3: #fbfcff;
+    --color-blue-1: #3554d1;
+    --color-blue-2: #e5f0fd;
+    --color-blue-3: #93c5fd;
+    --color-green-1: #ebfcea;
+    --color-green-2: #008009;
+    --color-yellow-1: #f8d448;
+    --color-yellow-2: #e1c03f;
+    --color-yellow-3: #ffc700;
+    --color-yellow-4: #fff8dd;
+    --color-brown-1: #923e01;
+    --color-purple-1: #7e53f9;
+    --color-red-1: #d93025;
+    --color-red-2: #f1416c;
+    --color-red-3: #fff5f8;
+    --color-info-1: #cde9f6;
+    --color-info-2: #4780aa;
+    --color-warning-1: #f7f3d7;
+    --color-warning-2: #927238;
+    --color-error-1: #ecc8c5;
+    --color-error-2: #ab3331;
+    --color-success-1: #def2d7;
+    --color-success-2: #5b7052;
+    --color-acorn: #f0a83d;
+    --color-pearl: #6F6F6F;
+    --color-armor: #040301;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100%;
+}
+
+body {
+    /* Hide scrollbar for IE, Edge and Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-size: 16px;
+    line-height: 1.875;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+    font-weight: 400;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    pointer-events: auto !important;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-white);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-border);
+}
+
+*:focus {
+    outline: none !important;
+}
+
+#__next {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+

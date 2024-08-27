@@ -6,11 +6,15 @@ import {
 import { createContext } from '@cv/trpc/server/context'
 import { appRouter } from '@cv/trpc/server/router/_app'
 import { inferSSRProps } from '@cv/types/inferSSRProps'
+import { CV } from '../components/organism/CV'
 
-export default function Home({
-   test,
-}: inferSSRProps<typeof getServerSideProps>) {
-   return <main className="container mx-auto">{test}</main>
+// eslint-disable-next-line no-empty-pattern
+export default function Home({}: inferSSRProps<typeof getServerSideProps>) {
+   return (
+      <main className="">
+         <CV />
+      </main>
+   )
 }
 
 export const getServerSideProps = async ({
@@ -25,6 +29,6 @@ export const getServerSideProps = async ({
    const caller = appRouter.createCaller(ctx)
 
    return {
-      props: { test: 123 },
+      props: {},
    }
 }

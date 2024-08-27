@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Analytics } from '@vercel/analytics/react'
 import { NextPage } from 'next'
 import { DefaultSeo } from 'next-seo'
-import { ThemeProvider } from 'next-themes'
 import type { AppContext, AppInitialProps, AppProps } from 'next/app'
 import App from 'next/app'
 import { useRouter } from 'next/router'
@@ -14,38 +13,19 @@ import NProgress from 'nprogress'
 import { ReactElement, ReactNode, useEffect, useState } from 'react'
 import Confetti from 'react-confetti'
 import { Toaster } from 'react-hot-toast'
+import { Jost } from 'next/font/google'
 import { WEBSITE } from '../constants'
-// import ContextProvider from '../contexts'
 import { useConfettiStore } from '../store/confetti'
-import '../styles/globals.css'
 import { GlobalProvider } from '../context/store'
-import { Plus_Jakarta_Sans, Source_Serif_4, Work_Sans } from 'next/font/google'
 
-// Plus Jakarta Sans font family with 4 weights and 2 styles
-const Jakarta_Sans = Plus_Jakarta_Sans({
+import '../styles/globals.css'
+
+const jost = Jost({
    weight: ['400', '500', '600', '700'],
-   style: ['normal', 'italic'],
+   style: 'normal',
    subsets: ['latin'],
-   display: 'swap',
-   variable: '--font-plus-jakarta-sans',
-})
-
-// Work Sans font family with 4 weights and 2 styles
-const work_Sans = Work_Sans({
-   weight: ['400', '500', '600', '700'],
-   style: ['normal', 'italic'],
-   subsets: ['latin'],
-   display: 'swap',
-   variable: '--font-work-sans',
-})
-
-// Source Serif Pro font family with 4 weights and 2 styles
-const source_Serif_Pro = Source_Serif_4({
-   weight: ['200', '300', '400', '600', '700'],
-   style: ['normal', 'italic'],
-   subsets: ['latin'],
-   display: 'swap',
-   variable: '--font-source-serif-pro',
+   display: 'block',
+   variable: '--font-inter',
 })
 
 config.autoAddCss = false
@@ -59,10 +39,6 @@ export type NextPageWithLayout = NextPage & {
 type AppPropsWithLayout = AppProps & {
    Component: NextPageWithLayout
 }
-
-const hasCursor = false
-const hasToTop = false
-const hasCall2Action = false
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
    const [loaded, setLoaded] = useState<boolean>(false)
@@ -109,18 +85,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
    }, [])
 
    return (
-      <>
-         <style
-            dangerouslySetInnerHTML={{
-               __html: `
-                 :root {
-                   --font-plus-jakarta-sans: ${Jakarta_Sans.style.fontFamily};
-                   --font-work-sans: ${work_Sans.style.fontFamily};
-                   --font-source-serif-pro: ${source_Serif_Pro.style.fontFamily};
-                 }`,
-            }}
-         />
-
+      <main className={cn(jost.className, 'group/page min-h-screen')}>
          <DefaultSeo
             titleTemplate={`%s | ${WEBSITE.name}`}
             title={WEBSITE.description}
@@ -136,18 +101,12 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
                      numberOfPieces={500}
                      onConfettiComplete={() => confetti.setConfetti(false)}
                      recycle={false}
-                     gravity={0.2}
+                     gravity={0.25}
                   />
                </div>
             )}
 
-            <ThemeProvider
-               attribute="class"
-               enableSystem={false}
-               defaultTheme="dark"
-            >
-               {getLayout(<Component {...pageProps} />)}
-            </ThemeProvider>
+            {getLayout(<Component {...pageProps} />)}
 
             <Analytics />
 
@@ -205,7 +164,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
             />
             {/*</ContextProvider>*/}
          </GlobalProvider>
-      </>
+      </main>
    )
 }
 
