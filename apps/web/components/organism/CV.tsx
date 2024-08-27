@@ -37,13 +37,17 @@ export const CV = ({ resume, ...rest }: Props) => {
                      >
                         {resume.name}
                      </Link>
-                     <Link href={resume.summaryLink} target="_blank">
+                     <Link
+                        href={resume.summaryLink}
+                        target="_blank"
+                        className="text-black/90"
+                     >
                         {resume.summary}
                      </Link>
                      <Link
                         href={resume.locationLink}
                         target="_blank"
-                        className="flex items-center gap-1.5 text-sm"
+                        className="flex items-center gap-1.5 text-sm text-black/80"
                      >
                         <FontAwesomeIcon icon={faGlobe} className="h-4 w-4" />
                         {resume.location}
@@ -141,7 +145,7 @@ export const CV = ({ resume, ...rest }: Props) => {
                               <div>{`${experience.start} - ${experience.end || 'Present'}`}</div>
                            </div>
                            <div>{experience.title}</div>
-                           <div className="text-sm w-full">
+                           <div className="text-sm w-full text-black/70">
                               {experience.description}
                            </div>
                         </div>
@@ -181,7 +185,7 @@ export const CV = ({ resume, ...rest }: Props) => {
                               <div>{`${education.start} - ${education.end || 'Present'}`}</div>
                            </div>
                            <div>{education.title}</div>
-                           <div className="text-sm">
+                           <div className="text-sm w-full text-black/70">
                               {education.description}
                            </div>
                         </div>
@@ -210,7 +214,7 @@ export const CV = ({ resume, ...rest }: Props) => {
                      {resume.projects.map((project) => (
                         <div
                            key={`${project.title}-${project.description}`}
-                           className="flex border border-border rounded-md p-3 flex-col"
+                           className="flex border border-border rounded-md p-3 gap-1.5 flex-col"
                         >
                            <Link
                               href={project.link || '#'}
@@ -219,7 +223,9 @@ export const CV = ({ resume, ...rest }: Props) => {
                            >
                               {project.title}
                            </Link>
-                           <div className="text-sm">{project.description}</div>
+                           <div className="text-sm text-black/80 leading-tight">
+                              {project.description}
+                           </div>
                            <div className="flex gap-1.5 mt-1.5 flex-wrap">
                               {project.badges?.map((badge) => (
                                  <button

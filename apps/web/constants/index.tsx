@@ -3,6 +3,7 @@ import {
    faLinkedin,
    faGithub,
    faTelegram,
+   faNpm,
 } from '@fortawesome/free-brands-svg-icons'
 
 export const WEBSITE = {
@@ -68,6 +69,11 @@ export const RESUME: Resume = {
             name: 'Github',
             url: 'https://github.com/idimetrix',
             icon: faGithub,
+         },
+         {
+            name: 'Npm',
+            url: 'https://www.npmjs.com/~dimetrix',
+            icon: faNpm,
          },
          {
             name: 'Telegram',
@@ -159,6 +165,50 @@ export const RESUME: Resume = {
          description: `Skills: JavaScript · Node.js · AngularJS · Vue.js · REST APIs · React.js · TypeScript`,
       },
 
+      {
+         company: 'Cronix MicroSystems',
+         link: '',
+         badges: ['In-Person', 'Full-Time'],
+         title: 'Chief Technology Officer',
+         logo: undefined,
+         start: 'Mar 2016',
+         end: 'Sep 2017',
+         description: `Skills: Agile Methodologies · Team Leadership · Leadership · Scrum`,
+      },
+
+      {
+         company: 'Guru.com',
+         link: 'https://guru.com',
+         badges: ['Remote', 'Contract'],
+         title: 'Senior Software Developer Team Lead',
+         logo: undefined,
+         start: 'Jan 2015',
+         end: 'Mar 2016',
+         description: `Skills: JavaScript · Node.js · Webpack · HTML5 · TypeScript · CSS3`,
+      },
+
+      {
+         company: 'Scopic Software',
+         link: 'https://scopicsoftware.com',
+         badges: ['Remote', 'Contract'],
+         title: 'Senior Web Developer',
+         logo: undefined,
+         start: 'Feb 2014',
+         end: 'Jan 2015',
+         description: `Skills: JavaScript · Node.js · HTML5 · CSS3`,
+      },
+
+      {
+         company: 'Stork',
+         link: '',
+         badges: ['In-Person', 'Full-Time'],
+         title: 'Full Stack Engineer',
+         logo: undefined,
+         start: 'Sep 2011',
+         end: 'Jan 2014',
+         description: `Skills: JavaScript · HTML5 · CSS3`,
+      },
+
       // {
       //    company: '',
       //    link: '',
@@ -204,16 +254,44 @@ export const RESUME: Resume = {
       `Stencil`,
       `Angular`,
       `Node.js`,
+      `HTML5`,
+      `CSS3`,
+      `MongoDB`,
+      `MySQL`,
+      `PostgreSQL`,
+      `NoSQL`,
+      `MongoDB`,
+      `DynamoDB`,
+      `Go`,
+      `Rust`,
    ],
 
-   projects: Array.from({ length: 10 }).map((_, index) => ({
-      company: `Company ${index}`,
-      link: '',
-      badges: ['badge1', 'badge2', 'badge3'],
-      title: `Title ${index}`,
-      logo: undefined,
-      start: undefined,
-      end: undefined,
-      description: `Description ${index}`,
-   })),
+   projects: [
+      {
+         company: `Cheap Hotels Hub`,
+         link: 'https://cheaphotelshub.com',
+         badges: [
+            'CTO',
+            'Technical Leadership',
+            'Marketing',
+            'Digital Marketing',
+         ],
+         title: `Cheap Hotels Hub`,
+         logo: undefined,
+         start: undefined,
+         end: undefined,
+         description: `This online hotel reservation service sets the gold standard. With a seamless user interface, an extensive range of options, and impeccable customer support.`,
+      },
+
+      // {
+      //    company: `Company ${index}`,
+      //    link: '',
+      //    badges: ['badge1', 'badge2', 'badge3'],
+      //    title: `Title ${index}`,
+      //    logo: undefined,
+      //    start: undefined,
+      //    end: undefined,
+      //    description: `Description ${index}`,
+      // }
+   ],
 }
