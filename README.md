@@ -1,8 +1,8 @@
 ![cv](https://raw.githubusercontent.com/idimetrix/cv/main/apps/web/public/full.png)
 
-# Free CV Maker with print-friendly layout [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/idimetrix/cv)
+# Free CV Maker with Print-Friendly Responsive Layout [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/idimetrix/cv)
 
-Simple Free CV Maker that renders minimalist CV with print-friendly layout.
+Simple Free CV Maker that renders minimalist CV with Print-Friendly Responsive Layout.
 
 Built with React.js/Next.js, deployed on Vercel.
 
