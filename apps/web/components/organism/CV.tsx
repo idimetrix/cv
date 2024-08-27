@@ -1,6 +1,9 @@
 import { HTMLAttributes } from 'react'
+import { Resume } from '../../types'
 
-interface Props extends HTMLAttributes<HTMLDivElement> {}
+interface Props extends HTMLAttributes<HTMLDivElement> {
+   resume: Resume
+}
 
 export const CV = ({ children, ...rest }: Props) => {
    return (
