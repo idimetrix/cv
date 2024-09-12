@@ -6,6 +6,9 @@ import {
    faNpm,
    faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
+import { SKILLS } from './SKILLS'
+import { LOCATIONS } from './LOCATIONS'
+import { LANGUAGES } from './LANGUAGES'
 
 export const WEBSITE = {
    url: process.env.NEXT_PUBLIC_URL,
@@ -41,15 +44,14 @@ export const RESUME: Resume = {
    initials: 'DS',
    initialsLink: 'https://www.linkedin.com/in/dimetrix',
 
-   location: 'Miami Beach, Florida, United States',
-   locationLink: 'https://maps.app.goo.gl/yjF6pFSLUpHc8j7e8',
+   locations: LOCATIONS,
+   languages: LANGUAGES,
 
    avatar:
       'https://avatars.githubusercontent.com/u/6536323?s=400&u=d69d2b12d4006d24030aa6e2e11fce02f15a86fe&v=4',
    avatarLink: 'https://www.linkedin.com/in/dimetrix',
 
-   summary:
-      'Lead Full-Stack software engineer, specializing in design and development web applications using JS (React & Vue & Svelte & Stencil & Angular) and Node/Go/Rust',
+   summary: 'CTO, Software Architect, Technical Lead',
    summaryLink: 'https://www.linkedin.com/in/dimetrix',
 
    about: `As a EXPERT FULL-STACK SOFTWARE ENGINEER, I specialize in taking products from concept to launch. I am skilled at leading teams and fostering environments where individuals can perform at their highest potential. Currently, I work mostly with Web2/Web3 applications using JS/TS (React, Next.js, Vue, Nuxt.js, Svelte, Stencil, Angular) and Node/Go/Rust/Move using monolithic, microservices, serverless architectures based on AWS, Azure and Google cloud services`,
@@ -59,7 +61,9 @@ export const RESUME: Resume = {
 
    contact: {
       email: 'dmitrii.selikhov@gmail.com',
-      phone: '+18298032444',
+      // phone: '+18298032444',
+      cv: 'https://freecvmaker.vercel.app/cv.pdf',
+      resume: 'https://freecvmaker.vercel.app/resume.pdf',
       socials: [
          {
             name: 'LinkedIn',
@@ -92,7 +96,7 @@ export const RESUME: Resume = {
       {
          company: 'CheapHotelsHub.com',
          link: 'https://cheaphotelshub.com',
-         badges: ['Hybrid', 'Contract'],
+         badges: ['Office', 'Full-Time'],
          title: 'Chief Technology Officer',
          logo: undefined,
          start: 'Aug 2023',
@@ -104,7 +108,7 @@ export const RESUME: Resume = {
       {
          company: 'Super Studios Inc.',
          link: 'https://www.superstudios.io',
-         badges: ['Remote', 'Contract'],
+         badges: ['Remote', 'Full-Time'],
          title: 'Senior Full Stack Developer',
          logo: undefined,
          start: 'Mar 2023',
@@ -119,7 +123,7 @@ export const RESUME: Resume = {
       {
          company: 'University of Miami',
          link: 'https://miami.edu',
-         badges: ['Remote', 'Contract'],
+         badges: ['Remote', 'Full-Time'],
          title: 'Lead Software Engineer',
          logo: undefined,
          start: 'Aug 2022',
@@ -130,7 +134,7 @@ export const RESUME: Resume = {
       {
          company: 'Tier1 Financial Solutions',
          link: 'https://www.tier1fin.com',
-         badges: ['Remote', 'Contract'],
+         badges: ['Remote', 'Full-Time'],
          title: 'Node.js/React.js Full Stack Tech Lead ',
          logo: undefined,
          start: 'Jan 2022',
@@ -141,7 +145,7 @@ export const RESUME: Resume = {
       {
          company: 'AB InBev',
          link: 'https://www.ab-inbev.com',
-         badges: ['Remote', 'Contract'],
+         badges: ['Remote', 'Full-Time'],
          title: 'Node.js/React.js Tech Lead Engineer',
          logo: undefined,
          start: 'Apr 2021',
@@ -152,7 +156,7 @@ export const RESUME: Resume = {
       {
          company: 'CiiRUS Vacation Rental Software',
          link: 'https://www.ciirus.com',
-         badges: ['Remote', 'Contract'],
+         badges: ['Remote', 'Full-Time'],
          title: 'Full Stack Engineer',
          logo: undefined,
          start: 'Jul 2020',
@@ -163,7 +167,7 @@ export const RESUME: Resume = {
       {
          company: 'Freelance',
          link: '',
-         badges: ['Remote', 'Contract'],
+         badges: ['Remote', 'Full-Time'],
          title: 'Senior Front-end Developer | Back-end Engineer, Team Leader',
          logo: undefined,
          start: 'Sep 2017',
@@ -174,7 +178,7 @@ export const RESUME: Resume = {
       {
          company: 'Cronix MicroSystems',
          link: '',
-         badges: ['In-Person', 'Full-Time'],
+         badges: ['Office', 'Full-Time'],
          title: 'Chief Technology Officer',
          logo: undefined,
          start: 'Mar 2016',
@@ -185,7 +189,7 @@ export const RESUME: Resume = {
       {
          company: 'Guru.com',
          link: 'https://guru.com',
-         badges: ['Remote', 'Contract'],
+         badges: ['Remote', 'Full-Time'],
          title: 'Senior Software Developer Team Lead',
          logo: undefined,
          start: 'Jan 2015',
@@ -196,7 +200,7 @@ export const RESUME: Resume = {
       {
          company: 'Scopic Software',
          link: 'https://scopicsoftware.com',
-         badges: ['Remote', 'Contract'],
+         badges: ['Remote', 'Full-Time'],
          title: 'Senior Web Developer',
          logo: undefined,
          start: 'Feb 2014',
@@ -207,7 +211,7 @@ export const RESUME: Resume = {
       {
          company: 'Stork',
          link: '',
-         badges: ['In-Person', 'Full-Time'],
+         badges: ['Office', 'Full-Time'],
          title: 'Full Stack Engineer',
          logo: undefined,
          start: 'Sep 2011',
@@ -218,7 +222,7 @@ export const RESUME: Resume = {
       {
          company: 'Oryol State Technical University (Oryol STU)',
          link: 'https://int.oreluniver.ru/en',
-         badges: ['In-Person', 'Internship'],
+         badges: ['Office', 'Internship'],
          title: 'Front-end | Back-end: Trainee Developer',
          logo: undefined,
          start: 'Sep 2009',
@@ -229,7 +233,7 @@ export const RESUME: Resume = {
       // {
       //    company: '',
       //    link: '',
-      //    badges: ['Remote', 'Contract'],
+      //    badges: ['Remote', 'Full-Time'],
       //    title: '',
       //    logo: undefined,
       //    start: '',
@@ -247,7 +251,7 @@ export const RESUME: Resume = {
          logo: undefined,
          start: '2012',
          end: '2014',
-         description: `Master's degree in mathematician, system programmer and computer science.`,
+         description: `Master's degree in mathematician, system programming and computer science.`,
       },
 
       {
@@ -258,30 +262,11 @@ export const RESUME: Resume = {
          logo: undefined,
          start: '2007',
          end: '2012',
-         description: `Bachelor's degree in mathematician, system programmer and computer science.`,
+         description: `Bachelor's degree in mathematician, system programming and computer science.`,
       },
    ],
 
-   skills: [
-      `JavaScript`,
-      `TypeScript`,
-      `React.js/Next.js`,
-      `Vue.js/Nuxt.js`,
-      `Svelte`,
-      `Stencil`,
-      `Angular`,
-      `Node.js`,
-      `HTML5`,
-      `CSS3`,
-      `MongoDB`,
-      `MySQL`,
-      `PostgreSQL`,
-      `NoSQL`,
-      `MongoDB`,
-      `DynamoDB`,
-      `Go`,
-      `Rust`,
-   ],
+   skills: SKILLS,
 
    projects: [
       {

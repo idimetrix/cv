@@ -56,7 +56,7 @@ body {
     background-color: var(--color-white);
     color: var(--color-black);
     font-size: 16px;
-    line-height: 1.875;
+    line-height: 1.5;
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
     position: relative;
@@ -100,3 +100,18 @@ body::-webkit-scrollbar {
     flex-direction: column;
 }
 
+@keyframes shake {
+    0% { transform:translate(0,0) }
+    1.78571% { transform:translate(5px,0) }
+    3.57143% { transform:translate(0,0) }
+    5.35714% { transform:translate(5px,0) }
+    7.14286% { transform:translate(0,0) }
+    8.92857% { transform:translate(5px,0) }
+    10.71429% { transform:translate(0,0) }
+    100% { transform:translate(0,0) }
+}
+
+.shake {
+    animation: shake 4s ease-in-out;
+    animation-iteration-count: infinite;
+}

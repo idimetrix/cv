@@ -2,6 +2,8 @@ import { Contact } from './Contact'
 import { Experience } from './Experience'
 import { Education } from './Education'
 import { Project } from './Project'
+import { Location } from './Location'
+import { Skill } from './Skill'
 
 export type Resume = {
    name: string
@@ -10,8 +12,8 @@ export type Resume = {
    initials?: string
    initialsLink?: string
 
-   location: string
-   locationLink: string
+   locations: Location[]
+   languages: Record<string, string>
 
    about: string
    aboutLink: string
@@ -29,7 +31,7 @@ export type Resume = {
    experiences: Experience[]
    educations: Education[]
 
-   skills: string[]
+   skills: Skill[]
 
    projects: Project[]
 }
