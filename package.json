@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "npmClient": "pnpm",
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@9.10.0",
   "engines": {
     "node": ">=20.x",
     "npm": ">=10.0.0",
@@ -24,21 +24,21 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "turbo": "2.1.0"
+    "turbo": "2.1.1"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "14.2.7",
-    "@typescript-eslint/eslint-plugin": "8.3.0",
-    "@typescript-eslint/parser": "8.3.0",
-    "eslint-config-next": "14.2.7",
+    "@next/eslint-plugin-next": "14.2.10",
+    "@typescript-eslint/eslint-plugin": "8.5.0",
+    "@typescript-eslint/parser": "8.5.0",
+    "eslint-config-next": "14.2.10",
     "@trivago/prettier-plugin-sort-imports": "4.3.0",
     "eslint-config-prettier": "9.1.0",
-    "eslint-config-turbo": "2.1.0",
+    "eslint-config-turbo": "2.1.1",
     "eslint-plugin-prettier": "5.2.1",
     "prettier": "3.3.3",
     "prettier-plugin-organize-imports": "4.0.0",
     "prettier-plugin-tailwindcss": "0.6.6",
-    "husky": "9.1.5",
+    "husky": "9.1.6",
     "localtunnel": "2.0.2",
     "eslint-plugin-unused-imports": "4.1.3"
   }

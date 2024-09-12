@@ -11,15 +11,15 @@
   },
   "dependencies": {
     "@cv/tsconfig": "workspace:*",
-    "@typegoose/typegoose": "12.6.0",
+    "@typegoose/typegoose": "12.7.0",
     "dotenv": "16.4.5",
-    "mongodb": "6.8.0",
-    "mongoose": "8.5.4",
+    "mongodb": "6.9.0",
+    "mongoose": "8.6.2",
     "nanoid": "5.0.7"
   },
   "devDependencies": {
-    "@types/node": "22.5.0",
+    "@types/node": "22.5.4",
     "ts-node": "10.9.2",
-    "typescript": "5.5.4"
+    "typescript": "5.6.2"
   }
 }
