@@ -2,7 +2,8 @@ import { HTMLAttributes } from 'react'
 import { Resume } from '../../types'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faPhone } from '@fortawesome/pro-solid-svg-icons'
+import { faEnvelope, faPhone, faGlobe } from '@fortawesome/pro-solid-svg-icons'
+import { faCalendarDays } from '@fortawesome/pro-regular-svg-icons'
 import { cn } from '@cv/lib'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -46,6 +47,28 @@ export const Socials = ({ resume, className, ...rest }: Props) => {
                <FontAwesomeIcon icon={social.icon} className="h-4 w-4" />
             </Link>
          ))}
+         {resume.contact.website && (
+            <Link
+               href={resume.contact.website}
+               title="Website/Portfolio/Resume/CV"
+               target="_blank"
+               className="border border-black transition-all duration-300 hover:scale-105 rounded size-8 items-center justify-center flex"
+            >
+               <span className="sr-only">Website/Portfolio/Resume/CV</span>
+               <FontAwesomeIcon icon={faGlobe} className="h-4 w-4" />
+            </Link>
+         )}
+         {resume.contact.call && (
+            <Link
+               href={resume.contact.call}
+               title="Book a Call"
+               target="_blank"
+               className="border border-black transition-all duration-300 hover:scale-105 rounded size-8 items-center justify-center flex"
+            >
+               <span className="sr-only">Book a Call</span>
+               <FontAwesomeIcon icon={faCalendarDays} className="h-4 w-4" />
+            </Link>
+         )}
       </div>
    )
 }

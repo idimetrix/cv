@@ -16,12 +16,12 @@ export const Projects = ({ resume, className, ...rest }: Props) => {
             {resume.projects.map((project) => (
                <div
                   key={`${project.title}-${project.description}`}
-                  className="flex border border-border rounded-md p-3 gap-1.5 flex-col"
+                  className="flex border border-border rounded-md p-3 gap-1.5 transition-all duration-300 group hover:scale-105 flex-col"
                >
                   <Link
                      href={project.link || '#'}
                      target="_blank"
-                     className="font-bold"
+                     className="font-bold hover:underline"
                   >
                      {project.title}
                   </Link>

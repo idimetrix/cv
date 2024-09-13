@@ -1,7 +1,7 @@
 const ZERO: string[] = [''] // 0
 const ONE: string[] = ['Radix UI', 'Headless UI', 'Shadcn UI'] // 1
 const TWO: string[] = ['Move', 'Canva', 'Ark UI', 'Chakra UI'] // 2
-const THREE: string[] = ['Dribbble', 'BUN'] // 3
+const THREE: string[] = ['Dribbble', 'BUN', 'Undici'] // 3
 const FOUR: string[] = [
    'Go',
    'Rust',
@@ -20,6 +20,8 @@ const FIVE: string[] = [
    'Bubble',
    'Retool',
    'KnexORM',
+   'Zustand',
+   'SWR',
 ] // 5
 const SIX: string[] = [
    'Figma',
@@ -31,11 +33,16 @@ const SIX: string[] = [
    'Styled Components',
    'Tailwind UI',
    'Tailwind CSS',
+   'Docker',
+   'Kubernetes',
+   'Terraform',
    'tRPC',
    'gRPC',
    'Zod',
    'Yup',
    'Prisma',
+   'Cloudflare',
+   'Shadow DOM',
 ] // 6
 const SEVEN: string[] = [
    'Go',
@@ -59,6 +66,9 @@ const SEVEN: string[] = [
    'TypeORM',
    'DrizzleORM',
    'TypeORM',
+   'Vercel',
+   'Netlify',
+   'Heroku',
 ] // 7
 const EIGHT: string[] = [
    'TypeScript',
@@ -75,6 +85,7 @@ const EIGHT: string[] = [
    'React Router',
    'Redux',
    'Remix',
+   'Storybook',
    'Ant Design',
    'Firebase',
    'Invision',
@@ -101,6 +112,7 @@ const EIGHT: string[] = [
    'JAM stack',
    'MERN stack',
    'MEAN stack',
+   'Virtual DOM',
 ] // 8
 const NINE: string[] = [
    'Webpack',
@@ -117,6 +129,9 @@ const NINE: string[] = [
    'YARN',
    'DigitalOcean',
    'GoDaddy',
+   'MobX',
+   'Web Components',
+   'Module Federation',
 ] // 9
 const TEN: string[] = [
    'HTML5',
@@ -130,7 +145,6 @@ const TEN: string[] = [
    'Kafka',
    'ActiveMQ',
    'RabbitMQ',
-   'Storybook',
    'Bootstrap',
    'Jasmine',
    'Jest',
@@ -141,8 +155,17 @@ const TEN: string[] = [
    'SCSS',
    'Stylus',
 ] // 10
-const ELEVEN: string[] = ['Gulp', 'Grunt', 'SequalizeORM'] // 11
+const ELEVEN: string[] = [
+   'Gulp',
+   'Grunt',
+   'SequalizeORM',
+   'Axios',
+   'Fetch',
+   'Serverless',
+] // 11
 const TWELVE: string[] = [
+   'Agile',
+   'Scrum',
    'Express.js',
    'Koa.js',
    'GraphQL',
@@ -151,7 +174,13 @@ const TWELVE: string[] = [
    'Socket.io',
 ] // 12
 const THIRTEEN: string[] = [] // 13
-const FOURTEEN: string[] = ['Adobe', 'Adobe Photoshop', 'Adobe Illustrator'] // 14
+const FOURTEEN: string[] = [
+   'Adobe',
+   'Adobe Photoshop',
+   'Adobe Illustrator',
+   'AJAX',
+   'XHR',
+] // 14
 const FIFTEEN: string[] = [
    'JavaScript',
    'Node.js',
@@ -177,6 +206,10 @@ const FIFTEEN: string[] = [
    'Apache',
    'Nginx',
    'LAMP stack',
+   'Monolithic',
+   'Microservices',
+   'Pub-Sub',
+   'Kanban',
 ] // 15
 
 export const SKILLS: {

@@ -35,4 +35,6 @@ export type Resume = {
    skills: Skill[]
 
    projects: Project[]
+
+   characteristics: string[]
 }

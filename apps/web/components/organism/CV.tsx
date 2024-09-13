@@ -14,6 +14,8 @@ import {
    Skills,
    Projects,
    Languages,
+   Links,
+   Characteristics,
 } from '../molecules'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -55,11 +57,15 @@ export const CV = ({ resume, className, ...rest }: Props) => {
 
                      <Locations resume={resume} className="" />
 
-                     <Socials resume={resume} className="mt-1.5" />
+                     <div className="mt-1.5 flex flex-col gap-3">
+                        <Links resume={resume} />
+
+                        <Socials resume={resume} />
+                     </div>
                   </div>
                   <Avatar
                      resume={resume}
-                     className="sm:bg-aluminum bg-transparent"
+                     className="bg-aluminum sm:bg-transparent"
                   />
                </div>
 
@@ -74,6 +80,8 @@ export const CV = ({ resume, className, ...rest }: Props) => {
                <Languages resume={resume} className="" />
 
                <Projects resume={resume} className="" />
+
+               <Characteristics resume={resume} className="" />
             </div>
 
             <Actions resume={resume} className="" />

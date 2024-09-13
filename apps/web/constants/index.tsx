@@ -61,8 +61,10 @@ export const RESUME: Resume = {
    website: 'https://www.linkedin.com/in/dimetrix',
 
    contact: {
+      website: 'https://freecvmaker.vercel.app',
+      call: 'https://calendly.com/dmitry-selikhov',
       email: 'dmitrii.selikhov@gmail.com',
-      // phone: '+18298032444',
+      phone: '+1 829 957 6440',
       cv: 'https://freecvmaker.vercel.app/cv.pdf',
       resume: 'https://freecvmaker.vercel.app/resume.pdf',
       socials: [
@@ -389,5 +391,27 @@ export const RESUME: Resume = {
       //    end: undefined,
       //    description: ``,
       // },
+   ],
+
+   characteristics: [
+      'self-motivated',
+      'self-organized',
+      'self-conscious',
+      'self-control',
+      'responsible',
+      'honest',
+      'fair',
+      'hardworking',
+      'energetic',
+      'sociable',
+      'purposeful',
+      'resourcefulness',
+      'cheerfulness',
+      'patience',
+      'principles',
+      'decisive',
+      'careful',
+      'friendly',
+      'enjoy learning and teaching',
    ],
 }
