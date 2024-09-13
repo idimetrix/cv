@@ -15,8 +15,8 @@ import { PROJECTS } from './PROJECTS'
 
 export const WEBSITE = {
    url:
-      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') ||
       process.env.NEXT_PUBLIC_URL ||
+      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') ||
       '',
    image: `${process.env.NEXT_PUBLIC_URL}/me.jpg`,
    color: '#000',
@@ -73,7 +73,7 @@ export const RESUME: Resume = {
    website: 'https://www.linkedin.com/in/dimetrix',
 
    contact: {
-      website: WEBSITE.url,
+      website: WEBSITE.url || '/',
       call: 'https://calendly.com/dmitry-selikhov',
       email: 'dmitrii.selikhov@gmail.com',
       phone: '+1 829 957 6440',
