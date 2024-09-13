@@ -18,8 +18,8 @@ export const Experience = ({ resume, className, ...rest }: Props) => {
                   key={`${experience.company}-${experience.title}-${experience.description}`}
                   className="flex flex-col"
                >
-                  <div className="flex justify-between items-center">
-                     <div className="flex items-center gap-1.5">
+                  <div className="flex justify-between items-center flex-wrap">
+                     <div className="flex items-center flex-wrap gap-1.5">
                         <Link
                            href={experience.link || '#'}
                            target="_blank"

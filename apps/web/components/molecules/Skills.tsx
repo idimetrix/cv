@@ -34,14 +34,20 @@ export const Skills = ({ resume, className, ...rest }: Props) => {
                   .map(Number)
                   .sort((a, b) => b - a)
                   .map((years) => (
-                     <tr key={years} className="group hover:bg-black/10">
+                     <tr
+                        key={years}
+                        className={cn(
+                           'group hover:bg-black/10',
+                           years === 0 && 'hidden'
+                        )}
+                     >
                         <td className="border w-full border-border">
                            <div className="flex gap-1.5 w-full justify-start flex-wrap">
                               {groups[years].map((skill) => (
                                  <button
                                     className="inline-flex items-center rounded-md border px-1.5 leading-tight py-0 transition-colors focus:outline-none text-nowrap border-transparent bg-black/80 text-white hover:bg-black/60"
                                     key={skill.name}
-                                    title={skill.name}
+                                    title={`${skill.name} - ${years}+ years`}
                                  >
                                     {skill.name}
                                  </button>

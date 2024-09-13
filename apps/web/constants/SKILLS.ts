@@ -1,9 +1,26 @@
 const ZERO: string[] = [''] // 0
-const ONE: string[] = [] // 1
-const TWO: string[] = ['Move', 'Canva'] // 2
-const THREE: string[] = ['Dribbble'] // 3
-const FOUR: string[] = ['Go', 'Rust', 'Cassandra', 'Realm', 'PlanetScale'] // 4
-const FIVE: string[] = ['Fastify'] // 5
+const ONE: string[] = ['Radix UI', 'Headless UI', 'Shadcn UI'] // 1
+const TWO: string[] = ['Move', 'Canva', 'Ark UI', 'Chakra UI'] // 2
+const THREE: string[] = ['Dribbble', 'BUN'] // 3
+const FOUR: string[] = [
+   'Go',
+   'Rust',
+   'Cassandra',
+   'Realm',
+   'PlanetScale',
+   'OpenAI',
+   'ChatGPT',
+   'Solidity',
+   'Rust',
+] // 4
+const FIVE: string[] = [
+   'Fastify',
+   'Webflow',
+   'Wix',
+   'Bubble',
+   'Retool',
+   'KnexORM',
+] // 5
 const SIX: string[] = [
    'Figma',
    'CircleCI',
@@ -12,13 +29,37 @@ const SIX: string[] = [
    'React Context',
    'React Hooks',
    'Styled Components',
+   'Tailwind UI',
    'Tailwind CSS',
    'tRPC',
    'gRPC',
    'Zod',
    'Yup',
+   'Prisma',
 ] // 6
-const SEVEN: string[] = ['GitHub Actions', 'BitBucket Pipelines'] // 7
+const SEVEN: string[] = [
+   'Go',
+   'Blockchain',
+   'Crypto',
+   'NFT',
+   'BEP-20',
+   'ERC-20',
+   'ERC-721',
+   'ERC-1155',
+   'GitHub Actions',
+   'BitBucket Pipelines',
+   'Vite',
+   'Rollup',
+   'Lerna',
+   'PNPM',
+   'Stripe',
+   'Wise',
+   'PayPal',
+   'Checkout',
+   'TypeORM',
+   'DrizzleORM',
+   'TypeORM',
+] // 7
 const EIGHT: string[] = [
    'TypeScript',
    'React.js',
@@ -47,16 +88,41 @@ const EIGHT: string[] = [
    'Ionic',
    'MUI',
    'Material Design',
-   'Material UI/US',
+   'Material UI/UX',
+   'Chakra UI',
+   'Semantic UI',
+   'Chakra UI',
    'RxDB',
    'RxJS',
    'Web3',
    'Web3.js',
+   'Ethers',
+   'Ethers.js',
+   'JAM stack',
+   'MERN stack',
+   'MEAN stack',
 ] // 8
-const NINE: string[] = ['Webpack', 'Nodemon', 'NVM', 'PM2'] // 9
+const NINE: string[] = [
+   'Webpack',
+   'Nodemon',
+   'NVM',
+   'PM2',
+   'D3.js',
+   'P5.js',
+   'Three.js',
+   'Paper.js',
+   'Fabric.js',
+   'Kinetic.js',
+   'Easel.js',
+   'YARN',
+   'DigitalOcean',
+   'GoDaddy',
+] // 9
 const TEN: string[] = [
    'HTML5',
    'CSS3',
+   'Canvas 2D',
+   'Canvas 3D',
    'NoSQL',
    'MongoDB',
    'DynamoDB',
@@ -75,7 +141,7 @@ const TEN: string[] = [
    'SCSS',
    'Stylus',
 ] // 10
-const ELEVEN: string[] = ['Gulp', 'Grunt'] // 11
+const ELEVEN: string[] = ['Gulp', 'Grunt', 'SequalizeORM'] // 11
 const TWELVE: string[] = [
    'Express.js',
    'Koa.js',
@@ -106,6 +172,11 @@ const FIFTEEN: string[] = [
    'NPM',
    'AWS',
    'Azure',
+   'Vim',
+   'Linux',
+   'Apache',
+   'Nginx',
+   'LAMP stack',
 ] // 15
 
 export const SKILLS: {

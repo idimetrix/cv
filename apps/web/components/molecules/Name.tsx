@@ -13,7 +13,8 @@ export const Name = ({ resume, className, ...rest }: Props) => {
          <Link
             href={resume.nameLink}
             target="_blank"
-            className="text-2xl mb-1.5 font-bold  hover:underline"
+            className="text-2xl mb-1.5 font-bold hover:underline"
+            title={`${resume.name} ${resume.nick ? `(${resume.nick})` : ''}`}
          >
             {resume.name}
          </Link>

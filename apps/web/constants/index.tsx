@@ -39,6 +39,7 @@ export const WEBSITE = {
 
 export const RESUME: Resume = {
    name: 'Dmitrii Selikhov',
+   nick: 'DI',
    nameLink: 'https://www.linkedin.com/in/dimetrix',
 
    initials: 'DS',

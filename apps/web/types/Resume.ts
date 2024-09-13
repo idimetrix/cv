@@ -7,6 +7,7 @@ import { Skill } from './Skill'
 
 export type Resume = {
    name: string
+   nick: string
    nameLink: string
 
    initials?: string

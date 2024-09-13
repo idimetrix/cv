@@ -14,6 +14,7 @@ export const Summary = ({ resume, className, ...rest }: Props) => {
             href={resume.summaryLink}
             target="_blank"
             className="text-black/90 hover:underline font-bold text-lg"
+            title={resume.summary}
          >
             {resume.summary}
          </Link>

@@ -102,6 +102,7 @@ module.exports = {
         acorn: "#f0a83d",
         pearl: "#6F6F6F",
         armor: "#040301",
+        aluminum: "#C4C6CA",
       },
 
       keyframes: {
