@@ -1,8 +1,8 @@
 {
   "name": "Print-Friendly, Free CV Maker",
   "short_name": "Print-Friendly, Free CV Maker",
-  "theme_color": "#0f0f17",
-  "background_color": "#0f0f17",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "scope": "/",
   "start_url": "/?source=pwa",
   "display": "fullscreen",
