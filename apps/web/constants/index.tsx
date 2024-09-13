@@ -79,20 +79,21 @@ export const RESUME: Resume = {
             high-performance cultures, and driving innovation. My collaborative
             leadership style enables me to engage effectively in both technical
             and business discussions, whether internally or with clients. My
-            expertise spans WEB2 and WEB3 sectors, leveraging technologies such
-            as JavaScript/TypeScript (React.js, Next.js, Vue.js, Nuxt.js,
-            Svelte, Stencil, Angular), alongside back-end systems using Node.js,
-            Nest.js, Go, Rust, and Move. I am experienced in monolithic,
-            microservices, and serverless architectures deployed on AWS, Azure,
-            and Google Cloud platforms.
+            expertise spans <b>WEB2</b> and <b>WEB3</b> sectors, leveraging
+            technologies such as JavaScript/TypeScript (React.js, Next.js,
+            Vue.js, Nuxt.js, Svelte, Stencil, Angular), alongside back-end
+            systems using Node.js, Nest.js, Go, Rust, and Move. I am experienced
+            in monolithic, microservices, and serverless architectures deployed
+            on AWS, Azure, and Google Cloud platforms.
          </div>
          <br />
          <div>
-            <b>Competencies:</b> Integration Strategy • API Design and
-            Development • Product/Project Management • Architecture • Software
-            Development • Process Structuration and Optimization • Continuous
-            Improvement • Professional Services • Global People Management
-            (Onshore/Offshore) • Executive Leadership
+            <b>Competencies:</b> Architecture • Integration Strategy • API
+            Design and Development • UI/UX Design and Development • Software
+            Development • Global/Local People Management (Onshore/Offshore) •
+            Product/Project Management • Process Structuration and Optimization
+            • Executive Leadership • Continuous Improvements • Professional
+            Services
          </div>
       </div>
    ),
