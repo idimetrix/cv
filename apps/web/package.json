@@ -1,8 +1,26 @@
 {
    "name": "@cv/web",
-   "author": "Dmitrii Selikhov <dmitrii.selikhov@gmail.com>",
-   "version": "0.0.0",
+   "author": {
+      "name": "Dmitrii Selikhov",
+      "email": "dmitrii.selikhov@gmail.com",
+      "url": "https://www.linkedin.com/in/dimetrix"
+   },
+   "contributors": [
+      {
+         "name": "Dmitry (Di) Selikhov",
+         "email": "dmitrii.selikhov@gmail.com",
+         "url": "https://www.linkedin.com/in/dimetrix"
+      }
+   ],
+   "version": "1.0.0",
    "private": true,
+   "npmClient": "pnpm",
+   "packageManager": "pnpm@9.10.0",
+   "engines": {
+      "node": ">=20.x",
+      "npm": ">=10.0.0",
+      "pnpm": ">=9.0.0"
+   },
    "scripts": {
       "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .next",
       "dev": "next dev",
