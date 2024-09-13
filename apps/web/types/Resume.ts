@@ -5,6 +5,7 @@ import { Project } from './Project'
 import { Location } from './Location'
 import { Skill } from './Skill'
 import { Contribution } from './Contribution'
+import { ReactNode } from 'react'
 
 export type Resume = {
    name: string
@@ -17,7 +18,7 @@ export type Resume = {
    locations: Location[]
    languages: Record<string, string>
 
-   about: string
+   about: ReactNode
    aboutLink: string
 
    avatar: string

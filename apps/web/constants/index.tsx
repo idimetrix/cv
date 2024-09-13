@@ -68,7 +68,34 @@ export const RESUME: Resume = {
    summary: 'CTO, Software Architect, Technical Lead',
    summaryLink: 'https://www.linkedin.com/in/dimetrix',
 
-   about: `As a EXPERT FULL-STACK SOFTWARE ENGINEER, I specialize in taking products from concept to launch. I am skilled at leading teams and fostering environments where individuals can perform at their highest potential. Currently, I work mostly with Web2/Web3 applications using JS/TS (React, Next.js, Vue, Nuxt.js, Svelte, Stencil, Angular) and Node/Go/Rust/Move using monolithic, microservices, serverless architectures based on AWS, Azure and Google cloud services.`,
+   about: (
+      <div>
+         <div>
+            With a <b>Master’s degree in Mathematics and Computer Science</b>{' '}
+            and over <b>15 years of professional experience (including MBA)</b>{' '}
+            in both startups and enterprises, I am a strategic leader
+            specializing in guiding products from initial concept to successful
+            launch. I excel in managing teams of up to 100 members, fostering
+            high-performance cultures, and driving innovation. My collaborative
+            leadership style enables me to engage effectively in both technical
+            and business discussions, whether internally or with clients. My
+            expertise spans WEB2 and WEB3 sectors, leveraging technologies such
+            as JavaScript/TypeScript (React.js, Next.js, Vue.js, Nuxt.js,
+            Svelte, Stencil, Angular), alongside back-end systems using Node.js,
+            Nest.js, Go, Rust, and Move. I am experienced in monolithic,
+            microservices, and serverless architectures deployed on AWS, Azure,
+            and Google Cloud platforms.
+         </div>
+         <br />
+         <div>
+            <b>Competencies:</b> Integration Strategy • API Design and
+            Development • Product/Project Management • Architecture • Software
+            Development • Process Structuration and Optimization • Continuous
+            Improvement • Professional Services • Global People Management
+            (Onshore/Offshore) • Executive Leadership
+         </div>
+      </div>
+   ),
    aboutLink: 'https://www.linkedin.com/in/dimetrix',
 
    website: 'https://www.linkedin.com/in/dimetrix',
