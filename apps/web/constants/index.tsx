@@ -15,7 +15,7 @@ import { PROJECTS } from './PROJECTS'
 
 export const WEBSITE = {
    url: process.env.NEXT_PUBLIC_URL,
-   image: `${process.env.NEXT_PUBLIC_URL}/blogs.png`,
+   image: `${process.env.NEXT_PUBLIC_URL}/me.jpg`,
    color: '#000',
    name: 'Print-Friendly, Free CV Maker',
    title: 'Print-Friendly, Free CV Maker',
@@ -51,8 +51,7 @@ export const RESUME: Resume = {
    locations: LOCATIONS,
    languages: LANGUAGES,
 
-   avatar:
-      'https://avatars.githubusercontent.com/u/6536323?s=400&u=d69d2b12d4006d24030aa6e2e11fce02f15a86fe&v=4',
+   avatar: '/me.jpg',
    avatarLink: 'https://www.linkedin.com/in/dimetrix',
 
    summary: 'CTO, Software Architect, Technical Lead',
@@ -64,12 +63,12 @@ export const RESUME: Resume = {
    website: 'https://www.linkedin.com/in/dimetrix',
 
    contact: {
-      website: 'https://freecvmaker.vercel.app',
+      website: WEBSITE.url,
       call: 'https://calendly.com/dmitry-selikhov',
       email: 'dmitrii.selikhov@gmail.com',
       phone: '+1 829 957 6440',
-      cv: 'https://freecvmaker.vercel.app/cv.pdf',
-      resume: 'https://freecvmaker.vercel.app/resume.pdf',
+      cv: `${WEBSITE.url}/cv.pdf`,
+      resume: `${WEBSITE.url}/resume.pdf`,
       socials: [
          {
             name: 'LinkedIn',
