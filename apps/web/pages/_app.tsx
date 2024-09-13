@@ -86,10 +86,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
    return (
       <main className={cn(jost.className, 'group/page min-h-screen')}>
-         <DefaultSeo
-            titleTemplate={`%s | ${WEBSITE.name}`}
-            title={WEBSITE.description}
-         />
+         <DefaultSeo titleTemplate="%s" title={WEBSITE.description} />
 
          <GlobalProvider>
             {/*<ContextProvider>*/}

@@ -21,11 +21,11 @@ export const WEBSITE = {
       '',
    image: `${process.env.NEXT_PUBLIC_URL}/me.jpg`,
    color: '#000',
-   name: 'Print-Friendly, Free CV Maker',
-   title: 'Print-Friendly, Free CV Maker',
+   name: 'Dmitrii Selikhov - CTO, Software Architect, Technical Lead',
+   title: 'Dmitrii Selikhov - CTO, Software Architect, Technical Lead',
    email: 'dmitrii.selikhov@gmail.com',
    telegram: 'https://t.me/idimetrix',
-   description: 'Print-Friendly, Free CV Maker',
+   description: 'Dmitrii Selikhov - CTO, Software Architect, Technical Lead',
    keywords: [
       'cv',
       'cv-creator',
@@ -47,7 +47,7 @@ export const WEBSITE = {
       'HTML5',
       'CSS3',
    ].join(', '),
-   about: 'Print-Friendly, Free CV Maker',
+   about: 'Dmitrii Selikhov - CTO, Software Architect, Technical Lead',
    phone: null,
 }
 
