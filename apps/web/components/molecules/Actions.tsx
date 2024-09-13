@@ -1,9 +1,14 @@
 import * as htmlToImage from 'html-to-image'
 import { HTMLAttributes, useCallback } from 'react'
 import { Resume } from '../../types'
-import { cn, downloadSVG } from '@cv/lib'
+import { cn } from '@cv/lib'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faImage } from '@fortawesome/pro-solid-svg-icons'
+import {
+   faFilePdf,
+   faFilePng,
+   faFileJpg,
+   faFileSvg,
+} from '@fortawesome/pro-solid-svg-icons'
 import { RESUME } from '../../constants'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -23,33 +28,35 @@ export const Actions = ({ resume, className, ...rest }: Props) => {
       }
    }, [resume])
 
-   const exportHandler = useCallback(async () => {
-      const cv = document.getElementById('cv')
+   const exportHandler = useCallback(
+      (type: 'svg' | 'png' | 'jpg') => async () => {
+         const cv = document.getElementById('cv')
 
-      if (!cv) return
+         if (!cv) return
 
-      // const blob = await htmlToImage.toBlob(cv)
+         // const blob = await htmlToImage.toBlob(cv)
 
-      const svg = await htmlToImage.toSvg(cv)
+         let source: string | null = null
 
-      const link = document.createElement('a')
-      link.download = `${RESUME.name}.svg`
-      link.href = svg
-      link.click()
-      link.remove()
+         if (type === 'svg')
+            source = await htmlToImage.toSvg(cv, { backgroundColor: '#ffffff' })
+         if (type === 'png')
+            source = await htmlToImage.toPng(cv, { backgroundColor: '#ffffff' })
+         if (type === 'jpg')
+            source = await htmlToImage.toJpeg(cv, {
+               backgroundColor: '#ffffff',
+            })
 
-      // const svg = await htmlToImage.toSvg(cv)
-      //
-      // console.log(svg)
-      //
-      // if (svg) {
-      //    const base64 = svg.replace(/^data:image\/svg\+xml;base64,/, '')
-      //
-      //    const content = atob(base64)
-      //
-      //    downloadSVG(content, RESUME.name)
-      // }
-   }, [])
+         if (source) {
+            const link = document.createElement('a')
+            link.download = `${RESUME.name}.${type}`
+            link.href = source
+            link.click()
+            link.remove()
+         }
+      },
+      []
+   )
 
    return (
       <div
@@ -82,10 +89,22 @@ export const Actions = ({ resume, className, ...rest }: Props) => {
                a<br />d
             </button>
             <button
-               onClick={exportHandler}
-               className=" transition-all bg-white uppercase duration-300 hover:bg-black hover:text-white w-[24px] h-[24px] items-center justify-center flex"
+               onClick={exportHandler('svg')}
+               className="transition-all bg-white uppercase duration-300 hover:bg-black hover:text-white w-[24px] h-[24px] items-center justify-center flex"
             >
-               <FontAwesomeIcon icon={faImage} className="h-4 w-4" />
+               <FontAwesomeIcon icon={faFileSvg} className="h-4 w-4" />
+            </button>
+            <button
+               onClick={exportHandler('png')}
+               className="transition-all bg-white uppercase duration-300 hover:bg-black hover:text-white w-[24px] h-[24px] items-center justify-center flex"
+            >
+               <FontAwesomeIcon icon={faFilePng} className="h-4 w-4" />
+            </button>
+            <button
+               onClick={exportHandler('jpg')}
+               className="transition-all bg-white uppercase duration-300 hover:bg-black hover:text-white w-[24px] h-[24px] items-center justify-center flex"
+            >
+               <FontAwesomeIcon icon={faFileJpg} className="h-4 w-4" />
             </button>
          </div>
       </div>
