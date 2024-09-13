@@ -102,7 +102,6 @@ const EIGHT: string[] = [
    'Material UI/UX',
    'Chakra UI',
    'Semantic UI',
-   'Chakra UI',
    'RxDB',
    'RxJS',
    'Web3',

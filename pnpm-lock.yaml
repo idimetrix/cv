@@ -216,6 +216,9 @@ importers:
       framer-motion:
         specifier: 11.5.4
         version: 11.5.4(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      html-to-image:
+        specifier: 1.11.11
+        version: 1.11.11
       html2canvas:
         specifier: 1.4.1
         version: 1.4.1
@@ -4096,6 +4099,9 @@ packages:
     peerDependencies:
       draft-js: ^0.10.x || ^0.11.x
       immutable: 3.x.x || 4.x.x
+
+  html-to-image@1.11.11:
+    resolution: {integrity: sha512-9gux8QhvjRO/erSnDPv28noDZcPZmYE7e1vFsBLKLlRlKDSqNJYebj6Qz1TGd5lsRV+X+xYyjCKjuZdABinWjA==}
 
   html2canvas@1.4.1:
     resolution: {integrity: sha512-fPU6BHNpsyIhr8yyMpTLLxAbkaK8ArIBcmZIRiBLiDhjeqvXolaEmDGmELFuX9I4xDcaKKcJl+TKZLqruBbmWA==}
@@ -10278,6 +10284,8 @@ snapshots:
     dependencies:
       draft-js: 0.11.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       immutable: 3.7.6
+
+  html-to-image@1.11.11: {}
 
   html2canvas@1.4.1:
     dependencies:

@@ -46,7 +46,7 @@ export const CV = ({ resume, className, ...rest }: Props) => {
             }
          `}</style>
          <div className="m-0 flex min-h-[297mm] relative w-[210mm] flex-col bg-white p-[10mm] text-base print:bg-none">
-            <div className="flex w-full gap-9 flex-col">
+            <div className="flex w-full gap-9 flex-col" id="cv">
                <div className="flex w-full flex-col-reverse gap-6 justify-between sm:flex-row">
                   <div className="flex flex-col gap-1.5">
                      <div className="flex flex-col">
