@@ -21,7 +21,7 @@ export const Projects = ({ resume, className, ...rest }: Props) => {
                   <Link
                      href={project.link || '#'}
                      target="_blank"
-                     className="font-bold hover:underline"
+                     className="font-bold leading-tight hover:underline"
                   >
                      {project.title}
                   </Link>
@@ -31,7 +31,7 @@ export const Projects = ({ resume, className, ...rest }: Props) => {
                   <div className="flex gap-1.5 mt-1.5 flex-wrap">
                      {project.badges?.map((badge) => (
                         <button
-                           className="inline-flex items-center rounded-md border px-2 py-0.5 text-xs transition-colors focus:outline-none text-nowrap border-transparent bg-black/5 text-black"
+                           className="inline-flex items-center rounded-md border px-1.5 py-0.5 text-xs transition-colors focus:outline-none text-nowrap border-transparent bg-black/5 text-black"
                            key={badge}
                         >
                            {badge}

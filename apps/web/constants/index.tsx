@@ -58,7 +58,7 @@ export const RESUME: Resume = {
    summary: 'CTO, Software Architect, Technical Lead',
    summaryLink: 'https://www.linkedin.com/in/dimetrix',
 
-   about: `As a EXPERT FULL-STACK SOFTWARE ENGINEER, I specialize in taking products from concept to launch. I am skilled at leading teams and fostering environments where individuals can perform at their highest potential. Currently, I work mostly with Web2/Web3 applications using JS/TS (React, Next.js, Vue, Nuxt.js, Svelte, Stencil, Angular) and Node/Go/Rust/Move using monolithic, microservices, serverless architectures based on AWS, Azure and Google cloud services`,
+   about: `As a EXPERT FULL-STACK SOFTWARE ENGINEER, I specialize in taking products from concept to launch. I am skilled at leading teams and fostering environments where individuals can perform at their highest potential. Currently, I work mostly with Web2/Web3 applications using JS/TS (React, Next.js, Vue, Nuxt.js, Svelte, Stencil, Angular) and Node/Go/Rust/Move using monolithic, microservices, serverless architectures based on AWS, Azure and Google cloud services.`,
    aboutLink: 'https://www.linkedin.com/in/dimetrix',
 
    website: 'https://www.linkedin.com/in/dimetrix',

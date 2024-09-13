@@ -1,5 +1,9 @@
 import { Experience } from '../types/Experience'
 
+// Skills
+// Technologies
+// Responsibilities
+
 export const EXPERIENCES: Experience[] = [
    {
       company: 'CheapHotelsHub.com',
@@ -10,7 +14,7 @@ export const EXPERIENCES: Experience[] = [
       start: 'Aug 2023',
       end: undefined,
       description:
-         'CTO, Technical Leadership, Marketing, Digital Marketing, Online Marketing, Google Ads and Technology Management',
+         'Skills: CTO, Technical Leadership, Marketing, Digital Marketing, Online Marketing, Google Ads and Technology Management',
    },
 
    {
@@ -36,7 +40,7 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Aug 2022',
       end: 'Mar 2023',
-      description: `Skills: JavaScript · SQL · MySQL · Jira · Test Automation · DevOps · NoSQL · Continuous Integration and Continuous Delivery (CI/CD) · Next.js · Agile Methodologies · Cypress · Microsoft Azure · React.js · MongoDB · Test-Driven Development · Material UI · TypeScript · Nest.js · Bitbucket · Unit Testing · Figma`,
+      description: `Technologies: JavaScript · SQL · MySQL · Jira · Test Automation · DevOps · NoSQL · Continuous Integration and Continuous Delivery (CI/CD) · Next.js · Agile Methodologies · Cypress · Microsoft Azure · React.js · MongoDB · Test-Driven Development · Material UI · TypeScript · Nest.js · Bitbucket · Unit Testing · Figma`,
    },
 
    {
@@ -47,7 +51,7 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Jan 2022',
       end: 'Aug 2022',
-      description: `Skills: JavaScript · SQL · MySQL · Node.js · React Hooks · RESTful architecture · NoSQL · Storybooks · Next.js · Team Leadership · Microsoft Azure · REST APIs · Vercel · React.js · MongoDB · Leadership · TypeScript · Nest.js · React Context`,
+      description: `Technologies: JavaScript · SQL · MySQL · Node.js · React Hooks · RESTful architecture · NoSQL · Storybooks · Next.js · Team Leadership · Microsoft Azure · REST APIs · Vercel · React.js · MongoDB · Leadership · TypeScript · Nest.js · React Context`,
    },
 
    {
@@ -58,7 +62,7 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Apr 2021',
       end: 'Jan 2022',
-      description: `Skills: JavaScript · React Native · Node.js · CRM Integration · RESTful architecture · Next.js · Agile Methodologies · Team Leadership · CRM Databases · Microsoft Azure · Kafka Streams · React.js · Leadership · Bank Reconciliation · Apache Kafka · TypeScript · Amazon Web Services (AWS) · Scrum · RabbitMQ`,
+      description: `Technologies: JavaScript · React Native · Node.js · CRM Integration · RESTful architecture · Next.js · Agile Methodologies · Team Leadership · CRM Databases · Microsoft Azure · Kafka Streams · React.js · Leadership · Bank Reconciliation · Apache Kafka · TypeScript · Amazon Web Services (AWS) · Scrum · RabbitMQ`,
    },
 
    {
@@ -69,7 +73,7 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Jul 2020',
       end: 'Mar 2021',
-      description: `Skills: JavaScript · AngularJS · Agile Methodologies · Microsoft Azure · TypeScript · CSS3`,
+      description: `Technologies: JavaScript · AngularJS · Agile Methodologies · Microsoft Azure · TypeScript · CSS3`,
    },
 
    {
@@ -80,7 +84,7 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Sep 2017',
       end: 'Jun 2020',
-      description: `Skills: JavaScript · Node.js · AngularJS · Vue.js · REST APIs · React.js · TypeScript`,
+      description: `Technologies: JavaScript · Node.js · AngularJS · Vue.js · REST APIs · React.js · TypeScript`,
    },
 
    {
@@ -91,7 +95,7 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Mar 2016',
       end: 'Sep 2017',
-      description: `Skills: Agile Methodologies · Team Leadership · Leadership · Scrum`,
+      description: `Technologies: Agile Methodologies · Team Leadership · Leadership · Scrum`,
    },
 
    {
@@ -102,7 +106,7 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Jan 2015',
       end: 'Mar 2016',
-      description: `Skills: JavaScript · Node.js · Webpack · HTML5 · TypeScript · CSS3`,
+      description: `Technologies: JavaScript · Node.js · Webpack · HTML5 · TypeScript · CSS3`,
    },
 
    {
@@ -113,7 +117,7 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Feb 2014',
       end: 'Jan 2015',
-      description: `Skills: JavaScript · Node.js · HTML5 · CSS3`,
+      description: `Technologies: JavaScript · Node.js · HTML5 · CSS3`,
    },
 
    {
@@ -124,7 +128,7 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Sep 2011',
       end: 'Jan 2014',
-      description: `Skills: JavaScript · HTML5 · CSS3`,
+      description: `Technologies: JavaScript · HTML5 · CSS3`,
    },
 
    {
@@ -135,7 +139,7 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Sep 2009',
       end: 'Sep 2011',
-      description: `Skills: JavaScript · MySQL · Node.js · HTML5 · CSS3`,
+      description: `Technologies: JavaScript · MySQL · Node.js · HTML5 · CSS3`,
    },
 
    // {
