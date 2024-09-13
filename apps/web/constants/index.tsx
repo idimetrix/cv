@@ -14,7 +14,7 @@ import { EDUCATIONS } from './EDUCATIONS'
 import { PROJECTS } from './PROJECTS'
 
 export const WEBSITE = {
-   url: process.env.NEXT_PUBLIC_URL,
+   url: process.env.VERCEL_URL || process.env.NEXT_PUBLIC_URL || '/',
    image: `${process.env.NEXT_PUBLIC_URL}/me.jpg`,
    color: '#000',
    name: 'Print-Friendly, Free CV Maker',
