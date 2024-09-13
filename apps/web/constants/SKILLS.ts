@@ -210,6 +210,7 @@ const FIFTEEN: string[] = [
    'Microservices',
    'Pub-Sub',
    'Kanban',
+   'CI/CD',
 ] // 15
 
 export const SKILLS: {
