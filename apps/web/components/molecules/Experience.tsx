@@ -10,7 +10,9 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 export const Experience = ({ resume, className, ...rest }: Props) => {
    return (
       <div className={cn('flex flex-col gap-3 w-full', className)} {...rest}>
-         <div className="text-2xl font-bold">Experience</div>
+         <div className="text-2xl font-bold border-b-2 border-black">
+            Experience
+         </div>
 
          <div className="flex w-full gap-3 flex-col">
             {resume.experiences.map((experience) => (

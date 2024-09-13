@@ -7,13 +7,12 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
 }
 
-export const About = ({ resume, className, ...rest }: Props) => {
+export const Contributions = ({ resume, className, ...rest }: Props) => {
    return (
       <div className={cn('flex flex-col gap-3 w-full', className)} {...rest}>
-         <div className="text-2xl font-bold border-b-2 border-black">About</div>
-         <Link href={resume.aboutLink} target="_blank">
-            {resume.about}
-         </Link>
+         <div className="text-2xl font-bold">Contributions</div>
+
+         <div className="flex gap-x-1.5 gap-y-0 flex-wrap">123</div>
       </div>
    )
 }

@@ -16,6 +16,7 @@ import {
    Languages,
    Links,
    Characteristics,
+   Contributions,
 } from '../molecules'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -84,7 +85,9 @@ export const CV = ({ resume, className, ...rest }: Props) => {
 
                <Projects resume={resume} className="" />
 
-               <Characteristics resume={resume} className="" />
+               <Characteristics resume={resume} className="hidden" />
+
+               <Contributions resume={resume} className="" />
             </div>
 
             <Actions resume={resume} className="" />
