@@ -2,6 +2,7 @@ import { HTMLAttributes } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
@@ -18,13 +19,24 @@ export const Projects = ({ resume, className, ...rest }: Props) => {
                   key={`${project.title}-${project.description}`}
                   className="flex border border-border rounded-md p-3 gap-1.5 transition-all duration-300 group hover:scale-105 flex-col"
                >
-                  <Link
-                     href={project.link || '#'}
-                     target="_blank"
-                     className="font-bold leading-tight hover:underline"
-                  >
-                     {project.title}
-                  </Link>
+                  <div className="w-full flex items-center gap-1.5">
+                     {project.image && (
+                        <Image
+                           src={project.image}
+                           alt={project.title}
+                           width={24}
+                           height={24}
+                           className="w-6 h-6 min-w-6 min-h-6 group-hover:grayscale-0 transition-all duration-300"
+                        />
+                     )}
+                     <Link
+                        href={project.link || '#'}
+                        target="_blank"
+                        className="font-bold leading-tight hover:underline"
+                     >
+                        {project.title}
+                     </Link>
+                  </div>
                   <div className="text-sm text-black/80 leading-tight">
                      {project.description}
                   </div>

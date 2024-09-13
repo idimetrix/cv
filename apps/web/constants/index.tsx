@@ -12,6 +12,7 @@ import { LANGUAGES } from './LANGUAGES'
 import { EXPERIENCES } from './EXPERIENCES'
 import { EDUCATIONS } from './EDUCATIONS'
 import { PROJECTS } from './PROJECTS'
+import { CONTRIBUTIONS } from './CONTRIBUTIONS'
 
 export const WEBSITE = {
    url:
@@ -114,6 +115,8 @@ export const RESUME: Resume = {
    skills: SKILLS,
 
    projects: PROJECTS,
+
+   contributions: CONTRIBUTIONS,
 
    characteristics: [
       'self-motivated',

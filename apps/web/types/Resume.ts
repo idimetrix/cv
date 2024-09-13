@@ -4,6 +4,7 @@ import { Education } from './Education'
 import { Project } from './Project'
 import { Location } from './Location'
 import { Skill } from './Skill'
+import { Contribution } from './Contribution'
 
 export type Resume = {
    name: string
@@ -35,6 +36,7 @@ export type Resume = {
    skills: Skill[]
 
    projects: Project[]
+   contributions: Contribution[]
 
    characteristics: string[]
 }

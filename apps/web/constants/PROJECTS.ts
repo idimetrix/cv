@@ -4,6 +4,7 @@ export const PROJECTS: Project[] = [
    {
       company: `Cardlytics`,
       link: 'https://www.cardlytics.com',
+      image: '/projects/cardlytics.jpeg',
       badges: [
          'React',
          'Vue',
@@ -25,7 +26,8 @@ export const PROJECTS: Project[] = [
 
    {
       company: `Z-Tech`,
-      link: 'https://www.linkedin.com/company/z-tech',
+      link: 'https://www.linkedin.com/company/z-tech-',
+      image: '/projects/ab_inbev.jpeg',
       badges: [
          'UI/UX',
          'React',
@@ -47,6 +49,7 @@ export const PROJECTS: Project[] = [
    {
       company: `University of Miami`,
       link: 'https://www.welcome.miami.edu',
+      image: '/projects/university_of_miami.jpg',
       badges: [
          'Android',
          'IOS',
@@ -74,6 +77,7 @@ export const PROJECTS: Project[] = [
    {
       company: `Tier1 Financial Solutions`,
       link: 'https://tier1fin.com',
+      image: '/projects/tier1fin.jpeg',
       badges: [
          'React',
          'Redux',
@@ -97,6 +101,7 @@ export const PROJECTS: Project[] = [
    {
       company: `Social News Desk`,
       link: 'https://www.socialnewsdesk.com/',
+      image: '/projects/socialnewsdesk.jpg',
       badges: [
          'SEO',
          'React',
@@ -119,6 +124,7 @@ export const PROJECTS: Project[] = [
    {
       company: `Cheap Hotels Hub`,
       link: 'https://cheaphotelshub.com',
+      image: '/projects/cheaphotelshub.png',
       badges: [
          'CTO',
          'Technical Leadership',
@@ -136,6 +142,7 @@ export const PROJECTS: Project[] = [
    {
       company: `Live Art`,
       link: 'https://liveart.io',
+      image: '/projects/liveart.png',
       badges: [
          'UI kit',
          'API kit',
@@ -158,6 +165,7 @@ export const PROJECTS: Project[] = [
    {
       company: `Pontem Network`,
       link: 'https://pontem.network',
+      image: '/projects/pontem.png',
       badges: [
          'WEB3',
          'Wallet',
@@ -179,6 +187,7 @@ export const PROJECTS: Project[] = [
    {
       company: `Super Studios`,
       link: 'https://www.superstudios.io',
+      image: '/projects/super_studios.jpeg',
       badges: [
          'WEB3',
          'Nuxt.js',
@@ -202,6 +211,7 @@ export const PROJECTS: Project[] = [
    {
       company: `Super Verse`,
       link: 'https://superverse.co',
+      image: '/projects/super_verse.png',
       badges: [
          'WEB3',
          'Blockchain',
@@ -222,6 +232,7 @@ export const PROJECTS: Project[] = [
    {
       company: `Impostors`,
       link: 'https://impostors.gg',
+      image: '/projects/impostors.png',
       badges: [
          'WEB3',
          'Animation',
@@ -243,6 +254,7 @@ export const PROJECTS: Project[] = [
    {
       company: `DFinance`,
       link: 'https://dfinance.co',
+      image: '/projects/dfinance.png',
       badges: [
          'WEB3',
          'Nuxt.js',
@@ -263,6 +275,7 @@ export const PROJECTS: Project[] = [
    {
       company: `PLR`,
       link: 'https://www.plr.me',
+      image: '/projects/plr.png',
       badges: [
          'PHP',
          'Laravel',
@@ -285,6 +298,7 @@ export const PROJECTS: Project[] = [
    {
       company: `GigaMart`,
       link: 'https://gigamart.com',
+      image: '/projects/gigamart.jpg',
       badges: [
          'Web3.js',
          'Ethers.js',
@@ -309,6 +323,7 @@ export const PROJECTS: Project[] = [
    {
       company: `Cryplex`,
       link: 'https://cryplex.io',
+      image: '/projects/cryplex.png',
       badges: [
          'Web3.js',
          'Ethers.js',
