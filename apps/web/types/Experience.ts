@@ -8,5 +8,5 @@ export type Experience = {
    logo: ReactNode
    start: string
    end?: string
-   description: string
+   description: ReactNode
 }

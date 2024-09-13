@@ -13,8 +13,14 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Aug 2023',
       end: undefined,
-      description:
-         'Skills: CTO, Technical Leadership, Marketing, Digital Marketing, Online Marketing, Google Ads and Technology Management',
+      description: (
+         <>
+            Responsibilities: Technical Leadership; Team Leadership; Marketing:
+            Digital Marketing (Google Ads, Meta Ads), Online Marketing
+            (Calls/SMS/MMS/Emails); <br />
+            Technologies: <br />
+         </>
+      ),
    },
 
    {
@@ -25,11 +31,7 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Mar 2023',
       end: 'Aug 2023',
-      description: `⭐ Created Vue/Nuxt.js/Pinia/JavaScript/TypeScript responsive HTML5/CSS3 website https://superstudios.io/
-⭐ Created Vue/Nuxt.js/Pinia/JavaScript/TypeScript responsive HTML5/CSS3 website https://superverse.cool/
-⭐ Worked on the NFT platform https://impostors.gg/
-⭐ Worked on the OpenSea competitor https://gigamart.com/ - technical solutions, improvements, features.
-⭐ Handled 0-1 implementations, features.`,
+      description: `Created Vue/Nuxt.js/Pinia/JavaScript/TypeScript responsive HTML5/CSS3 website\n123`,
    },
 
    {
