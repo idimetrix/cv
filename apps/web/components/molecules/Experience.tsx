@@ -23,7 +23,7 @@ export const Experience = ({ resume, className, ...rest }: Props) => {
                         <Link
                            href={experience.link || '#'}
                            target="_blank"
-                           className="text-left font-bold"
+                           className="text-left font-bold hover:underline"
                         >
                            {experience.company}
                         </Link>
@@ -38,7 +38,7 @@ export const Experience = ({ resume, className, ...rest }: Props) => {
                            ))}
                         </div>
                      </div>
-                     <div>{`${experience.start} - ${experience.end || 'Present'}`}</div>
+                     <div className="italic">{`${experience.start} - ${experience.end || 'Present'}`}</div>
                   </div>
                   <div>{experience.title}</div>
                   <div className="text-sm w-full text-black/70">

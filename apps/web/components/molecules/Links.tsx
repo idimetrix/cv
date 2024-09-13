@@ -8,7 +8,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Links = ({ resume, className, ...rest }: Props) => {
-   if (!resume.contact.email && resume.contact.phone) return null
+   if (!resume.contact.email && !resume.contact.phone) return null
 
    return (
       <div className={cn('flex gap-1.5 items-center', className)} {...rest}>
