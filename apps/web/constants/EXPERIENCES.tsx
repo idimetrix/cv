@@ -16,8 +16,19 @@ export const EXPERIENCES: Experience[] = [
          <>
             <b>Responsibilities:</b> Technical Leadership; Team Leadership;
             Marketing: Digital Marketing (Google Ads, Meta Ads), Online
-            Marketing (Calls/SMS/MMS/Emails); <br />
-            <b>Technologies:</b> <br />
+            Marketing (Calls/SMS/MMS/Emails); SEO and SERP; Led 5 Agile teams
+            and managed the entire development process (including personal
+            Kanban backlog strategy); Data Providers, Payment Gateways, CI/CD
+            pipelines integrations;
+            <br />
+            <b>Technologies:</b> React.js · Next.js · Node.js · Nest.js · Vercel
+            · AWS · EC2 · S3 · Go · Rust · UI/UX · Prisma · MongoDB · DynamoDB ·
+            MySQL · PostgreSQL · SQLite (C/C++ based) · Tailwind UI · Tailwind
+            CSS · Payment API · Security API · Travel API · Ads API · Anti-fraud
+            API · Anti-scam API · CI/CD · Agile · Scrum · Kanban · Redis · Radix
+            UI · Headless UI · Shadcn UI · Canva · AI · tRPC · gRPC · Zod · Yup
+            · Docker · Kubernetes · Terraform · NPM · PNPM · TURBO
+            <br />
          </>
       ),
    },
@@ -32,11 +43,17 @@ export const EXPERIENCES: Experience[] = [
       end: 'Aug 2023',
       description: (
          <>
-            <b>Responsibilities:</b> Created
-            Vue/Nuxt.js/Pinia/JavaScript/TypeScript responsive HTML5/CSS3
-            website
+            <b>Responsibilities:</b> Created 3
+            Vue.js/Nuxt.js/Pinia/JavaScript/TypeScript responsive HTML5/CSS3
+            websites; Worked on Web3/Crypto/Blockchain applications (including
+            swaps, trades, wallets for websites); Worked on NFT marketplace,
+            delivered features, worked on fixes/improvements and strengthened
+            security protocols.
             <br />
-            <b>Technologies:</b>
+            <b>Technologies:</b> Vue.js · Nuxt.js · Options API · Composition
+            API · Pinia · JavaScript · TypeScript · HTML5 · CSS3 · Web3 ·
+            Web3.js · Ethers · Ethers.js · NFT · Crypto · Blockchain · Payment
+            API · Trade API · Wallet · Explorer · AI
          </>
       ),
    },
@@ -51,13 +68,18 @@ export const EXPERIENCES: Experience[] = [
       end: 'Mar 2023',
       description: (
          <>
-            <b>Responsibilities:</b> <br />
-            <b>Technologies:</b> JavaScript · SQL · MySQL · Jira · Test
-            Automation · DevOps · NoSQL · Continuous Integration and Continuous
-            Delivery (CI/CD) · Next.js · Agile Methodologies · Cypress ·
-            Microsoft Azure · React.js · MongoDB · Test-Driven Development ·
-            Material UI · TypeScript · Nest.js · Bitbucket · Unit Testing ·
-            Figma
+            <b>Responsibilities:</b>Led the development and implementation of a
+            cutting-edge software solution for a cancer research project,
+            leveraging advanced technologies and algorithms to analyze and
+            interpret medical data. Designed and implemented data processing
+            pipelines and algorithms to handle large-scale genomic and clinical
+            data sets, facilitating data integration and analysis for cancer
+            research purposes. <br />
+            <b>Technologies:</b> Android · IOS · WebRTC · Video/Audio · SMS/MMS
+            · React.js · Next.js · Nest.js · Node.js · MUI (Material UI) ·
+            Tailwind (CSS + UI/UX) · API · RESTful · GraphQL · Figma · MongoDB ·
+            DynamoDB · Jira · Trello · SQL · MySQL· JavaScript· TypeScript ·
+            NoSQL · MongoDB · Cypress · Cypress · Nest.js · DevOps · CI/CD
          </>
       ),
    },
@@ -66,13 +88,21 @@ export const EXPERIENCES: Experience[] = [
       company: 'Tier1 Financial Solutions',
       link: 'https://www.tier1fin.com',
       badges: ['Remote', 'Full-Time'],
-      title: 'Node.js/React.js Full Stack Tech Lead ',
+      title: 'Technical Lead',
       logo: undefined,
       start: 'Jan 2022',
       end: 'Aug 2022',
       description: (
          <>
-            <b>Responsibilities:</b> <br />
+            <b>Responsibilities:</b> Led the development of a comprehensive
+            banking and CRM software solution, serving as the Node.js and React
+            full-stack tech lead, responsible for driving the technical
+            direction and ensuring the successful implementation of the system.
+            Architected and designed scalable and robust back-end systems using
+            Node.js, leveraging its event-driven architecture and asynchronous
+            programming model to efficiently handle high-volume transactions and
+            data processing.
+            <br />
             <b>Technologies:</b> JavaScript · SQL · MySQL · Node.js · React
             Hooks · RESTful architecture · NoSQL · Storybooks · Next.js · Team
             Leadership · Microsoft Azure · REST APIs · Vercel · React.js ·
@@ -85,18 +115,25 @@ export const EXPERIENCES: Experience[] = [
       company: 'AB InBev',
       link: 'https://www.ab-inbev.com',
       badges: ['Remote', 'Full-Time'],
-      title: 'Node.js/React.js Tech Lead Engineer',
+      title: 'Tech Lead Engineer',
       logo: undefined,
       start: 'Apr 2021',
       end: 'Jan 2022',
       description: (
          <>
-            <b>Responsibilities:</b> <br />
-            <b>Technologies:</b> JavaScript · React Native · Node.js · CRM
-            Integration · RESTful architecture · Next.js · Agile Methodologies ·
-            Team Leadership · CRM Databases · Microsoft Azure · Kafka Streams ·
-            React.js · Leadership · Bank Reconciliation · Apache Kafka ·
-            TypeScript · Amazon Web Services (AWS) · Scrum · RabbitMQ
+            <b>Responsibilities:</b> Led the development of a large-scale
+            banking system, serving as the Node.js, Nest.js and React tech lead
+            engineer responsible for architecting and implementing robust and
+            scalable solutions. Optimized banking system performance by
+            implementing caching, indexing, and code optimization with server
+            optimization to efficiently handle high transaction volumes.
+            <br />
+            <b>Technologies:</b> JavaScript · TypeScript · React Native · React
+            Query · React Router · Node.js · CRM Integration · API Integration ·
+            REST architecture · CI/CD architecture · React.js · Next.js · Agile
+            · Scrum · Team Leadership · Tech Leadership · CRM Databases · CMS
+            Contents · Azure · Leadership · Banking · Processing · Kafka ·
+            RabbitMQ · ActiveMQ · Amazon Web Services (AWS)
          </>
       ),
    },
@@ -111,9 +148,16 @@ export const EXPERIENCES: Experience[] = [
       end: 'Mar 2021',
       description: (
          <>
-            <b>Responsibilities:</b> <br />
+            <b>Responsibilities:</b> Developed and maintained highly scalable
+            and performant full-stack apps for a high-tech enterprise vacation
+            rental platform (B2B and B2C booking engines), utilizing
+            technologies such as Vue, React, Angular for the front end and Node,
+            Go, and Python for the back end. Implemented authentication and
+            authorization systems, secured APIs, and safeguarded data
+            input/output, ensuring robust security and efficient performance.
+            <br />
             <b>Technologies:</b> JavaScript · AngularJS · Agile Methodologies ·
-            Microsoft Azure · TypeScript · CSS3
+            Microsoft Azure · TypeScript · HTML5 · CSS3
          </>
       ),
    },
@@ -128,9 +172,14 @@ export const EXPERIENCES: Experience[] = [
       end: 'Jun 2020',
       description: (
          <>
-            <b>Responsibilities:</b> <br />
-            <b>Technologies:</b> JavaScript · Node.js · AngularJS · Vue.js ·
-            REST APIs · React.js · TypeScript
+            <b>Responsibilities:</b> Led a team of developers, providing
+            technical guidance, code reviews, and mentoring to ensure the
+            delivery of high-quality code and adherence to best practices.
+            Spearheaded the development of a highly responsive and visually
+            appealing front-end application, utilizing modern frameworks and
+            technologies such as React, Angular, or Vue. <br />
+            <b>Technologies:</b> JavaScript · Node.js · Angular.js · Vue.js·
+            React.js · TypeScript · REST · API
          </>
       ),
    },
@@ -152,8 +201,8 @@ export const EXPERIENCES: Experience[] = [
             of continuous learning, innovation, and professional growth.
             <br />
             <b>Technologies:</b> Team Leadership · Project Leadership · Product
-            Leadership · Agile · Scrum · Kanban · Scrum · Software Engineering ·
-            System Architecture · API Architecture · UI/UX Architecture
+            Leadership · Agile · Scrum · Kanban · Software Engineering · System
+            Architecture · API Architecture · UI/UX Architecture
          </>
       ),
    },

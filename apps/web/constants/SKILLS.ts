@@ -59,6 +59,7 @@ const SEVEN: string[] = [
    'Rollup',
    'Lerna',
    'PNPM',
+   'TURBO',
    'Stripe',
    'Wise',
    'PayPal',
