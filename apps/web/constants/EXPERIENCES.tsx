@@ -1,8 +1,7 @@
 import { Experience } from '../types/Experience'
 
-// Skills
-// Technologies
 // Responsibilities
+// Technologies
 
 export const EXPERIENCES: Experience[] = [
    {
@@ -15,10 +14,10 @@ export const EXPERIENCES: Experience[] = [
       end: undefined,
       description: (
          <>
-            Responsibilities: Technical Leadership; Team Leadership; Marketing:
-            Digital Marketing (Google Ads, Meta Ads), Online Marketing
-            (Calls/SMS/MMS/Emails); <br />
-            Technologies: <br />
+            <b>Responsibilities:</b> Technical Leadership; Team Leadership;
+            Marketing: Digital Marketing (Google Ads, Meta Ads), Online
+            Marketing (Calls/SMS/MMS/Emails); <br />
+            <b>Technologies:</b> <br />
          </>
       ),
    },
@@ -31,7 +30,15 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Mar 2023',
       end: 'Aug 2023',
-      description: `Created Vue/Nuxt.js/Pinia/JavaScript/TypeScript responsive HTML5/CSS3 website\n123`,
+      description: (
+         <>
+            <b>Responsibilities:</b> Created
+            Vue/Nuxt.js/Pinia/JavaScript/TypeScript responsive HTML5/CSS3
+            website
+            <br />
+            <b>Technologies:</b>
+         </>
+      ),
    },
 
    {
@@ -42,7 +49,17 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Aug 2022',
       end: 'Mar 2023',
-      description: `Technologies: JavaScript · SQL · MySQL · Jira · Test Automation · DevOps · NoSQL · Continuous Integration and Continuous Delivery (CI/CD) · Next.js · Agile Methodologies · Cypress · Microsoft Azure · React.js · MongoDB · Test-Driven Development · Material UI · TypeScript · Nest.js · Bitbucket · Unit Testing · Figma`,
+      description: (
+         <>
+            <b>Responsibilities:</b> <br />
+            <b>Technologies:</b> JavaScript · SQL · MySQL · Jira · Test
+            Automation · DevOps · NoSQL · Continuous Integration and Continuous
+            Delivery (CI/CD) · Next.js · Agile Methodologies · Cypress ·
+            Microsoft Azure · React.js · MongoDB · Test-Driven Development ·
+            Material UI · TypeScript · Nest.js · Bitbucket · Unit Testing ·
+            Figma
+         </>
+      ),
    },
 
    {
@@ -53,7 +70,15 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Jan 2022',
       end: 'Aug 2022',
-      description: `Technologies: JavaScript · SQL · MySQL · Node.js · React Hooks · RESTful architecture · NoSQL · Storybooks · Next.js · Team Leadership · Microsoft Azure · REST APIs · Vercel · React.js · MongoDB · Leadership · TypeScript · Nest.js · React Context`,
+      description: (
+         <>
+            <b>Responsibilities:</b> <br />
+            <b>Technologies:</b> JavaScript · SQL · MySQL · Node.js · React
+            Hooks · RESTful architecture · NoSQL · Storybooks · Next.js · Team
+            Leadership · Microsoft Azure · REST APIs · Vercel · React.js ·
+            MongoDB · Leadership · TypeScript · Nest.js · React Context
+         </>
+      ),
    },
 
    {
@@ -64,7 +89,16 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Apr 2021',
       end: 'Jan 2022',
-      description: `Technologies: JavaScript · React Native · Node.js · CRM Integration · RESTful architecture · Next.js · Agile Methodologies · Team Leadership · CRM Databases · Microsoft Azure · Kafka Streams · React.js · Leadership · Bank Reconciliation · Apache Kafka · TypeScript · Amazon Web Services (AWS) · Scrum · RabbitMQ`,
+      description: (
+         <>
+            <b>Responsibilities:</b> <br />
+            <b>Technologies:</b> JavaScript · React Native · Node.js · CRM
+            Integration · RESTful architecture · Next.js · Agile Methodologies ·
+            Team Leadership · CRM Databases · Microsoft Azure · Kafka Streams ·
+            React.js · Leadership · Bank Reconciliation · Apache Kafka ·
+            TypeScript · Amazon Web Services (AWS) · Scrum · RabbitMQ
+         </>
+      ),
    },
 
    {
@@ -75,7 +109,13 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Jul 2020',
       end: 'Mar 2021',
-      description: `Technologies: JavaScript · AngularJS · Agile Methodologies · Microsoft Azure · TypeScript · CSS3`,
+      description: (
+         <>
+            <b>Responsibilities:</b> <br />
+            <b>Technologies:</b> JavaScript · AngularJS · Agile Methodologies ·
+            Microsoft Azure · TypeScript · CSS3
+         </>
+      ),
    },
 
    {
@@ -86,7 +126,13 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Sep 2017',
       end: 'Jun 2020',
-      description: `Technologies: JavaScript · Node.js · AngularJS · Vue.js · REST APIs · React.js · TypeScript`,
+      description: (
+         <>
+            <b>Responsibilities:</b> <br />
+            <b>Technologies:</b> JavaScript · Node.js · AngularJS · Vue.js ·
+            REST APIs · React.js · TypeScript
+         </>
+      ),
    },
 
    {
@@ -97,7 +143,13 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Mar 2016',
       end: 'Sep 2017',
-      description: `Technologies: Agile Methodologies · Team Leadership · Leadership · Scrum`,
+      description: (
+         <>
+            <b>Responsibilities:</b> <br />
+            <b>Technologies:</b> Agile Methodologies · Team Leadership ·
+            Leadership · Scrum
+         </>
+      ),
    },
 
    {
@@ -108,7 +160,13 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Jan 2015',
       end: 'Mar 2016',
-      description: `Technologies: JavaScript · Node.js · Webpack · HTML5 · TypeScript · CSS3`,
+      description: (
+         <>
+            <b>Responsibilities:</b> <br />
+            <b>Technologies:</b> JavaScript · Node.js · Webpack · HTML5 ·
+            TypeScript · CSS3
+         </>
+      ),
    },
 
    {
@@ -119,9 +177,22 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Feb 2014',
       end: 'Jan 2015',
-      description: `Technologies: JavaScript · Node.js · HTML5 · CSS3`,
+      description: (
+         <>
+            <b>Responsibilities:</b> Develop interactive web applications (0 - 1
+            implementation). Work on fixes/improvements/features. Develop rich
+            media applications, work on performance and optimization. Continuous
+            delivery and continuous integration. Using Trello and Jira split
+            tasks between developers and other team members. Provide full
+            reports for PMs and CTOs, handle daily calls and weekly demos.
+            <br />
+            <b>Technologies:</b> JavaScript · Canvas (2D/3D) · HTML5 · CSS3 ·
+            PHP · Laravel · Lumen · Symfony · CodeIgniter · Wordpress · Flash ·
+            Flex · MySQL · MsSQL · Linux · Nginx · Apache · Git · GitHub ·
+            GitLab · CI/CD
+         </>
+      ),
    },
-
    {
       company: 'Stork',
       link: '',
@@ -130,7 +201,21 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Sep 2011',
       end: 'Jan 2014',
-      description: `Technologies: JavaScript · HTML5 · CSS3`,
+      description: (
+         <>
+            <b>Responsibilities:</b> Design and develop web, mobile and social
+            applications (Minutta - 30,000,000 registered users in Eastern
+            Europe). Worked on 3 UI/UX applications 70% of the time: web
+            application (HTML5/CSS3 + Canvas), mobile (Java + Android SDK/NDK)
+            and Flash/Flex. Worked on the high load server 30% of the time: PHP
+            (Laravel + Lumen), MySQL/MsSQL, Linux with Nginx + Apache + Jenkins
+            <br />
+            <b>Technologies:</b> JavaScript · ActionScript · Canvas · HTML5 ·
+            CSS3 · PHP · Flash · Flex · Laravel · Lumen · MySQL · MsSQL · Linux
+            · Nginx · Apache · C/C++ · Git · GitHub · GitLab · CI/CD · Server ·
+            Jenkins · Java
+         </>
+      ),
    },
 
    {
@@ -141,7 +226,20 @@ export const EXPERIENCES: Experience[] = [
       logo: undefined,
       start: 'Sep 2009',
       end: 'Sep 2011',
-      description: `Technologies: JavaScript · MySQL · Node.js · HTML5 · CSS3`,
+      description: (
+         <>
+            <b>Responsibilities:</b> Assist students (1:1 and groups up to 5) in
+            developing responsive (adaptive) web interfaces using HTML, CSS, and
+            JavaScript; API using PHP and PERL; Databases (models and
+            collections) using MySQL and MsSQL. Help students to build Desktop
+            (Linux/Windows) applications using C/C++ and QT3/QT4/QT5. Help in
+            dissertations and graduations writing (mathematics, computer science
+            and physics).
+            <br />
+            <b>Technologies:</b> JavaScript · HTML · CSS · MySQL/MsSQL ·
+            Node.js/Express.js · PHP · PERL · C/C++ · QT3/QT4/QT5
+         </>
+      ),
    },
 
    // {
@@ -152,6 +250,11 @@ export const EXPERIENCES: Experience[] = [
    //    logo: undefined,
    //    start: '',
    //    end: '',
-   //    description: ``,
+   //    description: (
+   //       <>
+   //          <b>Responsibilities:</b> <br />
+   //          <b>Technologies:</b>
+   //       </>
+   //    ),
    // },
 ]

@@ -42,7 +42,9 @@ export const Experience = ({ resume, className, ...rest }: Props) => {
                      </div>
                      <div className="italic">{`${experience.start} - ${experience.end || 'Present'}`}</div>
                   </div>
-                  <div>{experience.title}</div>
+                  <div className="font-semibold flex items-center gap-1.5">
+                     {experience.title}
+                  </div>
                   <div className="text-sm w-full text-black/70">
                      {experience.description}
                   </div>
