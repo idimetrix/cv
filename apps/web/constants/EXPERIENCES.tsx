@@ -18,16 +18,18 @@ export const EXPERIENCES: Experience[] = [
             Marketing: Digital Marketing (Google Ads, Meta Ads), Online
             Marketing (Calls/SMS/MMS/Emails); SEO and SERP; Led 5 Agile teams
             and managed the entire development process (including personal
-            Kanban backlog strategy); Data Providers, Payment Gateways, CI/CD
-            pipelines integrations;
+            Kanban backlog strategy); B2B and B2C Data Providers/Vendors, 2D/3Ds
+            Payment Gateways, CI/CD pipelines integrations; Security Compliance
+            & Identity Fundamentals;
             <br />
-            <b>Technologies:</b> React.js · Next.js · Node.js · Nest.js · Vercel
-            · AWS · EC2 · S3 · Go · Rust · UI/UX · Prisma · MongoDB · DynamoDB ·
-            MySQL · PostgreSQL · SQLite (C/C++ based) · Tailwind UI · Tailwind
-            CSS · Payment API · Security API · Travel API · Ads API · Anti-fraud
-            API · Anti-scam API · CI/CD · Agile · Scrum · Kanban · Redis · Radix
-            UI · Headless UI · Shadcn UI · Canva · AI · tRPC · gRPC · Zod · Yup
-            · Docker · Kubernetes · Terraform · NPM · PNPM · TURBO
+            <b>Technologies:</b> React.js · Next.js · Node.js · Nest.js ·
+            Clerk.js · Vercel · AWS · EC2 · S3 · Go · Rust · UI/UX · Prisma ·
+            MongoDB · DynamoDB · MySQL · PostgreSQL · SQLite (C/C++ based) ·
+            Tailwind UI · Tailwind CSS · Payment API · Security API · Travel API
+            · Ads API · Anti-fraud API · Anti-scam API · CI/CD · Agile · Scrum ·
+            Kanban · Redis · Radix UI · Headless UI · Shadcn UI · Canva · AI ·
+            tRPC · gRPC · Zod · Yup · Docker · Kubernetes · Terraform · NPM ·
+            PNPM · TURBO
             <br />
          </>
       ),
