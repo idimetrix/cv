@@ -145,9 +145,15 @@ export const EXPERIENCES: Experience[] = [
       end: 'Sep 2017',
       description: (
          <>
-            <b>Responsibilities:</b> <br />
-            <b>Technologies:</b> Agile Methodologies · Team Leadership ·
-            Leadership · Scrum
+            <b>Responsibilities:</b> Led the successful implementation of a
+            company-wide digital transformation strategy, modernizing legacy
+            systems and transitioning to a scalable, cloud-native architecture.
+            Mentored and coached software development teams, fostering a culture
+            of continuous learning, innovation, and professional growth.
+            <br />
+            <b>Technologies:</b> Team Leadership · Project Leadership · Product
+            Leadership · Agile · Scrum · Kanban · Scrum · Software Engineering ·
+            System Architecture · API Architecture · UI/UX Architecture
          </>
       ),
    },
@@ -156,15 +162,23 @@ export const EXPERIENCES: Experience[] = [
       company: 'Guru.com',
       link: 'https://guru.com',
       badges: ['Remote', 'Full-Time'],
-      title: 'Senior Software Developer Team Lead',
+      title: 'Team Lead, Senior Software Developer',
       logo: undefined,
       start: 'Jan 2015',
       end: 'Mar 2016',
       description: (
          <>
-            <b>Responsibilities:</b> <br />
-            <b>Technologies:</b> JavaScript · Node.js · Webpack · HTML5 ·
-            TypeScript · CSS3
+            <b>Responsibilities:</b> Led and managed a high-performing team of
+            full-stack developers to successfully deliver complex projects using
+            Agile (Scrum) with Kanban. Mentored and coached junior developers,
+            fostering their growth (soft skills) and technical expertise (hard
+            skills). Collaborated with UX/UI designers, automations and manuals
+            QAs. Deliver daily updates and weekly demos.
+            <br />
+            <b>Technologies:</b> JavaScript · TypeScript · Node.js · Express.js
+            · Webpack · Gulp · Grunt · HTML5 · CSS3 · Git · GitHub · GitLab ·
+            Trello · Jira · CI/CD · ES5/ES6 · Agile · Scrum · Kanban · Adobe *
+            Figma
          </>
       ),
    },
