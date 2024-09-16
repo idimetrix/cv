@@ -2,6 +2,7 @@ import { HTMLAttributes } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import Link from 'next/link'
+import { Heading } from '../atoms'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
@@ -10,7 +11,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 export const Contributions = ({ resume, className, ...rest }: Props) => {
    return (
       <div className={cn('flex flex-col gap-3 w-full', className)} {...rest}>
-         <div className="text-2xl font-bold">Contributions</div>
+         <Heading level={2}>Contributions</Heading>
 
          <div className="flex gap-1.5 flex-wrap">
             {resume.contributions.map((contribution) => (

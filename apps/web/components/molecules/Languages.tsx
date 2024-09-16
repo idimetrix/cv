@@ -1,6 +1,7 @@
 import { HTMLAttributes } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
+import { Heading } from '../atoms'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
@@ -9,7 +10,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 export const Languages = ({ resume, className, ...rest }: Props) => {
    return (
       <div className={cn('flex flex-col gap-3 w-full', className)} {...rest}>
-         <div className="text-2xl font-bold">Languages</div>
+         <Heading level={2}>Languages</Heading>
          <div className="flex gap-1.5 flex-wrap">
             {Object.entries(resume.languages).map(([language, level]) => (
                <button

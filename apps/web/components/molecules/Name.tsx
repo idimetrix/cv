@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 
 export const Name = ({ resume, className, ...rest }: Props) => {
    return (
-      <div className={cn('w-full flex flex-col', className)} {...rest}>
+      <h1 className={cn('w-full flex flex-col', className)} {...rest}>
          <Link
             href={resume.nameLink}
             target="_blank"
@@ -18,6 +18,6 @@ export const Name = ({ resume, className, ...rest }: Props) => {
          >
             {resume.name}
          </Link>
-      </div>
+      </h1>
    )
 }
