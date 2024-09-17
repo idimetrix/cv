@@ -38,11 +38,11 @@ export const Skills = ({ resume, className, ...rest }: Props) => {
                      <tr
                         key={years}
                         className={cn(
-                           'group hover:bg-black/10',
+                           'group hover:bg-black/10 hover:scale-105 transition-all hover:border-transparent duration-300',
                            years === 0 && 'hidden'
                         )}
                      >
-                        <td className="border w-full py-1.5 px-1.5 border-border border-dotted">
+                        <td className="border w-full py-1.5 px-1.5 border-border group-hover:border-transparent border-dotted">
                            <div className="flex gap-1.5 w-full justify-start flex-wrap">
                               {groups[years].map((skill) => (
                                  <button
@@ -55,8 +55,8 @@ export const Skills = ({ resume, className, ...rest }: Props) => {
                               ))}
                            </div>
                         </td>
-                        <td className="border py-1.5 border-border border-dotted text-nowrap whitespace-nowrap px-1.5">
-                           <span className="bg-black/80 group-hover:bg-black transition-all duration-300 inline-flex justify-center items-center text-center text-white rounded-full w-6 h-6 min-w-6 min-h-6">
+                        <td className="border py-1.5 border-border group-hover:border-transparent border-dotted text-nowrap whitespace-nowrap px-1.5">
+                           <span className="group-hover:bg-black/80 group-hover:text-white border text-black border-black group-hover:bg-black transition-all duration-300 inline-flex justify-center items-center text-center rounded-full w-6 h-6 min-w-6 min-h-6">
                               {years}
                            </span>{' '}
                            years
