@@ -29,7 +29,7 @@ export const Skills = ({ resume, className, ...rest }: Props) => {
       <div className={cn('flex flex-col gap-3 w-full', className)} {...rest}>
          <Heading level={2}>Skills</Heading>
 
-         <table className="border-collapse text-sm border border-border">
+         <table className="border-collapse text-sm border border-border border-dotted">
             <tbody>
                {Object.keys(groups)
                   .map(Number)
@@ -42,7 +42,7 @@ export const Skills = ({ resume, className, ...rest }: Props) => {
                            years === 0 && 'hidden'
                         )}
                      >
-                        <td className="border w-full py-1.5 px-1.5 border-border">
+                        <td className="border w-full py-1.5 px-1.5 border-border border-dotted">
                            <div className="flex gap-1.5 w-full justify-start flex-wrap">
                               {groups[years].map((skill) => (
                                  <button
@@ -55,7 +55,7 @@ export const Skills = ({ resume, className, ...rest }: Props) => {
                               ))}
                            </div>
                         </td>
-                        <td className="border py-1.5 px-1.5 border-border text-nowrap whitespace-nowrap px-1.5">
+                        <td className="border py-1.5 border-border border-dotted text-nowrap whitespace-nowrap px-1.5">
                            <span className="bg-black/80 group-hover:bg-black transition-all duration-300 inline-flex justify-center items-center text-center text-white rounded-full w-6 h-6 min-w-6 min-h-6">
                               {years}
                            </span>{' '}
