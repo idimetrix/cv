@@ -82,10 +82,10 @@ export const RESUME: Resume = {
             and business discussions, whether internally or with clients. My
             expertise spans <b>WEB2</b> and <b>WEB3</b> sectors, leveraging
             technologies such as JavaScript/TypeScript (React.js, Next.js,
-            Vue.js, Nuxt.js, Svelte, Stencil, Angular), alongside back-end
-            systems using Node.js, Nest.js, Go, Rust, and Move. I am experienced
-            in monolithic, microservices, and serverless architectures deployed
-            on AWS, Azure, and Google Cloud platforms.
+            Vue.js, Nuxt.js, Svelte, Stencil, Angular) with CSR/SSR/SSG/SPA/PWA,
+            alongside back-end systems using Node.js, Nest.js, Go, Rust, and
+            Move. I am experienced in monolithic, microservices, and serverless
+            architectures deployed on AWS, Azure, and Google Cloud platforms.
          </div>
          <br />
          <div>
@@ -95,6 +95,11 @@ export const RESUME: Resume = {
             (Onshore/Offshore) • Product/Project Management • Process
             Structuration and Optimization • Executive Leadership • Continuous
             Improvements • Professional Services
+         </div>
+         <br />
+         <div>
+            <b>Stacks:</b> MERN • MEAN • LAMP • JAM • MEVN • PERN • ROR • MEEN •
+            ELK • WAMP • XAMPP • TALL • PWA • LEAN • FARM • SERN
          </div>
       </div>
    ),

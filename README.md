@@ -6,6 +6,8 @@ Simple Free CV Maker that renders minimalist CV with Print-Friendly Responsive L
 
 Built with React.js/Next.js, deployed on Vercel.
 
+Compatible with Applicant Tracking Systems (ATS).
+
 # Features
 
 - Setup only takes a few minutes [single config file](./apps/web/constants/index.tsx)

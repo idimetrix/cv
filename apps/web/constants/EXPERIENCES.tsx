@@ -73,7 +73,7 @@ export const EXPERIENCES: Experience[] = [
       end: 'Mar 2023',
       description: (
          <>
-            <b>Responsibilities:</b>Led the development and implementation of a
+            <b>Responsibilities:</b> Led the development and implementation of a
             cutting-edge software solution for a cancer research project,
             leveraging advanced technologies and algorithms to analyze and
             interpret medical data. Designed and implemented data processing
