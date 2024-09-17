@@ -80,7 +80,7 @@ export const CV = ({ resume, className, ...rest }: Props) => {
 
                   <Help resume={resume} className="hidden" />
 
-                  <Technologies resume={resume} className="" />
+                  <Technologies resume={resume} className="hidden" />
                </div>
 
                <Experience resume={resume} className="" />
