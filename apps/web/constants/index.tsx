@@ -74,7 +74,7 @@ export const RESUME: Resume = {
          <div>
             With a <b>Master’s degree in Mathematics and Computer Science</b>{' '}
             and over <b>15 years of professional experience (including MBA)</b>{' '}
-            in both startups and enterprises, I am a strategic leader
+            in both startups and enterprises, I am a technical strategic leader
             specializing in guiding products from initial concept to successful
             launch. I excel in managing teams of up to 100 members, fostering
             high-performance cultures, and driving innovation. My collaborative
