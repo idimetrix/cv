@@ -13,6 +13,7 @@ import { EXPERIENCES } from './EXPERIENCES'
 import { EDUCATIONS } from './EDUCATIONS'
 import { PROJECTS } from './PROJECTS'
 import { CONTRIBUTIONS } from './CONTRIBUTIONS'
+import { TECHNOLOGIES } from './TECHNOLOGIES'
 
 export const WEBSITE = {
    url:
@@ -88,12 +89,12 @@ export const RESUME: Resume = {
          </div>
          <br />
          <div>
-            <b>Competencies:</b> Architecture • Integration Strategy • API
-            Design and Development • UI/UX Design and Development • Software
-            Development • Global/Local People Management (Onshore/Offshore) •
-            Product/Project Management • Process Structuration and Optimization
-            • Executive Leadership • Continuous Improvements • Professional
-            Services
+            <b>Competencies:</b> Architecture • Integration Strategy • 0 - 1
+            Product Development • API Design and Development • UI/UX Design and
+            Development • Software Development • Global/Local People Management
+            (Onshore/Offshore) • Product/Project Management • Process
+            Structuration and Optimization • Executive Leadership • Continuous
+            Improvements • Professional Services
          </div>
       </div>
    ),
@@ -136,6 +137,9 @@ export const RESUME: Resume = {
          },
       ],
    },
+
+   technologies: TECHNOLOGIES,
+
    experiences: EXPERIENCES,
 
    educations: EDUCATIONS,

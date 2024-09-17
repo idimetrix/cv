@@ -6,6 +6,7 @@ import { Location } from './Location'
 import { Skill } from './Skill'
 import { Contribution } from './Contribution'
 import { ReactNode } from 'react'
+import { Technology } from './Technology'
 
 export type Resume = {
    name: string
@@ -30,6 +31,8 @@ export type Resume = {
    website: string
 
    contact: Contact
+
+   technologies: Technology[]
 
    experiences: Experience[]
    educations: Education[]

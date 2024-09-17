@@ -1,7 +1,6 @@
-export const LOCATIONS: {
-   name: string
-   link: string
-}[] = [
+import { Location } from '../types/Location'
+
+export const LOCATIONS: Location[] = [
    {
       name: 'Miami Beach, Florida, United States',
       link: 'https://maps.app.goo.gl/yjF6pFSLUpHc8j7e8',
