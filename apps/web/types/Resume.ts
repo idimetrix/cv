@@ -22,6 +22,9 @@ export type Resume = {
    about: ReactNode
    aboutLink: string
 
+   help: ReactNode
+   helpLink: string
+
    avatar: string
    avatarLink: string
 

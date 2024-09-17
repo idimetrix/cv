@@ -18,6 +18,7 @@ import {
    Characteristics,
    Contributions,
    Technologies,
+   Help,
 } from '../molecules'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -76,6 +77,8 @@ export const CV = ({ resume, className, ...rest }: Props) => {
 
                <div className="flex w-full gap-9 flex-col">
                   <About resume={resume} className="" />
+
+                  <Help resume={resume} className="hidden" />
 
                   <Technologies resume={resume} className="" />
                </div>

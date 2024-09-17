@@ -14,7 +14,10 @@ export const EXPERIENCES: Experience[] = [
       end: undefined,
       description: (
          <>
-            <b>Responsibilities:</b> Technical Leadership; Team Leadership;
+            <b>Responsibilities:</b> Technical Leadership (Defining the
+            Technical Strategy and Vision, Architecting the System
+            Infrastructure, Building and Leading a Technical Team, 0 - 1 Product
+            Development (Launching and Maintaining)); Team Leadership;
             Marketing: Digital Marketing (Google Ads, Meta Ads), Online
             Marketing (Calls/SMS/MMS/Emails); SEO and SERP; Led 5 Agile teams
             and managed the entire development process (including personal
@@ -45,7 +48,7 @@ export const EXPERIENCES: Experience[] = [
       end: 'Aug 2023',
       description: (
          <>
-            <b>Responsibilities:</b> Created 3
+            <b>Responsibilities:</b> Created 3 applications (SSR/CSR/SSG/SPA):
             Vue.js/Nuxt.js/Pinia/JavaScript/TypeScript responsive HTML5/CSS3
             websites; Worked on Web3/Crypto/Blockchain applications (including
             swaps, trades, wallets for websites); Worked on NFT marketplace,

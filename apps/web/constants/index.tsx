@@ -100,6 +100,87 @@ export const RESUME: Resume = {
    ),
    aboutLink: 'https://www.linkedin.com/in/dimetrix',
 
+   // 3 points I can help
+   help: (
+      <div className="flex w-full flex-col gap-3">
+         <div className="flex w-full flex-col gap-1.5">
+            <h3 id="1-technical-strategy-and-vision">
+               1. <strong>Technical Strategy and Vision</strong>
+            </h3>
+            <ul className="">
+               <li>
+                  <strong>
+                     Architect and guide the overall technical direction
+                  </strong>
+                  : Define the technological roadmap aligned with the
+                  company&apos;s goals. This includes selecting the right tech
+                  stack, frameworks, and tools to future-proof the organization.
+               </li>
+               <li>
+                  <strong>Research and innovation</strong>: Stay updated on
+                  emerging technologies and trends to identify opportunities for
+                  innovation and competitive advantage.
+               </li>
+               <li>
+                  <strong>Scalability and sustainability</strong>: Ensure that
+                  technical solutions are scalable and maintainable, promoting a
+                  long-term vision for growth.
+               </li>
+            </ul>
+         </div>
+
+         <div className="flex w-full flex-col gap-1.5">
+            <h3 id="2-team-leadership-and-development">
+               2. <strong>Team Leadership and Development</strong>
+            </h3>
+            <ul className="">
+               <li>
+                  <strong>Build and mentor a strong team</strong>: Guide the
+                  technical team by fostering a culture of learning, innovation,
+                  and accountability. Provide mentorship to developers to help
+                  them grow their skills and become leaders themselves.
+               </li>
+               <li>
+                  <strong>Efficient collaboration</strong>: Establish clear
+                  communication channels, set team goals, and ensure proper
+                  collaboration between developers, product managers, and
+                  stakeholders.
+               </li>
+               <li>
+                  <strong>Hiring and resource management</strong>: Lead the
+                  recruitment process to bring in talent that fits both
+                  technically and culturally. Allocate resources to ensure
+                  efficient project delivery.
+               </li>
+            </ul>
+         </div>
+
+         <div className="flex w-full flex-col gap-1.5">
+            <h3 id="3-project-and-product-delivery">
+               3. <strong>Project and Product Delivery</strong>
+            </h3>
+            <ul className="">
+               <li>
+                  <strong>Oversee project execution</strong>: Ensure timely and
+                  high-quality delivery of products by monitoring development
+                  cycles, managing risks, and removing blockers.
+               </li>
+               <li>
+                  <strong>Quality assurance</strong>: Enforce best practices in
+                  software development, including code reviews, testing, and
+                  continuous integration and deployment (CI/CD).
+               </li>
+               <li>
+                  <strong>Align technical efforts with business goals</strong>:
+                  Balance technical debt with feature development to ensure the
+                  team delivers value while maintaining codebase health.
+               </li>
+            </ul>
+         </div>
+      </div>
+   ),
+   helpLink: 'https://www.linkedin.com/in/dimetrix',
+
    website: 'https://www.linkedin.com/in/dimetrix',
 
    contact: {
