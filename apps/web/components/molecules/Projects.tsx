@@ -18,7 +18,7 @@ export const Projects = ({ resume, className, ...rest }: Props) => {
             {resume.projects.map((project) => (
                <div
                   key={`${project.title}-${project.description}`}
-                  className="flex border border-border rounded-md p-3 gap-1.5 transition-all duration-300 group hover:scale-105 flex-col"
+                  className="flex border group border-border rounded-md p-3 gap-1.5 transition-all duration-300 group hover:scale-105 flex-col"
                >
                   <div className="w-full flex items-center gap-1.5">
                      {project.image && (
@@ -44,7 +44,7 @@ export const Projects = ({ resume, className, ...rest }: Props) => {
                   <div className="flex gap-1.5 mt-1.5 flex-wrap">
                      {project.badges?.map((badge) => (
                         <button
-                           className="inline-flex items-center rounded-md border px-1.5 py-0.5 text-xs transition-colors focus:outline-none text-nowrap border-transparent bg-black/5 text-black"
+                           className="inline-flex group-hover:bg-black/80 group-hover:text-white items-center rounded-md border px-1.5 py-0.5 text-xs focus:outline-none text-nowrap border-transparent bg-black/5 text-black"
                            key={badge}
                         >
                            {badge}
