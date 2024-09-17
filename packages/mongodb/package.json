@@ -14,7 +14,7 @@
     "@typegoose/typegoose": "12.7.0",
     "dotenv": "16.4.5",
     "mongodb": "6.9.0",
-    "mongoose": "8.6.2",
+    "mongoose": "8.6.3",
     "nanoid": "5.0.7"
   },
   "devDependencies": {
