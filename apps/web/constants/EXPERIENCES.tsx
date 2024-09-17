@@ -168,12 +168,12 @@ export const EXPERIENCES: Experience[] = [
    },
 
    {
-      company: 'Freelance',
-      link: '',
+      company: 'Self Employed (US)',
+      link: 'https://www.linkedin.com/company/indpendent-contractor',
       badges: ['Remote', 'Full-Time'],
-      title: 'Senior Front-end Developer | Back-end Engineer, Team Leader',
+      title: 'Lead Front-end Developer | Lead Back-end Engineer, Team Leader',
       logo: undefined,
-      start: 'Sep 2017',
+      start: 'Mar 2019',
       end: 'Jun 2020',
       description: (
          <>
@@ -185,6 +185,28 @@ export const EXPERIENCES: Experience[] = [
             technologies such as React, Angular, or Vue. <br />
             <b>Technologies:</b> JavaScript · Node.js · Angular.js · Vue.js·
             React.js · TypeScript · REST · API
+         </>
+      ),
+   },
+
+   {
+      company: 'Coalition Technologies',
+      link: 'https://coalitiontechnologies.com',
+      badges: ['Remote', 'Full-Time'],
+      title: 'Senior Front-end Developer | Senior Back-end Engineer',
+      logo: undefined,
+      start: 'Sep 2017',
+      end: 'Mar 2019',
+      description: (
+         <>
+            <b>Responsibilities:</b> Implement UI/UX interfaces (responsive and
+            adaptive). Optimize performance, scalability, and maintainability of
+            web interfaces. Collaborate with designers and developers for
+            integrated solutions. Implement APIs, databases, and services.
+            <br />
+            <b>Technologies:</b> BigCommerce · Shopify · Wordpress · WooCommerce
+            · Magento 1/2 · SEO · SERP · JavaScript · Node.js · Angular.js ·
+            Vue.js· React.js · TypeScript · REST · API
          </>
       ),
    },
