@@ -7,6 +7,11 @@ export type Contact = {
    phone?: string
    cv?: string
    resume?: string
+   linkedin?: string
+   github?: string
+   npm?: string
+   telegram?: string
+   twitter?: string
    socials?: {
       name: string
       url: string

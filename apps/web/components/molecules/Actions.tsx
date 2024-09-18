@@ -8,6 +8,7 @@ import {
    faFilePng,
    faFileJpg,
    faFileSvg,
+   faHome,
 } from '@fortawesome/pro-solid-svg-icons'
 import { RESUME } from '../../constants'
 
@@ -16,6 +17,12 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const Actions = ({ resume, className, ...rest }: Props) => {
+   const homeHandler = useCallback(() => {
+      if (!resume.contact.linkedin) return
+
+      window.open(resume.contact.linkedin, '_blank')
+   }, [resume])
+
    const printHandler = useCallback(() => {
       window.print()
    }, [])
@@ -67,6 +74,12 @@ export const Actions = ({ resume, className, ...rest }: Props) => {
          {...rest}
       >
          <div className="absolute flex gap-[1px] flex-col text-sm font-mono left-full ml-[1px]">
+            <button
+               onClick={homeHandler}
+               className="transition-all bg-white uppercase duration-300 hover:bg-black hover:text-white w-[24px] h-[24px] items-center justify-center flex"
+            >
+               <FontAwesomeIcon icon={faHome} className="h-4 w-4" />
+            </button>
             <button
                onClick={printHandler}
                className="transition-all bg-white uppercase duration-300 hover:bg-black hover:text-white w-[24px] py-1.5 items-center justify-center flex"

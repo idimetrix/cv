@@ -25,7 +25,13 @@ export const WEBSITE = {
    name: 'Dmitrii Selikhov - CTO, Software Architect, Technical Lead',
    title: 'Dmitrii Selikhov - CTO, Software Architect, Technical Lead',
    email: 'dmitrii.selikhov@gmail.com',
+
+   linkedin: 'https://www.linkedin.com/in/dimetrix',
+   github: 'https://github.com/idimetrix',
+   npm: 'https://www.npmjs.com/~dimetrix',
    telegram: 'https://t.me/idimetrix',
+   twitter: 'https://x.com/idimetrix',
+
    description: 'Dmitrii Selikhov - CTO, Software Architect, Technical Lead',
    keywords: [
       'cv',
@@ -70,7 +76,7 @@ export const RESUME: Resume = {
    summaryLink: 'https://www.linkedin.com/in/dimetrix',
 
    about: (
-      <div>
+      <div className="w-full flex flex-col gap-3">
          <div>
             With a <b>Master’s degree in Mathematics and Computer Science</b>{' '}
             and over <b>15 years of professional experience (including MBA)</b>{' '}
@@ -87,7 +93,7 @@ export const RESUME: Resume = {
             Move. I am experienced in monolithic, microservices, and serverless
             architectures deployed on AWS, Azure, and Google Cloud platforms.
          </div>
-         <br />
+
          <div>
             <b>Competencies:</b> Architecture • Integration Strategy • 0 - 1
             Product Development • API Design and Development • UI/UX Design and
@@ -96,7 +102,7 @@ export const RESUME: Resume = {
             Structuration and Optimization • Executive Leadership • Continuous
             Improvements • Professional Services
          </div>
-         <br />
+
          <div>
             <b>Stacks:</b> MERN • MEAN • LAMP • JAM • MEVN • PERN • ROR • MEEN •
             ELK • WAMP • XAMPP • TALL • PWA • LEAN • FARM • SERN
@@ -195,6 +201,11 @@ export const RESUME: Resume = {
       phone: '+1 829 957 6440',
       cv: `${WEBSITE.url}/cv.pdf`,
       resume: `${WEBSITE.url}/resume.pdf`,
+      linkedin: WEBSITE.linkedin,
+      github: WEBSITE.github,
+      npm: WEBSITE.npm,
+      telegram: WEBSITE.telegram,
+      twitter: WEBSITE.twitter,
       socials: [
          {
             name: 'LinkedIn',
