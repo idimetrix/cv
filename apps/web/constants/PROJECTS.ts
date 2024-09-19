@@ -1,6 +1,7 @@
 import { Project } from '../types/Project'
 
 export const PROJECTS: Project[] = [
+   // 0 - 15
    {
       company: `Cardlytics`,
       link: 'https://www.cardlytics.com',
@@ -364,7 +365,7 @@ export const PROJECTS: Project[] = [
       description: `Discover, Review, and Rate Top Crypto Projects from all Ecosystems`,
    },
 
-   //
+   // 15 +
 
    {
       company: `WINGS Stiftung`,
@@ -376,6 +377,18 @@ export const PROJECTS: Project[] = [
       start: undefined,
       end: undefined,
       description: `Promotion of new technology developments and applications, in particular, the promotion and maintenance of new open decentralized software architectures, but not exclusively, the promotion of the development of the WINGS protocol and the corresponding technology, as well as the promotion and support of applications using the protocol.`,
+   },
+
+   {
+      company: `Cryptopay`,
+      link: 'https://cryptopay.me/',
+      image: '/projects/cryptopay.png',
+      badges: ['WEB3', 'Vue.js', 'Nuxt.js', 'HTML5', 'CSS3', 'Tailwind'],
+      title: `Cryptopay`,
+      logo: undefined,
+      start: undefined,
+      end: undefined,
+      description: `A simple and secure way to buy and sell cryptocurrency. Get access to 35+ cryptocurrencies and 3 fiat currencies with the Cryptopay App and Visa Card (coming soon!)`,
    },
 
    {
@@ -599,7 +612,7 @@ export const PROJECTS: Project[] = [
    {
       company: `Planet IRM`,
       link: `https://planetirm.com`,
-      image: '/projects/planetirm.jpg',
+      image: '/projects/planetirm.webp',
       badges: [
          'HTML5',
          'CSS3',
@@ -615,6 +628,54 @@ export const PROJECTS: Project[] = [
       start: undefined,
       end: undefined,
       description: `Planet IRMAI is Planet Associates next generation SaaS based comprehensive ServiceOps AI-driven Infrastructure Relationship Management Software and Configuration Management Software.`,
+   },
+
+   {
+      company: `Evango`,
+      link: `https://www.evango.net/`,
+      image: '/projects/evango.png',
+      badges: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'PHP', 'WordPress'],
+      title: `Evango`,
+      logo: undefined,
+      start: undefined,
+      end: undefined,
+      description: `We're about faith and works, prayer and action to bring others home to Christ. Why? Because it works.`,
+   },
+
+   {
+      company: `Dinner With The Doctor`,
+      link: `https://www.dinnerwiththedoctor.com/`,
+      image: '/projects/dinnerwiththedoctor.jpg',
+      badges: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'PHP', 'WordPress'],
+      title: `Dinner With The Doctor`,
+      logo: undefined,
+      start: undefined,
+      end: undefined,
+      description: `Start eating delicious healthy food and improve your health at the same time!`,
+   },
+
+   {
+      company: `Xymogen`,
+      link: `https://www.xymogen.com/`,
+      image: '/projects/xymogen.webp',
+      badges: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'PHP', 'WordPress'],
+      title: `Xymogen`,
+      logo: undefined,
+      start: undefined,
+      end: undefined,
+      description: `Premium Dietary Supplements for Health & Wellness.`,
+   },
+
+   {
+      company: `Bull Dog Code`,
+      link: `https://bulldogcode.com/`,
+      image: '/projects/bulldogcode.png',
+      badges: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'PHP', 'WordPress'],
+      title: `Bull Dog Code`,
+      logo: undefined,
+      start: undefined,
+      end: undefined,
+      description: `We spend 80% of our time working with Wordpress and 20% integrating it with other great technologies.`,
    },
 
    // {
