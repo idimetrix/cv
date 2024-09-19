@@ -365,7 +365,7 @@ export const PROJECTS: Project[] = [
       description: `Discover, Review, and Rate Top Crypto Projects from all Ecosystems`,
    },
 
-   // 15 +
+   // 15 - 30
 
    {
       company: `WINGS Stiftung`,
@@ -608,6 +608,8 @@ export const PROJECTS: Project[] = [
       end: undefined,
       description: `Fast and accurate information, to find the perfect hotel for you. Book your Perfect Hotel.`,
    },
+
+   // 30 - 45
 
    {
       company: `Planet IRM`,
