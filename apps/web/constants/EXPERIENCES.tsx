@@ -45,7 +45,8 @@ export const EXPERIENCES: Experience[] = [
       title: 'Senior Full Stack Developer',
       logo: undefined,
       start: 'Mar 2023',
-      end: 'Aug 2023',
+      // end: 'Aug 2023',
+      end: undefined,
       description: (
          <>
             <b>Responsibilities:</b> Created 3 applications (SSR/CSR/SSG/SPA):
