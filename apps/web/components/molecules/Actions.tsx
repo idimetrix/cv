@@ -39,19 +39,49 @@ export const Actions = ({ resume, className, ...rest }: Props) => {
       (type: 'svg' | 'png' | 'jpg') => async () => {
          const cv = document.getElementById('cv')
 
+         // const scale = 2
+
          if (!cv) return
+
+         // cv.style.zoom = `${scale}`
 
          // const blob = await htmlToImage.toBlob(cv)
 
          let source: string | null = null
 
          if (type === 'svg')
-            source = await htmlToImage.toSvg(cv, { backgroundColor: '#ffffff' })
+            source = await htmlToImage.toSvg(cv, {
+               backgroundColor: '#ffffff',
+               quality: 1,
+               style: {},
+            })
          if (type === 'png')
-            source = await htmlToImage.toPng(cv, { backgroundColor: '#ffffff' })
+            // source = canvas2scale(
+            //    await htmlToImage.toCanvas(cv, {
+            //       backgroundColor: '#ffffff',
+            //       quality: 1,
+            //       style: {},
+            //    }),
+            //    2
+            // ).toDataURL('image/png')
+            source = await htmlToImage.toPng(cv, {
+               backgroundColor: '#ffffff',
+               quality: 1,
+               style: {},
+            })
          if (type === 'jpg')
+            // source = canvas2scale(
+            //    await htmlToImage.toCanvas(cv, {
+            //       backgroundColor: '#ffffff',
+            //       quality: 1,
+            //       style: {},
+            //    }),
+            //    2
+            // ).toDataURL('image/jpeg')
             source = await htmlToImage.toJpeg(cv, {
                backgroundColor: '#ffffff',
+               quality: 1,
+               style: {},
             })
 
          if (source) {
