@@ -29,7 +29,7 @@ export const WEBSITE = {
    linkedin: 'https://www.linkedin.com/in/dimetrix',
    github: 'https://github.com/idimetrix',
    npm: 'https://www.npmjs.com/~dimetrix',
-   telegram: 'https://t.me/idimetrix',
+   telegram: 'https://t.me/dmitrii_selikhov',
    twitter: 'https://x.com/idimetrix',
 
    description: 'Dmitrii Selikhov - CTO, Software Architect, Technical Lead',
@@ -224,7 +224,7 @@ export const RESUME: Resume = {
          },
          {
             name: 'Telegram',
-            url: 'https://t.me/idimetrix',
+            url: 'https://t.me/dmitrii_selikhov',
             icon: faTelegram,
          },
          {
