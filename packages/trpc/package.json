@@ -38,7 +38,7 @@
     "@types/lodash": "4.17.13",
     "@types/sanitize-html": "2.13.0",
     "@types/node-telegram-bot-api": "0.64.7",
-    "@types/nodemailer": "6.4.16",
+    "@types/nodemailer": "6.4.17",
     "@types/request-ip": "0.0.41",
     "@types/uuid": "10.0.0"
   }
