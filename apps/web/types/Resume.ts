@@ -11,6 +11,7 @@ import { Technology } from './Technology'
 export type Resume = {
    firstName: string
    lastName: string
+   gender?: string // Optional: 'male', 'female', 'non-binary', etc.
 
    name: string
    nick: string

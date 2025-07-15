@@ -10,7 +10,14 @@ import { inferSSRProps } from '@cv/types/inferSSRProps'
 import { CV } from '../components/organism'
 import { SectionNavigation } from '../components/molecules'
 import { RESUME } from '../users'
-import { WEBSITE } from '../constants'
+import {
+   WEBSITE,
+   getSeniorityLevel,
+   getPrimaryIndustry,
+   getDistributionScope,
+   getTargetAudience,
+   getAudienceCompanies,
+} from '../constants'
 import { createDefaultSEO, ComprehensiveJsonLd } from '../utils/seo'
 
 export default function Home() {
@@ -39,7 +46,9 @@ export default function Home() {
                   lastName: RESUME.lastName,
                   username:
                      RESUME.contact.github?.split('/').pop() || 'professional',
-                  gender: 'male',
+                  ...(RESUME.gender && {
+                     gender: RESUME.gender,
+                  }),
                },
                images: [
                   {
@@ -103,24 +112,25 @@ export default function Home() {
                },
                {
                   name: 'category',
-                  content: `Technology, Software Development, ${RESUME.skills
+                  content: `${getPrimaryIndustry(RESUME.experiences, RESUME.skills)}, ${RESUME.skills
                      .slice(0, 3)
                      .map((s) => s.name)
                      .join(', ')}`,
                },
                {
                   name: 'target',
-                  content:
-                     'employers, recruiters, clients, technology professionals, hiring managers',
+                  content: getTargetAudience(RESUME.experiences, RESUME.skills),
                },
                {
                   name: 'audience',
-                  content:
-                     'technology companies, startups, enterprises, recruitment agencies, professional networks',
+                  content: getAudienceCompanies(
+                     RESUME.experiences,
+                     RESUME.skills
+                  ),
                },
                {
                   name: 'distribution',
-                  content: 'global',
+                  content: getDistributionScope(RESUME.locations),
                },
                {
                   name: 'coverage',
@@ -130,11 +140,11 @@ export default function Home() {
                },
                {
                   name: 'rating',
-                  content: 'Senior Professional',
+                  content: getSeniorityLevel(RESUME.experiences),
                },
                {
                   name: 'experience-level',
-                  content: 'Senior',
+                  content: getSeniorityLevel(RESUME.experiences).split(' ')[0], // Get just "Senior", "Mid", etc.
                },
                {
                   name: 'industry',

@@ -18,9 +18,9 @@ import { TECHNOLOGIES } from './TECHNOLOGIES'
 export const RESUME: Resume = {
    firstName: 'Dmitrii',
    lastName: 'Selikhov',
-
    name: 'Dmitrii Selikhov',
    nick: 'DI',
+   gender: 'male',
    nameLink: 'https://www.linkedin.com/in/dimetrix',
 
    initials: 'DS',

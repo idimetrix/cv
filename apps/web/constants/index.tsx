@@ -179,6 +179,89 @@ const getRevisitFrequency = (
    return '14 days'
 }
 
+
+
+// Helper function to get target audience based on skills and experience
+const getTargetAudience = (
+   experiences: any[] = [],
+   skills: any[] = []
+): string => {
+   const industries = experiences.map((exp) => 
+      `${exp.title} ${exp.company} ${exp.description || ''}`.toLowerCase()
+   ).join(' ')
+   
+   if (industries.includes('startup') || industries.includes('entrepreneur')) {
+      return 'startups, entrepreneurs, venture capital, innovation leaders, technology companies'
+   }
+   if (industries.includes('enterprise') || industries.includes('corporate')) {
+      return 'enterprises, corporations, large organizations, business leaders, hiring managers'
+   }
+   if (industries.includes('consulting') || industries.includes('advisory')) {
+      return 'consulting firms, advisory services, strategic partners, business consultants'
+   }
+   
+   return 'employers, recruiters, clients, hiring managers, industry professionals'
+}
+
+// Helper function to get audience companies based on experience
+const getAudienceCompanies = (
+   experiences: any[] = [],
+   skills: any[] = []
+): string => {
+   const industryText = experiences.map((exp) => 
+      `${exp.title} ${exp.company} ${exp.description || ''}`.toLowerCase()
+   ).join(' ')
+   
+   const hasStartup = industryText.includes('startup') || industryText.includes('founding')
+   const hasEnterprise = industryText.includes('enterprise') || industryText.includes('corporate')
+   const hasTech = skills.some(skill => 
+      ['javascript', 'react', 'node', 'python', 'software', 'programming'].some(tech => 
+         skill.name.toLowerCase().includes(tech)
+      )
+   )
+   
+   const companies = []
+   
+   if (hasTech) companies.push('technology companies')
+   if (hasStartup) companies.push('startups', 'scale-ups')
+   if (hasEnterprise) companies.push('enterprises', 'corporations')
+   
+   companies.push('recruitment agencies', 'professional networks')
+   
+   return companies.join(', ')
+}
+
+// Helper function to get distribution scope
+const getDistributionScope = (locations: any[] = []): string => {
+   if (locations.length === 0) return 'worldwide'
+   
+   const countries = locations.map(loc => 
+      loc.name.split(',').slice(-1)[0]?.trim().toLowerCase()
+   ).filter(Boolean)
+   
+   const uniqueCountries = Array.from(new Set(countries))
+   
+   if (uniqueCountries.length > 3) return 'international'
+   if (uniqueCountries.length > 1) return 'multi-regional'
+   if (uniqueCountries.includes('united states') || uniqueCountries.includes('usa')) return 'national'
+   
+   return 'regional'
+}
+
+// Export helper functions for use in SEO
+export { 
+   getSeniorityLevel, 
+   getPrimaryIndustry, 
+   getCoverageArea, 
+   getDistributionScope,
+   getTargetAudience,
+   getAudienceCompanies,
+   getRevisitFrequency,
+   getLocaleFromLanguages,
+   getLanguageCodeFromLanguages,
+   extractSocialHandle
+}
+
 export const URL =
    process.env.NEXT_PUBLIC_URL ||
    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') ||
