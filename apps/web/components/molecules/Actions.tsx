@@ -54,6 +54,7 @@ export const Actions = memo<Props>(({ resume, className, ...rest }) => {
             source = await htmlToImage.toSvg(cv, {
                backgroundColor: '#ffffff',
                quality: 1,
+               pixelRatio: 2,
                style: {},
             })
          if (type === 'png')
@@ -68,6 +69,7 @@ export const Actions = memo<Props>(({ resume, className, ...rest }) => {
             source = await htmlToImage.toPng(cv, {
                backgroundColor: '#ffffff',
                quality: 1,
+               pixelRatio: 2,
                style: {},
             })
          if (type === 'jpg')
@@ -82,6 +84,7 @@ export const Actions = memo<Props>(({ resume, className, ...rest }) => {
             source = await htmlToImage.toJpeg(cv, {
                backgroundColor: '#ffffff',
                quality: 1,
+               pixelRatio: 2,
                style: {},
             })
 
