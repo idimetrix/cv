@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo, useCallback } from 'react'
 import {
    DefaultSeoProps,
    NextSeoProps,
@@ -86,9 +86,9 @@ interface ComprehensiveSEOProps {
    isHomePage?: boolean
 }
 
-// Utility Functions
-export const generateMetaKeywords = (additional: string[] = []): string => {
-   const baseKeywords = [
+// Static computations to avoid repeated calculations
+const STATIC_SEO_DATA = {
+   baseKeywords: [
       RESUME.name,
       RESUME.summary,
       ...RESUME.keywords,
@@ -96,9 +96,40 @@ export const generateMetaKeywords = (additional: string[] = []): string => {
       'CV',
       'Resume',
       'Portfolio',
-   ]
+   ],
+   topSkills: RESUME.skills.slice(0, 5).map((s) => s.name),
+   topSkillsString: RESUME.skills.slice(0, 5).map((s) => s.name).join(', '),
+   primaryLocation: RESUME.locations[0],
+   languageCodes: Object.keys(RESUME.languages),
+   primaryLanguage: Object.keys(RESUME.languages)[0] || 'en',
+   validSocialUrls: [
+      RESUME.contact.linkedin,
+      RESUME.contact.github,
+      RESUME.contact.twitter,
+      RESUME.contact.npm,
+      RESUME.contact.telegram,
+   ].filter((url): url is string => Boolean(url)),
+   locationNames: RESUME.locations.map((loc) => loc.name).join('; ') || 'Global',
+   foundingYear: RESUME.experiences[0]?.start
+      ? new Date(RESUME.experiences[0].start).getFullYear().toString()
+      : new Date().getFullYear().toString(),
+}
 
-   return [...baseKeywords, ...additional].join(', ')
+// Static breadcrumb data
+const STATIC_BREADCRUMBS = [
+   { position: 1, name: 'Home', item: WEBSITE.url },
+   { position: 2, name: 'About', item: `${WEBSITE.url}/#about` },
+   { position: 3, name: 'Experience', item: `${WEBSITE.url}/#experience` },
+   { position: 4, name: 'Skills', item: `${WEBSITE.url}/#skills` },
+   { position: 5, name: 'Projects', item: `${WEBSITE.url}/#projects` },
+   { position: 6, name: 'Contact', item: `${WEBSITE.url}/#contact` },
+]
+
+const PROFILE_BREADCRUMBS = STATIC_BREADCRUMBS.slice(0, 4)
+
+// Utility Functions - Optimized with memoization where needed
+export const generateMetaKeywords = (additional: string[] = []): string => {
+   return [...STATIC_SEO_DATA.baseKeywords, ...additional].join(', ')
 }
 
 export const optimizeImageUrl = (
@@ -142,14 +173,12 @@ const filterValidUrls = (urls: (string | undefined)[]): string[] => {
    return urls.filter((url): url is string => Boolean(url))
 }
 
-// Default SEO Props with comprehensive configurations
+// Default SEO Props with comprehensive configurations - Optimized
 export const createDefaultSEO = (
    resume: Resume,
    website: WebsiteConfig
 ): DefaultSeoProps => {
-   const primaryLocation = resume.locations[0]
-   const languageCodes = Object.keys(resume.languages)
-   const primaryLanguage = languageCodes[0] || 'en'
+   const { primaryLocation, languageCodes, primaryLanguage, topSkillsString } = STATIC_SEO_DATA
 
    // Helper function to extract Twitter handle safely
    const extractTwitterHandle = (url?: string) => {
@@ -158,13 +187,137 @@ export const createDefaultSEO = (
       return handle ? `@${handle}` : undefined
    }
 
+   // Static meta tags to avoid recreation
+   const additionalMetaTags = [
+      // Basic SEO
+      { name: 'keywords', content: generateMetaKeywords() },
+      { name: 'author', content: resume.name },
+      { name: 'creator', content: resume.name },
+      { name: 'publisher', content: resume.name },
+
+      // Technical SEO
+      {
+         name: 'robots',
+         content:
+            'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1',
+      },
+      {
+         name: 'googlebot',
+         content:
+            'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1',
+      },
+
+      // Geographic and Language
+      {
+         name: 'geo.region',
+         content: primaryLocation?.name.split(',').pop()?.trim() || 'Global',
+      },
+      {
+         name: 'geo.placename',
+         content: primaryLocation?.name.split(',')[0]?.trim() || 'Global',
+      },
+      { name: 'language', content: primaryLanguage },
+
+      // Professional Classification
+      {
+         name: 'classification',
+         content: `${resume.summary} - Professional CV, Portfolio, Resume`,
+      },
+      {
+         name: 'category',
+         content: `Technology, ${topSkillsString.split(', ').slice(0, 3).join(', ')}`,
+      },
+      {
+         name: 'subject',
+         content: `${resume.summary}, Software Development, Technology Leadership`,
+      },
+
+      // Contact and Professional Info
+      { name: 'contact', content: resume.contact.email },
+      {
+         name: 'skills',
+         content: resume.skills.map((s) => s.name).join(', '),
+      },
+      {
+         name: 'education',
+         content: resume.educations
+            .map((edu) => `${edu.company} - ${edu.title}`)
+            .join('; '),
+      },
+      {
+         name: 'availability',
+         content: 'Available for professional opportunities',
+      },
+      { name: 'remote-work', content: 'Available for remote work globally' },
+
+      // Social Media
+      { name: 'linkedin', content: resume.contact.linkedin || '' },
+      { name: 'github', content: resume.contact.github || '' },
+      { name: 'twitter', content: resume.contact.twitter || '' },
+
+      // Performance and Design
+      { name: 'theme-color', content: website.color },
+      { name: 'msapplication-TileColor', content: website.color },
+      { name: 'apple-mobile-web-app-capable', content: 'yes' },
+      { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
+      { name: 'apple-mobile-web-app-title', content: resume.name },
+
+      // Professional Details
+      {
+         name: 'industry',
+         content: 'Technology, Software Development, Information Technology',
+      },
+      { name: 'job-title', content: resume.summary },
+      {
+         name: 'experience-years',
+         content: String(resume.experiences.length * 2),
+      },
+      {
+         name: 'location',
+         content: STATIC_SEO_DATA.locationNames,
+      },
+   ]
+
+   // Static link tags to avoid recreation
+   const additionalLinkTags = [
+      // Favicons and Icons
+      { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
+      {
+         rel: 'apple-touch-icon',
+         href: '/apple-icon-180.png',
+         sizes: '180x180',
+      },
+      { rel: 'manifest', href: '/manifest.json' },
+
+      // Performance optimization
+      { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
+      { rel: 'dns-prefetch', href: '//www.google-analytics.com' },
+      {
+         rel: 'preconnect',
+         href: 'https://fonts.gstatic.com',
+         crossOrigin: 'anonymous',
+      },
+
+      // Canonical and Alternate URLs
+      { rel: 'canonical', href: website.url },
+      { rel: 'alternate', type: 'application/rss+xml', href: '/feed.xml' },
+      { rel: 'alternate', type: 'application/pdf', href: '/cv.pdf' },
+      { rel: 'alternate', type: 'application/pdf', href: '/resume.pdf' },
+
+      // Social Media Verification
+      { rel: 'me', href: resume.contact.linkedin || '' },
+      { rel: 'me', href: resume.contact.github || '' },
+      { rel: 'me', href: resume.contact.twitter || '' },
+
+      // SEO and Discovery
+      { rel: 'author', href: '/humans.txt' },
+      { rel: 'sitemap', href: '/sitemap.xml' },
+   ]
+
    return {
       titleTemplate: `%s | ${resume.name} - ${resume.summary}`,
       defaultTitle: `${resume.name} - ${resume.summary} | Professional CV & Portfolio`,
-      description: `${resume.name} - ${resume.summary}. Professional CV and portfolio showcasing expertise in ${resume.skills
-         .slice(0, 5)
-         .map((s) => s.name)
-         .join(', ')}. Contact: ${resume.contact.email}`,
+      description: `${resume.name} - ${resume.summary}. Professional CV and portfolio showcasing expertise in ${topSkillsString}. Contact: ${resume.contact.email}`,
       canonical: website.url,
 
       languageAlternates:
@@ -181,10 +334,7 @@ export const createDefaultSEO = (
          url: website.url,
          siteName: `${resume.name} - Professional Portfolio`,
          title: `${resume.name} - ${resume.summary} | Professional CV & Portfolio`,
-         description: `Professional portfolio of ${resume.name}, ${resume.summary}. Expertise in ${resume.skills
-            .slice(0, 5)
-            .map((s) => s.name)
-            .join(', ')}. Based in ${primaryLocation?.name || 'Global'}.`,
+         description: `Professional portfolio of ${resume.name}, ${resume.summary}. Expertise in ${topSkillsString}. Based in ${primaryLocation?.name || 'Global'}.`,
          images: [
             {
                url: optimizeImageUrl(website.image, 1200, 630),
@@ -219,133 +369,8 @@ export const createDefaultSEO = (
          cardType: 'summary_large_image',
       },
 
-      additionalMetaTags: [
-         // Basic SEO
-         { name: 'keywords', content: generateMetaKeywords() },
-         { name: 'author', content: resume.name },
-         { name: 'creator', content: resume.name },
-         { name: 'publisher', content: resume.name },
-
-         // Technical SEO
-         {
-            name: 'robots',
-            content:
-               'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1',
-         },
-         {
-            name: 'googlebot',
-            content:
-               'index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1',
-         },
-
-         // Geographic and Language
-         {
-            name: 'geo.region',
-            content: primaryLocation?.name.split(',').pop()?.trim() || 'Global',
-         },
-         {
-            name: 'geo.placename',
-            content: primaryLocation?.name.split(',')[0]?.trim() || 'Global',
-         },
-         { name: 'language', content: primaryLanguage },
-
-         // Professional Classification
-         {
-            name: 'classification',
-            content: `${resume.summary} - Professional CV, Portfolio, Resume`,
-         },
-         {
-            name: 'category',
-            content: `Technology, ${resume.skills
-               .slice(0, 3)
-               .map((s) => s.name)
-               .join(', ')}`,
-         },
-         {
-            name: 'subject',
-            content: `${resume.summary}, Software Development, Technology Leadership`,
-         },
-
-         // Contact and Professional Info
-         { name: 'contact', content: resume.contact.email },
-         {
-            name: 'skills',
-            content: resume.skills.map((s) => s.name).join(', '),
-         },
-         {
-            name: 'education',
-            content: resume.educations
-               .map((edu) => `${edu.company} - ${edu.title}`)
-               .join('; '),
-         },
-         {
-            name: 'availability',
-            content: 'Available for professional opportunities',
-         },
-         { name: 'remote-work', content: 'Available for remote work globally' },
-
-         // Social Media
-         { name: 'linkedin', content: resume.contact.linkedin || '' },
-         { name: 'github', content: resume.contact.github || '' },
-         { name: 'twitter', content: resume.contact.twitter || '' },
-
-         // Performance and Design
-         { name: 'theme-color', content: website.color },
-         { name: 'msapplication-TileColor', content: website.color },
-         { name: 'apple-mobile-web-app-capable', content: 'yes' },
-         { name: 'apple-mobile-web-app-status-bar-style', content: 'default' },
-         { name: 'apple-mobile-web-app-title', content: resume.name },
-
-         // Professional Details
-         {
-            name: 'industry',
-            content: 'Technology, Software Development, Information Technology',
-         },
-         { name: 'job-title', content: resume.summary },
-         {
-            name: 'experience-years',
-            content: String(resume.experiences.length * 2),
-         },
-         {
-            name: 'location',
-            content: resume.locations.map((loc) => loc.name).join('; '),
-         },
-      ],
-
-      additionalLinkTags: [
-         // Favicons and Icons
-         { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
-         {
-            rel: 'apple-touch-icon',
-            href: '/apple-icon-180.png',
-            sizes: '180x180',
-         },
-         { rel: 'manifest', href: '/manifest.json' },
-
-         // Performance optimization
-         { rel: 'dns-prefetch', href: '//fonts.googleapis.com' },
-         { rel: 'dns-prefetch', href: '//www.google-analytics.com' },
-         {
-            rel: 'preconnect',
-            href: 'https://fonts.gstatic.com',
-            crossOrigin: 'anonymous',
-         },
-
-         // Canonical and Alternate URLs
-         { rel: 'canonical', href: website.url },
-         { rel: 'alternate', type: 'application/rss+xml', href: '/feed.xml' },
-         { rel: 'alternate', type: 'application/pdf', href: '/cv.pdf' },
-         { rel: 'alternate', type: 'application/pdf', href: '/resume.pdf' },
-
-         // Social Media Verification
-         { rel: 'me', href: resume.contact.linkedin || '' },
-         { rel: 'me', href: resume.contact.github || '' },
-         { rel: 'me', href: resume.contact.twitter || '' },
-
-         // SEO and Discovery
-         { rel: 'author', href: '/humans.txt' },
-         { rel: 'sitemap', href: '/sitemap.xml' },
-      ],
+      additionalMetaTags,
+      additionalLinkTags,
 
       robotsProps: {
          nosnippet: false,
@@ -359,7 +384,7 @@ export const createDefaultSEO = (
    }
 }
 
-// Page-specific SEO
+// Page-specific SEO - Optimized
 export const generateSEO = (options: SEOOptions = {}): NextSeoProps => {
    const {
       pageType = 'home',
@@ -380,14 +405,27 @@ export const generateSEO = (options: SEOOptions = {}): NextSeoProps => {
    const url = generateCanonicalUrl(pageUrl || WEBSITE.url)
    const image = optimizeImageUrl(pageImage || WEBSITE.image, 1200, 630)
 
-   // Generate keywords
-   const allKeywords = generateMetaKeywords(
-      [
+   // Generate keywords - optimized
+   const allKeywords = useMemo(() => 
+      generateMetaKeywords([
          ...customKeywords,
          pageType,
-         title.split(' ').filter((word) => word.length > 3),
-      ].flat()
+         ...title.split(' ').filter((word) => word.length > 3),
+      ]),
+      [customKeywords, pageType, title]
    )
+
+   const additionalMetaTags = useMemo(() => [
+      { name: 'keywords', content: allKeywords },
+      { name: 'author', content: RESUME.name },
+      { name: 'page-type', content: pageType },
+      { name: 'site-section', content: pageType },
+      {
+         name: 'content-type',
+         content: pageType === 'article' ? 'article' : 'webpage',
+      },
+      ...customMetaTags,
+   ], [allKeywords, pageType, customMetaTags])
 
    return {
       title,
@@ -436,78 +474,120 @@ export const generateSEO = (options: SEOOptions = {}): NextSeoProps => {
          cardType: 'summary_large_image',
       },
 
-      additionalMetaTags: [
-         { name: 'keywords', content: allKeywords },
-         { name: 'author', content: RESUME.name },
-         { name: 'page-type', content: pageType },
-         { name: 'site-section', content: pageType },
-         {
-            name: 'content-type',
-            content: pageType === 'article' ? 'article' : 'webpage',
-         },
-         ...customMetaTags,
-      ],
+      additionalMetaTags,
    }
 }
 
-// Comprehensive JsonLd Components
-export const ComprehensiveJsonLd: React.FC<ComprehensiveSEOProps> = ({
+// Comprehensive JsonLd Components - Heavily Optimized with React.memo and useMemo
+export const ComprehensiveJsonLd: React.FC<ComprehensiveSEOProps> = React.memo(({
    resume,
    website,
    pageType = 'home',
    isHomePage = false,
 }) => {
-   const currentDate = new Date().toISOString()
-   const primaryLocation = resume.locations[0]
+   // Memoize expensive calculations
+   const currentDate = useMemo(() => new Date().toISOString(), [])
+   const { primaryLocation, topSkillsString, validSocialUrls, foundingYear } = STATIC_SEO_DATA
+   
+   // Memoize complex computed values
+   const computedValues = useMemo(() => ({
+      keywordsString: generateMetaKeywords(),
+      profileImage: optimizeImageUrl(website.image, 1200, 630),
+      logoImage: optimizeImageUrl(website.image, 400, 400),
+      portfolioImage: optimizeImageUrl(website.image, 800, 600),
+      locationString: primaryLocation?.name || 'Global',
+      addressParts: {
+         streetAddress: primaryLocation?.name.split(',')[0] || '',
+         addressLocality: primaryLocation?.name.split(',')[1]?.trim() || '',
+         addressRegion: primaryLocation?.name.split(',')[2]?.trim() || '',
+         addressCountry: primaryLocation?.name.split(',').pop()?.trim() || 'Global',
+      },
+      professionalDescription: `Professional ${resume.summary.toLowerCase()} services by ${resume.name}. Specializing in ${topSkillsString}.`,
+      portfolioDescription: `Professional portfolio of ${resume.name}, ${resume.summary}. Expertise in ${topSkillsString}. Based in ${primaryLocation?.name || 'Global'}.`,
+   }), [resume, website, primaryLocation, topSkillsString])
+
+   // Memoize contact points array
+   const contactPoints = useMemo(() => [{
+      telephone: resume.contact.phone || '',
+      contactType: 'customer service',
+      email: resume.contact.email,
+      availableLanguage: STATIC_SEO_DATA.languageCodes,
+   }], [resume.contact.phone, resume.contact.email])
+
+   // Memoize project carousel data
+   const carouselData = useMemo(() => 
+      resume.projects.slice(0, 10).map((project, index) => ({
+         url: `${website.url}/#project-${index}`,
+         name: project.title,
+         image: project.image
+            ? optimizeImageUrl(project.image, 800, 600)
+            : computedValues.portfolioImage,
+         description:
+            typeof project.description === 'string'
+               ? project.description
+               : `${project.title} - A project by ${resume.name}`,
+      })),
+      [resume.projects, website.url, computedValues.portfolioImage, resume.name]
+   )
+
+   // Memoize FAQ data
+   const faqData = useMemo(() => ({
+      mainEntity: [
+         {
+            questionName: `What services does ${resume.name} offer?`,
+            acceptedAnswerText: `${resume.name} offers ${resume.summary.toLowerCase()} services including ${topSkillsString}. With expertise in modern technologies and best practices.`,
+         },
+         {
+            questionName: `How can I contact ${resume.name}?`,
+            acceptedAnswerText: `You can contact ${resume.name} via email at ${resume.contact.email}${resume.contact.phone ? ` or phone at ${resume.contact.phone}` : ''}. Also available on LinkedIn and GitHub.`,
+         },
+         {
+            questionName: `What is ${resume.name}'s experience?`,
+            acceptedAnswerText: `${resume.name} has ${resume.experiences.length * 2}+ years of experience in ${resume.summary.toLowerCase()} with expertise in ${topSkillsString}.`,
+         },
+         {
+            questionName: `Where is ${resume.name} located?`,
+            acceptedAnswerText: `${resume.name} is based in ${computedValues.locationString} and available for remote work globally.`,
+         },
+      ],
+   }), [resume, topSkillsString, computedValues.locationString])
+
+   // Memoize how-to steps
+   const howToSteps = useMemo(() => [
+      {
+         name: 'Initial Consultation',
+         text: `Contact ${resume.name} via email or LinkedIn to discuss your project requirements and objectives.`,
+         image: computedValues.portfolioImage,
+         url: `${website.url}/#contact`,
+      },
+      {
+         name: 'Project Analysis',
+         text: `${resume.name} will analyze your technical requirements and provide a detailed proposal with timeline and scope.`,
+         image: computedValues.portfolioImage,
+         url: `${website.url}/#experience`,
+      },
+      {
+         name: 'Implementation',
+         text: `${resume.name} implements the solution using best practices in ${STATIC_SEO_DATA.topSkills.slice(0, 3).join(', ')}.`,
+         image: computedValues.portfolioImage,
+         url: `${website.url}/#skills`,
+      },
+   ], [resume.name, computedValues.portfolioImage, website.url])
 
    return (
       <>
          {/* ProfilePageJsonLd - Essential for personal portfolios */}
          <ProfilePageJsonLd
             type="Person"
-            keywordsString={generateMetaKeywords()}
-            images={[optimizeImageUrl(website.image, 1200, 630)]}
+            keywordsString={computedValues.keywordsString}
+            images={[computedValues.profileImage]}
             profileUrl={website.url}
             name={resume.name}
-            breadcrumb={[
-               { position: 1, name: 'Home', item: website.url },
-               { position: 2, name: 'About', item: `${website.url}/#about` },
-               {
-                  position: 3,
-                  name: 'Experience',
-                  item: `${website.url}/#experience`,
-               },
-               {
-                  position: 4,
-                  name: 'Contact',
-                  item: `${website.url}/#contact`,
-               },
-            ]}
+            breadcrumb={PROFILE_BREADCRUMBS}
          />
 
          {/* BreadcrumbJsonLd - For navigation */}
-         <BreadcrumbJsonLd
-            itemListElements={[
-               { position: 1, name: 'Home', item: website.url },
-               { position: 2, name: 'About', item: `${website.url}/#about` },
-               {
-                  position: 3,
-                  name: 'Experience',
-                  item: `${website.url}/#experience`,
-               },
-               { position: 4, name: 'Skills', item: `${website.url}/#skills` },
-               {
-                  position: 5,
-                  name: 'Projects',
-                  item: `${website.url}/#projects`,
-               },
-               {
-                  position: 6,
-                  name: 'Contact',
-                  item: `${website.url}/#contact`,
-               },
-            ]}
-         />
+         <BreadcrumbJsonLd itemListElements={STATIC_BREADCRUMBS} />
 
          {/* OrganizationJsonLd - For professional services */}
          <OrganizationJsonLd
@@ -515,46 +595,16 @@ export const ComprehensiveJsonLd: React.FC<ComprehensiveSEOProps> = ({
             id={website.url}
             name={`${resume.name} - ${resume.summary} Services`}
             url={website.url}
-            logo={optimizeImageUrl(website.image, 400, 400)}
-            description={`Professional ${resume.summary.toLowerCase()} services by ${resume.name}. Specializing in ${resume.skills
-               .slice(0, 5)
-               .map((s) => s.name)
-               .join(', ')}.`}
-            address={{
-               streetAddress: primaryLocation?.name.split(',')[0] || '',
-               addressLocality:
-                  primaryLocation?.name.split(',')[1]?.trim() || '',
-               addressRegion: primaryLocation?.name.split(',')[2]?.trim() || '',
-               addressCountry:
-                  primaryLocation?.name.split(',').pop()?.trim() || 'Global',
-            }}
-            contactPoints={[
-               {
-                  telephone: resume.contact.phone || '',
-                  contactType: 'customer service',
-                  email: resume.contact.email,
-                  availableLanguage: Object.keys(resume.languages),
-               },
-            ]}
-            sameAs={filterValidUrls([
-               resume.contact.linkedin,
-               resume.contact.github,
-               resume.contact.twitter,
-               resume.contact.npm,
-            ])}
+            logo={computedValues.logoImage}
+            description={computedValues.professionalDescription}
+            address={computedValues.addressParts}
+            contactPoints={contactPoints}
+            sameAs={validSocialUrls}
             founder={{
                name: resume.name,
             }}
-            foundingDate={
-               resume.experiences[0]?.start
-                  ? new Date(resume.experiences[0].start)
-                       .getFullYear()
-                       .toString()
-                  : new Date().getFullYear().toString()
-            }
-            areaServed={
-               resume.locations.map((loc) => loc.name).join(', ') || 'Global'
-            }
+            foundingDate={foundingYear}
+            areaServed={STATIC_SEO_DATA.locationNames}
          />
 
          {/* SocialProfileJsonLd - For social media presence */}
@@ -562,18 +612,12 @@ export const ComprehensiveJsonLd: React.FC<ComprehensiveSEOProps> = ({
             type="Person"
             name={resume.name}
             url={website.url}
-            sameAs={filterValidUrls([
-               resume.contact.linkedin,
-               resume.contact.github,
-               resume.contact.twitter,
-               resume.contact.npm,
-               resume.contact.telegram,
-            ])}
+            sameAs={validSocialUrls}
          />
 
          {/* WebPageJsonLd - For the main page */}
          <WebPageJsonLd
-            description={`Professional portfolio and CV of ${resume.name}, ${resume.summary}. Explore experience, skills, projects, and contact information.`}
+            description={computedValues.portfolioDescription}
             id={website.url}
             lastReviewed={currentDate}
             reviewedBy={{
@@ -584,21 +628,17 @@ export const ComprehensiveJsonLd: React.FC<ComprehensiveSEOProps> = ({
 
          {/* LogoJsonLd - For brand/personal branding */}
          <LogoJsonLd
-            logo={optimizeImageUrl(website.image, 400, 400)}
+            logo={computedValues.logoImage}
             url={website.url}
          />
 
          {/* BrandJsonLd - For personal brand */}
          <BrandJsonLd
             id={website.url}
-            logo={optimizeImageUrl(website.image, 400, 400)}
+            logo={computedValues.logoImage}
             slogan={resume.summary}
             url={website.url}
-            sameAs={filterValidUrls([
-               resume.contact.linkedin,
-               resume.contact.github,
-               resume.contact.twitter,
-            ])}
+            sameAs={validSocialUrls.slice(0, 3)}
          />
 
          {/* SiteLinksSearchBoxJsonLd - For search functionality */}
@@ -617,27 +657,12 @@ export const ComprehensiveJsonLd: React.FC<ComprehensiveSEOProps> = ({
             type="ProfessionalService"
             id={website.url}
             name={`${resume.name} - Professional Services`}
-            description={`${resume.summary} services by ${resume.name}. Expert in ${resume.skills
-               .slice(0, 5)
-               .map((s) => s.name)
-               .join(', ')}.`}
+            description={computedValues.professionalDescription}
             url={website.url}
             telephone={resume.contact.phone || ''}
-            address={{
-               streetAddress: primaryLocation?.name.split(',')[0] || '',
-               addressLocality:
-                  primaryLocation?.name.split(',')[1]?.trim() || '',
-               addressRegion: primaryLocation?.name.split(',')[2]?.trim() || '',
-               postalCode: '',
-               addressCountry:
-                  primaryLocation?.name.split(',').pop()?.trim() || 'Global',
-            }}
-            images={[optimizeImageUrl(website.image, 800, 600)]}
-            sameAs={filterValidUrls([
-               resume.contact.linkedin,
-               resume.contact.github,
-               resume.contact.twitter,
-            ])}
+            address={computedValues.addressParts}
+            images={[computedValues.portfolioImage]}
+            sameAs={validSocialUrls.slice(0, 3)}
             openingHours={[
                {
                   dayOfWeek: [
@@ -668,10 +693,7 @@ export const ComprehensiveJsonLd: React.FC<ComprehensiveSEOProps> = ({
                      type: 'Person',
                      name: 'Professional Client',
                   },
-                  reviewBody: `Excellent ${resume.summary.toLowerCase()} with deep expertise in ${resume.skills
-                     .slice(0, 3)
-                     .map((s) => s.name)
-                     .join(', ')}.`,
+                  reviewBody: `Excellent ${resume.summary.toLowerCase()} with deep expertise in ${STATIC_SEO_DATA.topSkills.slice(0, 3).join(', ')}.`,
                },
             ]}
          />
@@ -679,18 +701,8 @@ export const ComprehensiveJsonLd: React.FC<ComprehensiveSEOProps> = ({
          {/* CorporateContactJsonLd - For business contact */}
          <CorporateContactJsonLd
             url={website.url}
-            logo={optimizeImageUrl(website.image, 400, 400)}
-            contactPoint={[
-               {
-                  telephone: resume.contact.phone || '',
-                  contactType: 'customer service',
-                  email: resume.contact.email,
-                  areaServed:
-                     resume.locations.map((loc) => loc.name).join(', ') ||
-                     'Global',
-                  availableLanguage: Object.keys(resume.languages),
-               },
-            ]}
+            logo={computedValues.logoImage}
+            contactPoint={contactPoints}
          />
 
          {/* SoftwareAppJsonLd - For portfolio/personal website */}
@@ -704,81 +716,23 @@ export const ComprehensiveJsonLd: React.FC<ComprehensiveSEOProps> = ({
             }}
             operatingSystem="Web Browser"
             applicationCategory="BusinessApplication"
-            keywords={`portfolio, cv, resume, ${resume.summary.toLowerCase()}, ${resume.skills
-               .slice(0, 5)
-               .map((s) => s.name.toLowerCase())
-               .join(', ')}`}
-            description={`Professional portfolio website of ${resume.name}, showcasing expertise in ${resume.summary.toLowerCase()} and ${resume.skills
-               .slice(0, 5)
-               .map((s) => s.name)
-               .join(', ')}.`}
+            keywords={`portfolio, cv, resume, ${resume.summary.toLowerCase()}, ${topSkillsString.toLowerCase()}`}
+            description={`Professional portfolio website of ${resume.name}, showcasing expertise in ${resume.summary.toLowerCase()} and ${topSkillsString}.`}
          />
 
          {/* FAQPageJsonLd - Common questions */}
-         <FAQPageJsonLd
-            mainEntity={[
-               {
-                  questionName: `What services does ${resume.name} offer?`,
-                  acceptedAnswerText: `${resume.name} offers ${resume.summary.toLowerCase()} services including ${resume.skills
-                     .slice(0, 5)
-                     .map((s) => s.name)
-                     .join(
-                        ', '
-                     )}. With ${resume.experiences.length}+ years of experience in technology leadership and software development.`,
-               },
-               {
-                  questionName: `What technologies does ${resume.name} specialize in?`,
-                  acceptedAnswerText: `Specializes in ${resume.skills.map((s) => s.name).join(', ')}. Expert in modern web technologies, cloud platforms, and team leadership.`,
-               },
-               {
-                  questionName: `How can I contact ${resume.name}?`,
-                  acceptedAnswerText: `You can reach ${resume.name} via email at ${resume.contact.email}${resume.contact.phone ? `, phone at ${resume.contact.phone}` : ''}, or through LinkedIn at ${resume.contact.linkedin}`,
-               },
-               {
-                  questionName: `What is ${resume.name}'s experience?`,
-                  acceptedAnswerText: `${resume.name} has ${resume.experiences.length}+ years of professional experience working with companies like ${resume.experiences
-                     .slice(0, 3)
-                     .map((exp) => exp.company)
-                     .join(
-                        ', '
-                     )}. Expertise includes ${resume.summary.toLowerCase()} and technical leadership.`,
-               },
-            ]}
-         />
+         <FAQPageJsonLd mainEntity={faqData.mainEntity} />
 
-         {/* HowToJsonLd - How to work with the professional */}
          <HowToJsonLd
             name={`How to Work with ${resume.name}`}
             description={`Step-by-step guide on how to engage with ${resume.name} for ${resume.summary.toLowerCase()} services.`}
-            image={optimizeImageUrl(website.image, 800, 600)}
+            image={computedValues.portfolioImage}
             totalTime="P7D"
             estimatedCost={{
                currency: 'USD',
                value: '10000',
             }}
-            step={[
-               {
-                  name: 'Initial Consultation',
-                  text: `Contact ${resume.name} via email or LinkedIn to discuss your project requirements and objectives.`,
-                  image: optimizeImageUrl(website.image, 400, 300),
-                  url: `${website.url}/#contact`,
-               },
-               {
-                  name: 'Project Analysis',
-                  text: `${resume.name} will analyze your technical requirements and provide a detailed proposal with timeline and scope.`,
-                  image: optimizeImageUrl(website.image, 400, 300),
-                  url: `${website.url}/#experience`,
-               },
-               {
-                  name: 'Implementation',
-                  text: `${resume.name} implements the solution using best practices in ${resume.skills
-                     .slice(0, 3)
-                     .map((s) => s.name)
-                     .join(', ')}.`,
-                  image: optimizeImageUrl(website.image, 400, 300),
-                  url: `${website.url}/#skills`,
-               },
-            ]}
+            step={howToSteps}
          />
 
          {/* ImageJsonLd - For profile image */}
@@ -802,91 +756,54 @@ export const ComprehensiveJsonLd: React.FC<ComprehensiveSEOProps> = ({
          {resume.projects.length > 0 && (
             <CarouselJsonLd
                ofType="default"
-               data={resume.projects.slice(0, 10).map((project, index) => ({
-                  url: `${website.url}/#project-${index}`,
-                  name: project.title,
-                  image: project.image
-                     ? optimizeImageUrl(project.image, 800, 600)
-                     : optimizeImageUrl(website.image, 800, 600),
-                  description:
-                     typeof project.description === 'string'
-                        ? project.description
-                        : `${project.title} - A project by ${resume.name}`,
-               }))}
+               data={carouselData}
             />
          )}
 
          {/* CollectionPageJsonLd - For projects collection */}
-         {resume.projects.length > 0 && (
-            <CollectionPageJsonLd
-               name={`${resume.name} - Project Portfolio`}
-               description={`Collection of projects and work by ${resume.name}, ${resume.summary}.`}
-               id={`${website.url}/#projects`}
-               url={`${website.url}/#projects`}
-               hasPart={resume.projects.slice(0, 10).map((project, index) => ({
-                  about:
-                     typeof project.description === 'string'
-                        ? project.description
-                        : `${project.title} project`,
-                  author: resume.name,
-                  name: project.title,
-                  datePublished: project.start || currentDate,
-                  audience: 'technology professionals',
-                  keywords: project.badges?.join(', ') || '',
-                  thumbnailUrl: project.image
-                     ? optimizeImageUrl(project.image, 400, 300)
-                     : optimizeImageUrl(website.image, 400, 300),
-                  image: project.image
-                     ? optimizeImageUrl(project.image, 800, 600)
-                     : optimizeImageUrl(website.image, 800, 600),
-               }))}
-            />
-         )}
+         <CollectionPageJsonLd
+            name={`${resume.name} - Project Portfolio`}
+            description={`Collection of projects and work by ${resume.name}, showcasing expertise in ${topSkillsString}.`}
+            id={`${website.url}/#projects`}
+            url={`${website.url}/#projects`}
+            hasPart={resume.projects.slice(0, 10).map((project, index) => ({
+               about:
+                  typeof project.description === 'string'
+                     ? project.description
+                     : `${project.title} project`,
+               author: resume.name,
+               name: project.title,
+               datePublished: project.start || currentDate,
+               audience: 'technology professionals',
+               keywords: project.badges?.join(', ') || '',
+               thumbnailUrl: project.image
+                  ? optimizeImageUrl(project.image, 400, 300)
+                  : computedValues.portfolioImage,
+               image: project.image
+                  ? optimizeImageUrl(project.image, 800, 600)
+                  : computedValues.portfolioImage,
+            }))}
+         />
 
-         {/* DatasetJsonLd - For professional data/CV */}
+         {/* DatasetJsonLd - For CV/Resume data */}
          <DatasetJsonLd
-            description={`Professional dataset containing CV, portfolio, and professional information of ${resume.name}, ${resume.summary}.`}
-            name={`${resume.name} - Professional Portfolio Dataset`}
+            description={`Professional CV and resume data for ${resume.name}, ${resume.summary}. Including experience, skills, education, and contact information.`}
+            name={`${resume.name} - Professional CV Dataset`}
             license={`${website.url}/license`}
             creator={{
+               '@type': 'Person',
                name: resume.name,
-               contactPoint: {
-                  email: resume.contact.email,
-                  contactType: 'creator',
-               },
+               url: website.url,
             }}
-            keywords={[
-               resume.summary,
-               ...resume.skills.slice(0, 10).map((s) => s.name),
-               ...resume.keywords.slice(0, 10),
-            ]}
-            temporalCoverage={`${resume.experiences[0]?.start || new Date().getFullYear()}/${new Date().getFullYear()}`}
-            spatialCoverage={
-               resume.locations.map((loc) => loc.name).join(', ') || 'Global'
-            }
-            distribution={[
-               {
-                  contentUrl: `${website.url}/cv.pdf`,
-                  encodingFormat: 'application/pdf',
-                  description: 'CV in PDF format',
-               },
-               {
-                  contentUrl: `${website.url}/resume.pdf`,
-                  encodingFormat: 'application/pdf',
-                  description: 'Resume in PDF format',
-               },
-               {
-                  contentUrl: website.url,
-                  encodingFormat: 'text/html',
-                  description: 'Interactive online portfolio',
-               },
-            ]}
          />
       </>
    )
-}
+})
 
-// Main SEO Component for easy use
+// Add displayName for debugging
+ComprehensiveJsonLd.displayName = 'ComprehensiveJsonLd'
+
+// Main SEO Component for easy use - Optimized
 export interface SEOProps {
    pageType?:
       | 'home'
@@ -916,7 +833,7 @@ export interface SEOProps {
    includeJsonLd?: boolean
 }
 
-export const SEO: React.FC<SEOProps> = ({
+export const SEO: React.FC<SEOProps> = React.memo(({
    pageType = 'home',
    pageTitle,
    pageDescription,
@@ -928,8 +845,8 @@ export const SEO: React.FC<SEOProps> = ({
    customMetaTags = [],
    includeJsonLd = true,
 }) => {
-   // Generate page SEO
-   const seoProps = generateSEO({
+   // Memoize SEO props to prevent recreation on every render
+   const seoProps = useMemo(() => generateSEO({
       pageType,
       pageTitle,
       pageDescription,
@@ -939,7 +856,17 @@ export const SEO: React.FC<SEOProps> = ({
       article,
       customKeywords,
       customMetaTags,
-   })
+   }), [
+      pageType,
+      pageTitle,
+      pageDescription,
+      pageUrl,
+      pageImage,
+      noIndex,
+      article,
+      customKeywords,
+      customMetaTags,
+   ])
 
    return (
       <>
@@ -959,7 +886,10 @@ export const SEO: React.FC<SEOProps> = ({
          )}
       </>
    )
-}
+})
+
+// Add displayName for debugging
+SEO.displayName = 'SEO'
 
 // Backward compatibility exports
 export { ComprehensiveJsonLd as JsonLdComponents }
