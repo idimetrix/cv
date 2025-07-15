@@ -9,6 +9,9 @@ import { ReactNode } from 'react'
 import { Technology } from './Technology'
 
 export type Resume = {
+   firstName: string
+   lastName: string
+
    name: string
    nick: string
    nameLink: string
