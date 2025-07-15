@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, memo } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import Link from 'next/link'
@@ -9,7 +9,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
 }
 
-export const Locations = ({ resume, className, ...rest }: Props) => {
+// Memoized Locations component
+export const Locations = memo<Props>(({ resume, className, ...rest }) => {
    return (
       <div className={cn('flex flex-col gap-0.5', className)} {...rest}>
          {resume.locations.map((location) => (
@@ -26,4 +27,6 @@ export const Locations = ({ resume, className, ...rest }: Props) => {
          ))}
       </div>
    )
-}
+})
+
+Locations.displayName = 'Locations'

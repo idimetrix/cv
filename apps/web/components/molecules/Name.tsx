@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, memo } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import Link from 'next/link'
@@ -7,7 +7,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
 }
 
-export const Name = ({ resume, className, ...rest }: Props) => {
+// Memoized Name component
+export const Name = memo<Props>(({ resume, className, ...rest }) => {
    return (
       <h1 className={cn('w-full flex flex-col', className)} {...rest}>
          <Link
@@ -20,4 +21,6 @@ export const Name = ({ resume, className, ...rest }: Props) => {
          </Link>
       </h1>
    )
-}
+})
+
+Name.displayName = 'Name'

@@ -1,4 +1,4 @@
-import { HTMLAttributes, useCallback, useMemo, useState } from 'react'
+import { HTMLAttributes, useCallback, useMemo, useState, memo } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import Link from 'next/link'
@@ -9,11 +9,12 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
 }
 
-export const Project = ({
-   project,
-   className,
-   ...rest
-}: HTMLAttributes<HTMLDivElement> & { project: Resume['projects'][0] }) => {
+interface ProjectProps extends HTMLAttributes<HTMLDivElement> {
+   project: Resume['projects'][0]
+}
+
+// Memoized Project component to prevent unnecessary re-renders
+export const Project = memo<ProjectProps>(({ project, className, ...rest }) => {
    return (
       <div
          className={cn(
@@ -58,18 +59,35 @@ export const Project = ({
          </div>
       </div>
    )
-}
+})
 
-export const Projects = ({ resume, className, ...rest }: Props) => {
+Project.displayName = 'Project'
+
+// Memoized Projects component
+export const Projects = memo<Props>(({ resume, className, ...rest }) => {
    const [more, setMore] = useState(false)
 
-   const primaryProjects = useMemo(() => resume.projects.slice(0, 15), [resume])
+   const primaryProjects = useMemo(
+      () => resume.projects.slice(0, 15),
+      [resume.projects]
+   )
 
-   const secondaryProjects = useMemo(() => resume.projects.slice(15), [resume])
+   const secondaryProjects = useMemo(
+      () => resume.projects.slice(15),
+      [resume.projects]
+   )
 
    const handleMore = useCallback(() => {
       setMore((more) => !more)
    }, [])
+
+   // Generate stable keys for projects
+   const getProjectKey = useCallback(
+      (project: Resume['projects'][0], index: number) => {
+         return `${project.title}-${index}` // Use index for stability if title+description might not be unique
+      },
+      []
+   )
 
    return (
       <div className={cn('flex flex-col gap-3 w-full', className)} {...rest}>
@@ -77,9 +95,9 @@ export const Projects = ({ resume, className, ...rest }: Props) => {
 
          {!!primaryProjects.length && (
             <div className="grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-3 md:grid-cols-2 lg:grid-cols-3">
-               {primaryProjects.map((project) => (
+               {primaryProjects.map((project, index) => (
                   <Project
-                     key={`${project.title}-${project.description}`}
+                     key={getProjectKey(project, index)}
                      project={project}
                   />
                ))}
@@ -101,9 +119,12 @@ export const Projects = ({ resume, className, ...rest }: Props) => {
                      !more && 'hidden'
                   )}
                >
-                  {secondaryProjects.map((project) => (
+                  {secondaryProjects.map((project, index) => (
                      <Project
-                        key={`${project.title}-${project.description}`}
+                        key={getProjectKey(
+                           project,
+                           primaryProjects.length + index
+                        )}
                         project={project}
                      />
                   ))}
@@ -112,4 +133,6 @@ export const Projects = ({ resume, className, ...rest }: Props) => {
          )}
       </div>
    )
-}
+})
+
+Projects.displayName = 'Projects'

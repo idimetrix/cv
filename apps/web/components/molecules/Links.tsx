@@ -1,5 +1,5 @@
 import { cn } from '@cv/lib'
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, memo } from 'react'
 import { Resume } from '../../types'
 import Link from 'next/link'
 
@@ -7,7 +7,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
 }
 
-export const Links = ({ resume, className, ...rest }: Props) => {
+// Memoized Links component
+export const Links = memo<Props>(({ resume, className, ...rest }) => {
    if (!resume.contact.email && !resume.contact.phone) return null
 
    return (
@@ -37,4 +38,6 @@ export const Links = ({ resume, className, ...rest }: Props) => {
          )}
       </div>
    )
-}
+})
+
+Links.displayName = 'Links'

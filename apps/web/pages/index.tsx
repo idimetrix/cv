@@ -8,7 +8,6 @@ import { createContext } from '@cv/trpc/server/context'
 import { appRouter } from '@cv/trpc/server/router/_app'
 import { inferSSRProps } from '@cv/types/inferSSRProps'
 import { CV } from '../components/organism'
-import { SectionNavigation } from '../components/molecules'
 import { RESUME } from '../users'
 import {
    WEBSITE,
@@ -251,9 +250,6 @@ export default function Home() {
          <main className="">
             {/* Main CV Content */}
             <CV resume={RESUME} />
-
-            {/* Compact Fixed Left Navigation - matching Actions style */}
-            <SectionNavigation />
          </main>
       </>
    )

@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, memo } from 'react'
 import { Resume } from '../../types'
 import Link from 'next/link'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,7 +10,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
 }
 
-export const Socials = ({ resume, className, ...rest }: Props) => {
+// Memoized Socials component
+export const Socials = memo<Props>(({ resume, className, ...rest }) => {
    return (
       <div className={cn('flex gap-1.5 items-center', className)} {...rest}>
          {resume.contact.email && (
@@ -71,4 +72,6 @@ export const Socials = ({ resume, className, ...rest }: Props) => {
          )}
       </div>
    )
-}
+})
+
+Socials.displayName = 'Socials'

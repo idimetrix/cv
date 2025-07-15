@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, memo } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import { Heading } from '../atoms'
@@ -7,7 +7,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
 }
 
-export const Languages = ({ resume, className, ...rest }: Props) => {
+// Memoized Languages component
+export const Languages = memo<Props>(({ resume, className, ...rest }) => {
    return (
       <div className={cn('flex flex-col gap-3 w-full', className)} {...rest}>
          <Heading level={2}>Languages</Heading>
@@ -27,4 +28,6 @@ export const Languages = ({ resume, className, ...rest }: Props) => {
          </div>
       </div>
    )
-}
+})
+
+Languages.displayName = 'Languages'

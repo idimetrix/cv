@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, memo } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import Link from 'next/link'
@@ -8,7 +8,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
 }
 
-export const Contributions = ({ resume, className, ...rest }: Props) => {
+// Memoized Contributions component
+export const Contributions = memo<Props>(({ resume, className, ...rest }) => {
    return (
       <div className={cn('flex flex-col gap-3 w-full', className)} {...rest}>
          <Heading level={2}>Contributions</Heading>
@@ -28,4 +29,6 @@ export const Contributions = ({ resume, className, ...rest }: Props) => {
          </div>
       </div>
    )
-}
+})
+
+Contributions.displayName = 'Contributions'

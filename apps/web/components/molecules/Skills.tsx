@@ -1,4 +1,4 @@
-import { HTMLAttributes, useMemo } from 'react'
+import { HTMLAttributes, useMemo, memo } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import { Heading } from '../atoms'
@@ -7,7 +7,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
 }
 
-export const Skills = ({ resume, className, ...rest }: Props) => {
+// Memoized Skills component with optimized grouping logic
+export const Skills = memo<Props>(({ resume, className, ...rest }) => {
    const groups = useMemo(() => {
       const records: Record<
          number,
@@ -23,7 +24,7 @@ export const Skills = ({ resume, className, ...rest }: Props) => {
       }
 
       return records
-   }, [resume])
+   }, [resume.skills])
 
    return (
       <div className={cn('flex flex-col gap-3 w-full', className)} {...rest}>
@@ -67,4 +68,6 @@ export const Skills = ({ resume, className, ...rest }: Props) => {
          </table>
       </div>
    )
-}
+})
+
+Skills.displayName = 'Skills'

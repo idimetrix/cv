@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, memo } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import Image from 'next/image'
@@ -7,7 +7,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
 }
 
-export const Technologies = ({ resume, className, ...rest }: Props) => {
+// Memoized Technologies component
+export const Technologies = memo<Props>(({ resume, className, ...rest }) => {
    return (
       <div
          className={cn('flex gap-3 items-center flex-wrap', className)}
@@ -26,4 +27,6 @@ export const Technologies = ({ resume, className, ...rest }: Props) => {
          ))}
       </div>
    )
-}
+})
+
+Technologies.displayName = 'Technologies'

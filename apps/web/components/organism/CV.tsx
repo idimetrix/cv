@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, memo } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import {
@@ -19,13 +19,15 @@ import {
    Contributions,
    Technologies,
    Help,
+   Navigations,
 } from '../molecules'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
 }
 
-export const CV = ({ resume, className, ...rest }: Props) => {
+// Memoized CV component to prevent unnecessary re-renders
+export const CV = memo<Props>(({ resume, className, ...rest }) => {
    return (
       <div
          className={cn(
@@ -75,6 +77,10 @@ export const CV = ({ resume, className, ...rest }: Props) => {
                }
             }
          `}</style>
+
+         {/* Bug-free Navigations component */}
+         <Navigations />
+
          <div
             className="m-0 flex min-h-[297mm] relative w-[210mm] flex-col bg-white p-[10mm] text-base print:bg-none"
             id="cv"
@@ -158,4 +164,6 @@ export const CV = ({ resume, className, ...rest }: Props) => {
          </div>
       </div>
    )
-}
+})
+
+CV.displayName = 'CV'

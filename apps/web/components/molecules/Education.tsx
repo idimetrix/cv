@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react'
+import { HTMLAttributes, memo, useCallback } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import Link from 'next/link'
@@ -8,15 +8,24 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
 }
 
-export const Education = ({ resume, className, ...rest }: Props) => {
+// Memoized Education component
+export const Education = memo<Props>(({ resume, className, ...rest }) => {
+   // Generate stable keys for educations
+   const getEducationKey = useCallback(
+      (education: Resume['educations'][0], index: number) => {
+         return `education-${education.company}-${index}`
+      },
+      []
+   )
+
    return (
       <div className={cn('flex flex-col gap-3 w-full', className)} {...rest}>
          <Heading level={2}>Education</Heading>
 
          <div className="flex w-full gap-3 flex-col">
-            {resume.educations.map((education) => (
+            {resume.educations.map((education, index) => (
                <div
-                  key={`${education.company}-${education.title}-${education.description}`}
+                  key={getEducationKey(education, index)}
                   className="flex flex-col"
                >
                   <div className="flex justify-between items-center">
@@ -50,4 +59,6 @@ export const Education = ({ resume, className, ...rest }: Props) => {
          </div>
       </div>
    )
-}
+})
+
+Education.displayName = 'Education'

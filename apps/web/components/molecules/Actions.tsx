@@ -1,5 +1,5 @@
 import * as htmlToImage from 'html-to-image'
-import { HTMLAttributes, useCallback } from 'react'
+import { HTMLAttributes, useCallback, memo } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,12 +16,13 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
 }
 
-export const Actions = ({ resume, className, ...rest }: Props) => {
+// Memoized Actions component with optimized event handlers
+export const Actions = memo<Props>(({ resume, className, ...rest }) => {
    const homeHandler = useCallback(() => {
       if (!resume.contact.linkedin) return
 
       window.open(resume.contact.linkedin, '_blank')
-   }, [resume])
+   }, [resume.contact.linkedin])
 
    const printHandler = useCallback(() => {
       window.print()
@@ -33,7 +34,7 @@ export const Actions = ({ resume, className, ...rest }: Props) => {
       } else {
          window.print()
       }
-   }, [resume])
+   }, [resume.contact.cv, resume.contact.resume])
 
    const exportHandler = useCallback(
       (type: 'svg' | 'png' | 'jpg') => async () => {
@@ -92,7 +93,7 @@ export const Actions = ({ resume, className, ...rest }: Props) => {
             link.remove()
          }
       },
-      []
+      [] // RESUME.name is a static import, not a reactive dependency
    )
 
    return (
@@ -152,4 +153,6 @@ export const Actions = ({ resume, className, ...rest }: Props) => {
          </div>
       </div>
    )
-}
+})
+
+Actions.displayName = 'Actions'
