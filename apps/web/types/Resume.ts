@@ -7,6 +7,7 @@ import { Skill } from './Skill'
 import { Contribution } from './Contribution'
 import { ReactNode } from 'react'
 import { Technology } from './Technology'
+import { Content } from './Content'
 
 export type Resume = {
    firstName: string
@@ -23,10 +24,10 @@ export type Resume = {
    locations: Location[]
    languages: Record<string, string>
 
-   about: ReactNode
+   about: Content[];
    aboutLink: string
 
-   help: ReactNode
+   help: Content[];
    helpLink: string
 
    avatar: string

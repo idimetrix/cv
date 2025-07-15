@@ -1,5 +1,5 @@
 export type Content = {
-   title: string
+   title?: string
    description?: string
    items?: string[]
    link?: string
