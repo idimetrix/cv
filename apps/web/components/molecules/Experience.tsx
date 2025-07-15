@@ -2,7 +2,7 @@ import { HTMLAttributes, memo, useCallback } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import Link from 'next/link'
-import { Heading } from '../atoms'
+import { Heading, MarkdownText } from '../atoms'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
@@ -57,8 +57,10 @@ export const Experience = memo<Props>(({ resume, className, ...rest }) => {
                   <div className="text-sm w-full text-black/70 flex flex-col gap-1.5">
                      {experience.contents?.map((content, contentIndex) => (
                         <div key={`${content.title}-${contentIndex}`}>
-                           {content.title && <b>{content.title}:</b>}{' '}
-                           {content.description}
+                           <b>{content.title}:</b>{' '}
+                           {content.description && (
+                              <MarkdownText>{content.description}</MarkdownText>
+                           )}
                            {content.items && content.items.length > 0 && (
                               <span> {content.items.join(' • ')}</span>
                            )}

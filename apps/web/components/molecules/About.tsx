@@ -2,7 +2,7 @@ import { HTMLAttributes, memo } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import Link from 'next/link'
-import { Heading } from '../atoms'
+import { Heading, MarkdownText } from '../atoms'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
@@ -24,7 +24,9 @@ export const About = memo<Props>(({ resume, className, ...rest }) => {
                {resume.about?.map((content, index) => (
                   <div key={`${content.title}-${index}`}>
                      {content.title && <b>{content.title}:</b>}{' '}
-                     {content.description}
+                     {content.description && (
+                        <MarkdownText>{content.description}</MarkdownText>
+                     )}
                      {content.items && content.items.length > 0 && (
                         <span> {content.items.join(' • ')}</span>
                      )}
