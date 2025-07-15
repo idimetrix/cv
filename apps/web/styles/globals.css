@@ -1,9 +1,7 @@
 @import url("@fortawesome/fontawesome-svg-core/styles.css");
 @import url("nprogress/nprogress.css");
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
     --color-white: #fff;
