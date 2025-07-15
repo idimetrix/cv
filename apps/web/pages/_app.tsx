@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Analytics } from '@vercel/analytics/react'
 import { NextPage } from 'next'
 import { DefaultSeo } from 'next-seo'
+import Head from 'next/head'
 import type { AppContext, AppInitialProps, AppProps } from 'next/app'
 import App from 'next/app'
 import { useRouter } from 'next/router'
@@ -86,6 +87,12 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
    return (
       <main className={cn(jost.className, 'group/page min-h-screen')}>
+         <Head>
+            <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1"
+            />
+         </Head>
          <DefaultSeo titleTemplate="%s" title={WEBSITE.description} />
 
          <GlobalProvider>

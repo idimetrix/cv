@@ -18,10 +18,6 @@ export default function PagesDocument({
    return (
       <Html lang="en">
          <Head nonce={nonce}>
-            <meta
-               name="viewport"
-               content="width=device-width, initial-scale=1"
-            />
             <meta name="referrer" content="origin-when-cross-origin" />
             <meta httpEquiv="content-type" content="text/html; charset=utf-8" />
             <meta name="robots" content="index, follow" />
