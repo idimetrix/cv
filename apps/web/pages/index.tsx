@@ -252,13 +252,8 @@ export default function Home() {
             {/* Main CV Content */}
             <CV resume={RESUME} />
 
-            {/* Super Compact Fixed Left Navigation */}
-            <SectionNavigation
-               compact={true}
-               position="fixed"
-               side="left"
-               showKeyboardShortcuts={false}
-            />
+            {/* Compact Fixed Left Navigation - matching Actions style */}
+            <SectionNavigation />
          </main>
       </>
    )
