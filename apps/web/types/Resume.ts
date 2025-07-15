@@ -24,10 +24,10 @@ export type Resume = {
    locations: Location[]
    languages: Record<string, string>
 
-   about: Content[];
+   about: Content[]
    aboutLink: string
 
-   help: Content[];
+   help: Content[]
    helpLink: string
 
    avatar: string

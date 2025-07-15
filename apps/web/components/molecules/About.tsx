@@ -20,7 +20,17 @@ export const About = memo<Props>(({ resume, className, ...rest }) => {
             target="_blank"
             rel="noopener noreferrer"
          >
-            {resume.about}
+            <div className="w-full flex flex-col gap-3">
+               {resume.about?.map((content, index) => (
+                  <div key={`${content.title}-${index}`}>
+                     {content.title && <b>{content.title}:</b>}{' '}
+                     {content.description}
+                     {content.items && content.items.length > 0 && (
+                        <span> {content.items.join(' • ')}</span>
+                     )}
+                  </div>
+               ))}
+            </div>
          </Link>
       </div>
    )

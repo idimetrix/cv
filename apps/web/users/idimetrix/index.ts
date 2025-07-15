@@ -35,121 +35,78 @@ export const RESUME: Resume = {
    summary: 'CTO, Software Architect, Technical Lead',
    summaryLink: 'https://www.linkedin.com/in/dimetrix',
 
-   about: (
-      <div className="w-full flex flex-col gap-3">
-         <div>
-            With a <b>Master’s degree in Mathematics and Computer Science</b>{' '}
-            and over <b>15 years of professional experience (including MBA)</b>{' '}
-            in both startups and enterprises, I am a technical strategic leader
-            specializing in guiding products from initial concept to successful
-            launch. I excel in managing teams of up to 100 members, fostering
-            high-performance cultures, and driving innovation. My collaborative
-            leadership style enables me to engage effectively in both technical
-            and business discussions, whether internally or with clients. My
-            expertise spans <b>WEB2</b> and <b>WEB3</b> sectors, leveraging
-            technologies such as JavaScript/TypeScript (React.js, Next.js,
-            Vue.js, Nuxt.js, Svelte, Stencil, Angular) with CSR/SSR/SSG/SPA/PWA,
-            alongside back-end systems using Node.js, Nest.js, Go, Rust, and
-            Move. I am experienced in monolithic, microservices, and serverless
-            architectures deployed on AWS, Azure, and Google Cloud platforms.
-         </div>
-
-         <div>
-            <b>Competencies:</b> Architecture • Integration Strategy • 0 - 1
-            Product Development • API Design and Development • UI/UX Design and
-            Development • Software Development • Global/Local People Management
-            (Onshore/Offshore) • Product/Project Management • Process
-            Structuration and Optimization • Executive Leadership • Continuous
-            Improvements • Professional Services
-         </div>
-
-         <div>
-            <b>Stacks:</b> MERN • MEAN • LAMP • JAM • MEVN • PERN • ROR • MEEN •
-            ELK • WAMP • XAMPP • TALL • PWA • LEAN • FARM • SERN
-         </div>
-      </div>
-   ),
+   about: [
+      {
+         description:
+            "With a Master's degree in Mathematics and Computer Science and over 15 years of professional experience (including MBA) in both startups and enterprises, I am a technical strategic leader specializing in guiding products from initial concept to successful launch. I excel in managing teams of up to 100 members, fostering high-performance cultures, and driving innovation. My collaborative leadership style enables me to engage effectively in both technical and business discussions, whether internally or with clients. My expertise spans WEB2 and WEB3 sectors, leveraging technologies such as JavaScript/TypeScript (React.js, Next.js, Vue.js, Nuxt.js, Svelte, Stencil, Angular) with CSR/SSR/SSG/SPA/PWA, alongside back-end systems using Node.js, Nest.js, Go, Rust, and Move. I am experienced in monolithic, microservices, and serverless architectures deployed on AWS, Azure, and Google Cloud platforms.",
+      },
+      {
+         title: 'Competencies',
+         items: [
+            'Architecture',
+            'Integration Strategy',
+            '0 - 1 Product Development',
+            'API Design and Development',
+            'UI/UX Design and Development',
+            'Software Development',
+            'Global/Local People Management (Onshore/Offshore)',
+            'Product/Project Management',
+            'Process Structuration and Optimization',
+            'Executive Leadership',
+            'Continuous Improvements',
+            'Professional Services',
+         ],
+      },
+      {
+         title: 'Stacks',
+         items: [
+            'MERN',
+            'MEAN',
+            'LAMP',
+            'JAM',
+            'MEVN',
+            'PERN',
+            'ROR',
+            'MEEN',
+            'ELK',
+            'WAMP',
+            'XAMPP',
+            'TALL',
+            'PWA',
+            'LEAN',
+            'FARM',
+            'SERN',
+         ],
+      },
+   ],
    aboutLink: 'https://www.linkedin.com/in/dimetrix',
 
-   // 3 points I can help
-   help: (
-      <div className="flex w-full flex-col gap-3">
-         <div className="flex w-full flex-col gap-1.5">
-            <h3 id="1-technical-strategy-and-vision">
-               1. <strong>Technical Strategy and Vision</strong>
-            </h3>
-            <ul className="">
-               <li>
-                  <strong>
-                     Architect and guide the overall technical direction
-                  </strong>
-                  : Define the technological roadmap aligned with the
-                  company&apos;s goals. This includes selecting the right tech
-                  stack, frameworks, and tools to future-proof the organization.
-               </li>
-               <li>
-                  <strong>Research and innovation</strong>: Stay updated on
-                  emerging technologies and trends to identify opportunities for
-                  innovation and competitive advantage.
-               </li>
-               <li>
-                  <strong>Scalability and sustainability</strong>: Ensure that
-                  technical solutions are scalable and maintainable, promoting a
-                  long-term vision for growth.
-               </li>
-            </ul>
-         </div>
-
-         <div className="flex w-full flex-col gap-1.5">
-            <h3 id="2-team-leadership-and-development">
-               2. <strong>Team Leadership and Development</strong>
-            </h3>
-            <ul className="">
-               <li>
-                  <strong>Build and mentor a strong team</strong>: Guide the
-                  technical team by fostering a culture of learning, innovation,
-                  and accountability. Provide mentorship to developers to help
-                  them grow their skills and become leaders themselves.
-               </li>
-               <li>
-                  <strong>Efficient collaboration</strong>: Establish clear
-                  communication channels, set team goals, and ensure proper
-                  collaboration between developers, product managers, and
-                  stakeholders.
-               </li>
-               <li>
-                  <strong>Hiring and resource management</strong>: Lead the
-                  recruitment process to bring in talent that fits both
-                  technically and culturally. Allocate resources to ensure
-                  efficient project delivery.
-               </li>
-            </ul>
-         </div>
-
-         <div className="flex w-full flex-col gap-1.5">
-            <h3 id="3-project-and-product-delivery">
-               3. <strong>Project and Product Delivery</strong>
-            </h3>
-            <ul className="">
-               <li>
-                  <strong>Oversee project execution</strong>: Ensure timely and
-                  high-quality delivery of products by monitoring development
-                  cycles, managing risks, and removing blockers.
-               </li>
-               <li>
-                  <strong>Quality assurance</strong>: Enforce best practices in
-                  software development, including code reviews, testing, and
-                  continuous integration and deployment (CI/CD).
-               </li>
-               <li>
-                  <strong>Align technical efforts with business goals</strong>:
-                  Balance technical debt with feature development to ensure the
-                  team delivers value while maintaining codebase health.
-               </li>
-            </ul>
-         </div>
-      </div>
-   ),
+   help: [
+      {
+         title: '1. Technical Strategy and Vision',
+         items: [
+            "Architect and guide the overall technical direction: Define the technological roadmap aligned with the company's goals. This includes selecting the right tech stack, frameworks, and tools to future-proof the organization.",
+            'Research and innovation: Stay updated on emerging technologies and trends to identify opportunities for innovation and competitive advantage.',
+            'Scalability and sustainability: Ensure that technical solutions are scalable and maintainable, promoting a long-term vision for growth.',
+         ],
+      },
+      {
+         title: '2. Team Leadership and Development',
+         items: [
+            'Build and mentor a strong team: Guide the technical team by fostering a culture of learning, innovation, and accountability. Provide mentorship to developers to help them grow their skills and become leaders themselves.',
+            'Efficient collaboration: Establish clear communication channels, set team goals, and ensure proper collaboration between developers, product managers, and stakeholders.',
+            'Hiring and resource management: Lead the recruitment process to bring in talent that fits both technically and culturally. Allocate resources to ensure efficient project delivery.',
+         ],
+      },
+      {
+         title: '3. Project and Product Delivery',
+         items: [
+            'Oversee project execution: Ensure timely and high-quality delivery of products by monitoring development cycles, managing risks, and removing blockers.',
+            'Quality assurance: Enforce best practices in software development, including code reviews, testing, and continuous integration and deployment (CI/CD).',
+            'Align technical efforts with business goals: Balance technical debt with feature development to ensure the team delivers value while maintaining codebase health.',
+         ],
+      },
+   ],
    helpLink: 'https://www.linkedin.com/in/dimetrix',
 
    website: 'https://www.linkedin.com/in/dimetrix',

@@ -16,7 +16,31 @@ export const Help = memo<Props>(({ resume, className, ...rest }) => {
             3 points I can help
          </Heading>
          <Link href={resume.helpLink} target="_blank" rel="noopener noreferrer">
-            {resume.help}
+            <div className="flex w-full flex-col gap-3">
+               {resume.help?.map((content, index) => (
+                  <div
+                     key={`${content.title}-${index}`}
+                     className="flex w-full flex-col gap-1.5"
+                  >
+                     <h3 className="font-bold">{content.title}</h3>
+                     <ul className="">
+                        {content.items?.map((item, itemIndex) => {
+                           const colonIndex = item.indexOf(':')
+                           if (colonIndex > 0) {
+                              const beforeColon = item.substring(0, colonIndex)
+                              const afterColon = item.substring(colonIndex + 1)
+                              return (
+                                 <li key={itemIndex}>
+                                    <strong>{beforeColon}</strong>:{afterColon}
+                                 </li>
+                              )
+                           }
+                           return <li key={itemIndex}>{item}</li>
+                        })}
+                     </ul>
+                  </div>
+               ))}
+            </div>
          </Link>
       </div>
    )

@@ -57,7 +57,8 @@ export const Experience = memo<Props>(({ resume, className, ...rest }) => {
                   <div className="text-sm w-full text-black/70 flex flex-col gap-1.5">
                      {experience.contents?.map((content, contentIndex) => (
                         <div key={`${content.title}-${contentIndex}`}>
-                           {content.title && <b>{content.title}:</b>} {content.description}
+                           {content.title && <b>{content.title}:</b>}{' '}
+                           {content.description}
                            {content.items && content.items.length > 0 && (
                               <span> {content.items.join(' • ')}</span>
                            )}
