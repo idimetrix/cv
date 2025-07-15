@@ -49,6 +49,8 @@ export const Skills = memo<Props>(({ resume, className, ...rest }) => {
                                  <button
                                     className="inline-flex group-hover:bg-black group-hover:text-white items-center rounded-md border px-1.5 leading-tight py-0 transition-all duration-0 focus:outline-none text-nowrap border-transparent bg-black/5 text-black hover:opacity-80"
                                     key={skill.name}
+                                    type="button"
+                                    aria-label={`${skill.name} skill with ${years}+ years experience`}
                                     title={`${skill.name} - ${years}+ years`}
                                  >
                                     {skill.name}

@@ -17,6 +17,8 @@ export const Languages = memo<Props>(({ resume, className, ...rest }) => {
                <button
                   className="inline-flex items-center rounded-md border px-2 py-0.5 text-sm font-bold transition-colors focus:outline-none text-nowrap border-transparent bg-black/80 text-white hover:bg-black/60"
                   key={language}
+                  type="button"
+                  aria-label={`${language} language proficiency level ${level}`}
                   title={`${language} - ${level}`}
                >
                   {language} -

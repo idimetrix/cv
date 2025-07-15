@@ -107,12 +107,18 @@ export const Actions = memo<Props>(({ resume, className, ...rest }) => {
          <div className="absolute flex gap-[1px] flex-col text-sm font-mono left-full ml-[1px]">
             <button
                onClick={homeHandler}
+               type="button"
+               aria-label="Go to LinkedIn profile"
+               title="Go to LinkedIn profile"
                className="transition-all bg-white uppercase duration-300 hover:bg-black hover:text-white w-[24px] h-[24px] items-center justify-center flex"
             >
                <FontAwesomeIcon icon={faHome} className="h-4 w-4" />
             </button>
             <button
                onClick={printHandler}
+               type="button"
+               aria-label="Print CV"
+               title="Print CV"
                className="transition-all bg-white uppercase duration-300 hover:bg-black hover:text-white w-[24px] py-1.5 items-center justify-center flex"
             >
                P<br />
@@ -122,6 +128,9 @@ export const Actions = memo<Props>(({ resume, className, ...rest }) => {
             </button>
             <button
                onClick={downloadHandler}
+               type="button"
+               aria-label="Download CV PDF"
+               title="Download CV PDF"
                className="transition-all bg-white uppercase duration-300 hover:bg-black hover:text-white w-[24px] py-1.5 items-center justify-center flex"
             >
                D<br />
@@ -134,18 +143,27 @@ export const Actions = memo<Props>(({ resume, className, ...rest }) => {
             </button>
             <button
                onClick={exportHandler('svg')}
+               type="button"
+               aria-label="Export as SVG"
+               title="Export as SVG"
                className="transition-all bg-white uppercase duration-300 hover:bg-black hover:text-white w-[24px] h-[24px] items-center justify-center flex"
             >
                <FontAwesomeIcon icon={faFileSvg} className="h-4 w-4" />
             </button>
             <button
                onClick={exportHandler('png')}
+               type="button"
+               aria-label="Export as PNG"
+               title="Export as PNG"
                className="transition-all bg-white uppercase duration-300 hover:bg-black hover:text-white w-[24px] h-[24px] items-center justify-center flex"
             >
                <FontAwesomeIcon icon={faFilePng} className="h-4 w-4" />
             </button>
             <button
                onClick={exportHandler('jpg')}
+               type="button"
+               aria-label="Export as JPG"
+               title="Export as JPG"
                className="transition-all bg-white uppercase duration-300 hover:bg-black hover:text-white w-[24px] h-[24px] items-center justify-center flex"
             >
                <FontAwesomeIcon icon={faFileJpg} className="h-4 w-4" />

@@ -53,6 +53,9 @@ export const Project = memo<ProjectProps>(({ project, className, ...rest }) => {
                <button
                   className="inline-flex group-hover:bg-black/80 group-hover:text-white items-center rounded-md border px-1.5 py-0.5 text-xs focus:outline-none text-nowrap border-transparent bg-black/5 text-black"
                   key={badge}
+                  type="button"
+                  aria-label={`Technology: ${badge}`}
+                  title={`Project technology: ${badge}`}
                >
                   {badge}
                </button>
@@ -109,6 +112,9 @@ export const Projects = memo<Props>(({ resume, className, ...rest }) => {
             <div className="w-full flex flex-col gap-3 print:hidden">
                <button
                   onClick={handleMore}
+                  type="button"
+                  aria-label={`Show ${more ? 'less' : 'more'} projects`}
+                  aria-expanded={more}
                   className="w-full uppercase border border-border px-1.5 text-sm py-0.5 leading-tight transition-all duration-300 hover:scale-105"
                >
                   show {more ? 'less' : 'more'}
