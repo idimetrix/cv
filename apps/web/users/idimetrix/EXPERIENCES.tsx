@@ -20,8 +20,6 @@ export const EXPERIENCES: Experience[] = [
          },
          {
             title: 'Technologies',
-            description:
-               'React.js · Next.js · Node.js · Nest.js · Clerk.js · Vercel · AWS · EC2 · S3 · Go · Rust · UI/UX · Prisma · MongoDB · DynamoDB · MySQL · PostgreSQL · SQLite (C/C++ based) · Tailwind UI · Tailwind CSS · Payment API · Security API · Travel API · Ads API · Anti-fraud API · Anti-scam API · CI/CD · Agile · Scrum · Kanban · Redis · Radix UI · Headless UI · Shadcn UI · Canva · AI · tRPC · gRPC · Zod · Yup · Docker · Kubernetes · Terraform · NPM · PNPM · TURBO',
             items: [
                'React.js',
                'Next.js',
