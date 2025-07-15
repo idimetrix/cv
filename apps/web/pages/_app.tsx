@@ -11,7 +11,7 @@ import type { AppContext, AppInitialProps, AppProps } from 'next/app'
 import { defaultSEO } from '../constants'
 import { RESUME } from '../users'
 import { WEBSITE } from '../constants'
-import { createEnhancedDefaultSEO } from '../utils/seo'
+import { createDefaultSEO } from '../utils/seo'
 import App from 'next/app'
 import { useRouter } from 'next/router'
 import NProgress from 'nprogress'
@@ -79,8 +79,8 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       }
    }, [router])
 
-   // Enhanced Default SEO with comprehensive configuration
-   const enhancedDefaultSEO = createEnhancedDefaultSEO(RESUME, WEBSITE)
+   // Default SEO with comprehensive configuration
+   const defaultSEO = createDefaultSEO(RESUME, WEBSITE)
 
    if (!loaded) {
       return (
@@ -102,8 +102,8 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
             />
          </Head>
 
-         {/* Use enhanced default SEO instead of basic defaultSEO */}
-         <DefaultSeo {...enhancedDefaultSEO} />
+         {/* Use comprehensive default SEO */}
+         <DefaultSeo {...defaultSEO} />
 
          <div className={cn(jost.variable, 'font-sans')}>
             {isConfetti && (

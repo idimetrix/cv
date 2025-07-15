@@ -78,7 +78,7 @@ interface ComprehensiveSEOProps {
    isHomePage?: boolean
 }
 
-// Utility Functions (enhanced from original seo.ts)
+// Utility Functions
 export const generateMetaKeywords = (additional: string[] = []): string => {
    const baseKeywords = [
       RESUME.name,
@@ -134,8 +134,8 @@ const filterValidUrls = (urls: (string | undefined)[]): string[] => {
    return urls.filter((url): url is string => Boolean(url))
 }
 
-// Enhanced Default SEO Props with comprehensive configurations
-export const createEnhancedDefaultSEO = (
+// Default SEO Props with comprehensive configurations
+export const createDefaultSEO = (
    resume: Resume,
    website: WebsiteConfig
 ): DefaultSeoProps => {
@@ -349,7 +349,7 @@ export const createEnhancedDefaultSEO = (
    }
 }
 
-// Enhanced Page-specific SEO
+// Page-specific SEO
 export const generateSEO = (options: SEOOptions = {}): NextSeoProps => {
    const {
       pageType = 'home',
@@ -370,7 +370,7 @@ export const generateSEO = (options: SEOOptions = {}): NextSeoProps => {
    const url = generateCanonicalUrl(pageUrl || WEBSITE.url)
    const image = optimizeImageUrl(pageImage || WEBSITE.image, 1200, 630)
 
-   // Generate enhanced keywords
+   // Generate keywords
    const allKeywords = generateMetaKeywords(
       [
          ...customKeywords,
@@ -918,7 +918,7 @@ export const SEO: React.FC<SEOProps> = ({
    customMetaTags = [],
    includeJsonLd = true,
 }) => {
-   // Generate enhanced page SEO
+   // Generate page SEO
    const seoProps = generateSEO({
       pageType,
       pageTitle,

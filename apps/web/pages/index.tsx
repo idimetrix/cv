@@ -11,12 +11,12 @@ import { CV } from '../components/organism'
 import { SectionNavigation } from '../components/molecules'
 import { RESUME } from '../users'
 import { WEBSITE } from '../constants'
-import { createEnhancedDefaultSEO, ComprehensiveJsonLd } from '../utils/seo'
+import { createDefaultSEO, ComprehensiveJsonLd } from '../utils/seo'
 
 export default function Home() {
-   // Enhanced SEO configuration for home page - use generateSEO instead
-   const enhancedSEO = {
-      ...createEnhancedDefaultSEO(RESUME, WEBSITE),
+   // SEO configuration for home page
+   const seoConfig = {
+      ...createDefaultSEO(RESUME, WEBSITE),
       title: `${RESUME.name} - ${RESUME.summary}`,
       description: `Professional portfolio and CV of ${RESUME.name}, ${RESUME.summary}. Explore ${RESUME.experiences.length}+ years of experience in ${RESUME.skills
          .slice(0, 5)
@@ -28,11 +28,11 @@ export default function Home() {
 
    return (
       <>
-         {/* Enhanced Next SEO with comprehensive configuration */}
+         {/* Next SEO with comprehensive configuration */}
          <NextSeo
-            {...enhancedSEO}
+            {...seoConfig}
             openGraph={{
-               ...enhancedSEO.openGraph,
+               ...seoConfig.openGraph,
                type: 'profile',
                profile: {
                   firstName: RESUME.firstName,
@@ -66,7 +66,7 @@ export default function Home() {
                ],
             }}
             additionalMetaTags={[
-               ...(enhancedSEO.additionalMetaTags || []),
+               ...(seoConfig.additionalMetaTags || []),
                {
                   name: 'keywords',
                   content: `${RESUME.name}, ${RESUME.summary}, ${RESUME.skills
