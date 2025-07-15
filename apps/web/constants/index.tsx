@@ -1,10 +1,187 @@
-import { RESUME } from "../users"
+import { RESUME } from '../users'
+
+// Helper function to extract username from social media URL or handle
+const extractSocialHandle = (url?: string): string | undefined => {
+   if (!url) return undefined
+   // Extract from URL (e.g., https://x.com/username -> username)
+   const match = url.match(/(?:twitter\.com|x\.com)\/([^\/\?]+)/)
+   if (match) return match[1]
+   // If it's already a handle (e.g., @username or username)
+   return url.replace('@', '')
+}
+
+// Helper function to get locale from languages
+const getLocaleFromLanguages = (
+   languages: Record<string, string> = {}
+): string => {
+   const firstLang = Object.keys(languages)[0]?.toLowerCase()
+   if (firstLang?.includes('english')) return 'en_US'
+   if (firstLang?.includes('spanish')) return 'es_ES'
+   if (firstLang?.includes('french')) return 'fr_FR'
+   if (firstLang?.includes('german')) return 'de_DE'
+   if (firstLang?.includes('portuguese')) return 'pt_BR'
+   if (firstLang?.includes('italian')) return 'it_IT'
+   if (firstLang?.includes('dutch')) return 'nl_NL'
+   if (firstLang?.includes('russian')) return 'ru_RU'
+   if (firstLang?.includes('chinese')) return 'zh_CN'
+   if (firstLang?.includes('japanese')) return 'ja_JP'
+   return 'en_US' // fallback
+}
+
+// Helper function to get language code from languages
+const getLanguageCodeFromLanguages = (
+   languages: Record<string, string> = {}
+): string => {
+   const firstLang = Object.keys(languages)[0]?.toLowerCase()
+   if (firstLang?.includes('english')) return 'en-us'
+   if (firstLang?.includes('spanish')) return 'es-es'
+   if (firstLang?.includes('french')) return 'fr-fr'
+   if (firstLang?.includes('german')) return 'de-de'
+   if (firstLang?.includes('portuguese')) return 'pt-br'
+   if (firstLang?.includes('italian')) return 'it-it'
+   if (firstLang?.includes('dutch')) return 'nl-nl'
+   if (firstLang?.includes('russian')) return 'ru-ru'
+   if (firstLang?.includes('chinese')) return 'zh-cn'
+   if (firstLang?.includes('japanese')) return 'ja-jp'
+   return 'en-us' // fallback
+}
+
+// Helper function to determine seniority level from experience
+const getSeniorityLevel = (experiences: any[] = []): string => {
+   const totalYears = experiences.reduce((total, exp) => {
+      const start = new Date(exp.start).getFullYear()
+      const end = exp.end
+         ? new Date(exp.end).getFullYear()
+         : new Date().getFullYear()
+      return total + (end - start)
+   }, 0)
+
+   if (totalYears >= 15) return 'Executive Level'
+   if (totalYears >= 10) return 'Senior Level'
+   if (totalYears >= 5) return 'Mid Level'
+   if (totalYears >= 2) return 'Professional Level'
+   return 'Entry Level'
+}
+
+// Helper function to get primary industry from experience
+const getPrimaryIndustry = (
+   experiences: any[] = [],
+   skills: any[] = []
+): string => {
+   if (experiences.length === 0) return 'Professional Services'
+
+   // Extract industry keywords from experience descriptions and titles
+   const industryKeywords = {
+      Technology: [
+         'software',
+         'tech',
+         'developer',
+         'engineer',
+         'programming',
+         'digital',
+         'IT',
+         'computer',
+      ],
+      Finance: [
+         'finance',
+         'fintech',
+         'banking',
+         'investment',
+         'trading',
+         'crypto',
+         'blockchain',
+      ],
+      Healthcare: [
+         'health',
+         'medical',
+         'healthcare',
+         'pharmaceutical',
+         'biotech',
+      ],
+      Education: [
+         'education',
+         'learning',
+         'teaching',
+         'academic',
+         'university',
+         'school',
+      ],
+      Consulting: ['consulting', 'advisory', 'strategy', 'management'],
+      Marketing: [
+         'marketing',
+         'advertising',
+         'branding',
+         'social media',
+         'digital marketing',
+      ],
+      'E-commerce': [
+         'ecommerce',
+         'retail',
+         'marketplace',
+         'shopping',
+         'commerce',
+      ],
+   }
+
+   const text = experiences
+      .map((exp) => `${exp.title} ${exp.company} ${exp.description || ''}`)
+      .join(' ')
+      .toLowerCase()
+   const skillText = skills
+      .map((skill) => skill.name)
+      .join(' ')
+      .toLowerCase()
+   const combinedText = `${text} ${skillText}`
+
+   for (const [industry, keywords] of Object.entries(industryKeywords)) {
+      if (keywords.some((keyword) => combinedText.includes(keyword))) {
+         return industry
+      }
+   }
+
+   return 'Professional Services'
+}
+
+// Helper function to get service description
+const getServiceDescription = (summary: string, skills: any[] = []): string => {
+   const topSkills = skills
+      .slice(0, 3)
+      .map((s) => s.name)
+      .join(', ')
+   return `Professional ${summary.toLowerCase()} services specializing in ${topSkills}`
+}
+
+// Helper function to get coverage area
+const getCoverageArea = (locations: any[] = []): string => {
+   if (locations.length === 0) return 'Worldwide'
+   if (locations.length === 1) return 'Regional'
+
+   const countries = locations.map((loc) =>
+      loc.name.split(',').slice(-1)[0].trim()
+   )
+   const uniqueCountries = Array.from(new Set(countries))
+
+   if (uniqueCountries.length > 2) return 'International'
+   return 'Multi-Regional'
+}
+
+// Helper function to get revisit frequency based on activity
+const getRevisitFrequency = (
+   experiences: any[] = [],
+   projects: any[] = []
+): string => {
+   const isActive = experiences.some((exp) => !exp.end) // Has current job
+   const hasRecentProjects = projects.length > 5
+
+   if (isActive && hasRecentProjects) return '3 days'
+   if (isActive) return '7 days'
+   return '14 days'
+}
 
 export const URL =
    process.env.NEXT_PUBLIC_URL ||
    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '') ||
    ''
-   
 
 export const WEBSITE = {
    url: URL,
@@ -34,7 +211,9 @@ export const WEBSITE = {
       'HTML5',
       'CSS3',
       ...RESUME.keywords,
-   ].join(', ').trim(),
+   ]
+      .join(', ')
+      .trim(),
    about: `${RESUME.name} - ${RESUME.summary}`,
    phone: null,
 }
@@ -48,7 +227,7 @@ export const defaultSEO = {
 
    openGraph: {
       type: 'website',
-      locale: Object.keys(RESUME.languages || {})[0]?.toLowerCase().includes('english') ? 'en_US' : 'en_US',
+      locale: getLocaleFromLanguages(RESUME.languages),
       url: WEBSITE.url,
       siteName: WEBSITE.name,
       title: WEBSITE.title,
@@ -72,8 +251,12 @@ export const defaultSEO = {
    },
 
    twitter: {
-      handle: RESUME.contact.twitter ? `@${RESUME.contact.twitter.split('/').pop()}` : undefined,
-      site: RESUME.contact.twitter ? `@${RESUME.contact.twitter.split('/').pop()}` : undefined,
+      handle: extractSocialHandle(RESUME.contact.twitter)
+         ? `@${extractSocialHandle(RESUME.contact.twitter)}`
+         : undefined,
+      site: extractSocialHandle(RESUME.contact.twitter)
+         ? `@${extractSocialHandle(RESUME.contact.twitter)}`
+         : undefined,
       cardType: 'summary_large_image',
    },
 
@@ -96,31 +279,36 @@ export const defaultSEO = {
       },
       {
          name: 'language',
-         content: Object.keys(RESUME.languages || {})[0]?.toLowerCase().includes('english') ? 'en-us' : 'en-us',
+         content: getLanguageCodeFromLanguages(RESUME.languages),
       },
       {
          name: 'classification',
-         content: `Professional CV, Portfolio, Resume - ${RESUME.summary}`,
+         content: `${getSeniorityLevel(RESUME.experiences)} CV, Portfolio, Resume - ${RESUME.summary}`,
       },
       {
          name: 'category',
-         content: `${RESUME.skills.slice(0, 3).map(s => s.name).join(', ')} - ${RESUME.summary}`,
+         content: `${getPrimaryIndustry(RESUME.experiences, RESUME.skills)}, ${RESUME.skills
+            .slice(0, 2)
+            .map((s) => s.name)
+            .join(', ')}`,
       },
       {
          name: 'coverage',
-         content: RESUME.locations.map(loc => loc.name.split(',')[0]).join(', ') || 'Worldwide',
+         content:
+            RESUME.locations.map((loc) => loc.name.split(',')[0]).join(', ') ||
+            getCoverageArea(RESUME.locations),
       },
       {
          name: 'distribution',
-         content: RESUME.locations.length > 1 ? 'International' : 'Regional',
+         content: getCoverageArea(RESUME.locations),
       },
       {
          name: 'rating',
-         content: 'Professional',
+         content: getSeniorityLevel(RESUME.experiences),
       },
       {
          name: 'revisit-after',
-         content: '7 days',
+         content: getRevisitFrequency(RESUME.experiences, RESUME.projects),
       },
       {
          name: 'theme-color',
@@ -163,7 +351,9 @@ export const structuredData = {
       jobTitle: RESUME.summary,
       worksFor: {
          '@type': 'Organization',
-         name: 'Technology Industry',
+         name:
+            RESUME.experiences?.[0]?.company ||
+            getPrimaryIndustry(RESUME.experiences, RESUME.skills),
       },
       url: WEBSITE.url,
       image: WEBSITE.image,
@@ -173,22 +363,25 @@ export const structuredData = {
          RESUME.contact.npm,
          RESUME.contact.telegram,
          RESUME.contact.twitter,
-      ],
+      ].filter(Boolean), // Remove undefined values
       email: RESUME.contact.email,
       knowsAbout: [
          ...RESUME.keywords,
-         ...RESUME.skills.map(skill => skill.name),
+         ...RESUME.skills.map((skill) => skill.name),
       ].slice(0, 15), // Limit to prevent too many items
       hasOccupation: {
          '@type': 'Occupation',
          name: RESUME.summary,
          occupationLocation: {
             '@type': 'Country',
-            name: RESUME.locations.map(loc => loc.name.split(',').slice(-1)[0].trim()).join(', ') || 'Global',
+            name:
+               RESUME.locations
+                  .map((loc) => loc.name.split(',').slice(-1)[0].trim())
+                  .join(', ') || 'Global',
          },
          estimatedSalary: {
             '@type': 'MonetaryAmountDistribution',
-            name: 'Senior Executive Level',
+            name: getSeniorityLevel(RESUME.experiences),
          },
       },
    },
@@ -217,20 +410,21 @@ export const structuredData = {
    organization: {
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
-      name: `${RESUME.name} - Technical Consulting`,
+      name: `${RESUME.name} - ${getPrimaryIndustry(RESUME.experiences, RESUME.skills)} Services`,
       url: WEBSITE.url,
       logo: WEBSITE.image,
-      description:
-         'Professional software development and technical leadership consulting services',
+      description: getServiceDescription(RESUME.summary, RESUME.skills),
       founder: {
          '@type': 'Person',
          name: RESUME.name,
       },
-      foundingDate: '2009',
-      areaServed: 'Worldwide',
+      foundingDate: RESUME.experiences?.[0]?.start
+         ? new Date(RESUME.experiences[0].start).getFullYear().toString()
+         : new Date().getFullYear().toString(),
+      areaServed: getCoverageArea(RESUME.locations),
       serviceType: [
          RESUME.summary,
-         ...RESUME.skills.slice(0, 4).map(skill => skill.name),
+         ...RESUME.skills.slice(0, 4).map((skill) => skill.name),
       ],
    },
 }

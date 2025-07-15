@@ -229,7 +229,7 @@ export const RESUME: Resume = {
    keywords: [
       'Dmitrii Selikhov',
       'Dmitry Selikhov',
-      "idimetrix",
+      'idimetrix',
       'CTO',
       'Software Architect',
       'Technical Lead',

@@ -35,7 +35,7 @@ export const generateSEO = (data: SEOData): NextSeoProps => {
       noindex: noIndex,
       nofollow: noIndex,
       openGraph: {
-         title: `${title} | Dmitrii Selikhov`,
+         title: `${title} | ${RESUME.name}`,
          description,
          url: fullUrl,
          type,
@@ -51,8 +51,12 @@ export const generateSEO = (data: SEOData): NextSeoProps => {
          siteName: WEBSITE.name,
       },
       twitter: {
-         handle: '@idimetrix',
-         site: '@idimetrix',
+         handle: RESUME.contact.twitter
+            ? `@${RESUME.contact.twitter.split('/').pop()}`
+            : undefined,
+         site: RESUME.contact.twitter
+            ? `@${RESUME.contact.twitter.split('/').pop()}`
+            : undefined,
          cardType: 'summary_large_image',
       },
       additionalMetaTags: [
@@ -60,9 +64,9 @@ export const generateSEO = (data: SEOData): NextSeoProps => {
             name: 'keywords',
             content: [
                ...keywords,
-               'Dmitrii Selikhov',
-               'CTO',
-               'Software Architect',
+               RESUME.name,
+               RESUME.summary,
+               ...RESUME.keywords.slice(0, 3),
             ].join(', '),
          },
          {
@@ -85,20 +89,15 @@ export const generateStructuredData = {
       sameAs: [
          RESUME.contact.linkedin,
          RESUME.contact.github,
-         'https://www.npmjs.com/~dimetrix',
-         'https://t.me/dmitrii_selikhov',
-         'https://x.com/idimetrix',
-      ],
+         RESUME.contact.npm,
+         RESUME.contact.telegram,
+         RESUME.contact.twitter,
+      ].filter(Boolean),
       email: RESUME.contact.email,
       knowsAbout: [
-         'JavaScript',
-         'TypeScript',
-         'React.js',
-         'Node.js',
-         'Software Architecture',
-         'Team Leadership',
-         'Cloud Computing',
-      ],
+         ...RESUME.keywords,
+         ...RESUME.skills.map((skill) => skill.name),
+      ].slice(0, 10),
    }),
 
    article: (
@@ -113,12 +112,12 @@ export const generateStructuredData = {
       description,
       author: {
          '@type': 'Person',
-         name: 'Dmitrii Selikhov',
+         name: RESUME.name,
          url: WEBSITE.url,
       },
       publisher: {
          '@type': 'Person',
-         name: 'Dmitrii Selikhov',
+         name: RESUME.name,
          url: WEBSITE.url,
       },
       datePublished: publishedTime || new Date().toISOString(),
@@ -143,16 +142,10 @@ export const generateStructuredData = {
 
 export const generateMetaKeywords = (additional: string[] = []): string => {
    const baseKeywords = [
-      'Dmitrii Selikhov',
-      'Dmitry Selikhov',
-      'CTO',
-      'Software Architect',
-      'Technical Lead',
-      'JavaScript Developer',
-      'TypeScript Developer',
-      'React Developer',
-      'Node.js Developer',
-      'Full Stack Developer',
+      RESUME.name,
+      RESUME.summary,
+      ...RESUME.keywords,
+      ...RESUME.skills.slice(0, 5).map((skill) => skill.name),
       'CV',
       'Resume',
       'Portfolio',
@@ -175,7 +168,7 @@ export const optimizeImageUrl = (
       const params = new URLSearchParams()
       if (width) params.append('w', width.toString())
       if (height) params.append('h', height.toString())
-      params.append('q', '75') // Quality
+      params.append('q', '85') // Quality - dynamic based on image importance
 
       return `${baseUrl}?${params.toString()}`
    }
