@@ -48,7 +48,7 @@ export const defaultSEO = {
 
    openGraph: {
       type: 'website',
-      locale: 'en_US',
+      locale: Object.keys(RESUME.languages || {})[0]?.toLowerCase().includes('english') ? 'en_US' : 'en_US',
       url: WEBSITE.url,
       siteName: WEBSITE.name,
       title: WEBSITE.title,
@@ -72,8 +72,8 @@ export const defaultSEO = {
    },
 
    twitter: {
-      handle: '@idimetrix',
-      site: '@idimetrix',
+      handle: RESUME.contact.twitter ? `@${RESUME.contact.twitter.split('/').pop()}` : undefined,
+      site: RESUME.contact.twitter ? `@${RESUME.contact.twitter.split('/').pop()}` : undefined,
       cardType: 'summary_large_image',
    },
 
@@ -96,27 +96,27 @@ export const defaultSEO = {
       },
       {
          name: 'language',
-         content: 'en-us',
+         content: Object.keys(RESUME.languages || {})[0]?.toLowerCase().includes('english') ? 'en-us' : 'en-us',
       },
       {
          name: 'classification',
-         content: 'Professional CV, Portfolio, Resume',
+         content: `Professional CV, Portfolio, Resume - ${RESUME.summary}`,
       },
       {
          name: 'category',
-         content: 'Technology, Software Development, Leadership',
+         content: `${RESUME.skills.slice(0, 3).map(s => s.name).join(', ')} - ${RESUME.summary}`,
       },
       {
          name: 'coverage',
-         content: 'Worldwide',
+         content: RESUME.locations.map(loc => loc.name.split(',')[0]).join(', ') || 'Worldwide',
       },
       {
          name: 'distribution',
-         content: 'Global',
+         content: RESUME.locations.length > 1 ? 'International' : 'Regional',
       },
       {
          name: 'rating',
-         content: 'General',
+         content: 'Professional',
       },
       {
          name: 'revisit-after',
@@ -170,28 +170,21 @@ export const structuredData = {
       sameAs: [
          RESUME.contact.linkedin,
          RESUME.contact.github,
-         'https://www.npmjs.com/~dimetrix',
-         'https://t.me/dmitrii_selikhov',
-         'https://x.com/idimetrix',
+         RESUME.contact.npm,
+         RESUME.contact.telegram,
+         RESUME.contact.twitter,
       ],
       email: RESUME.contact.email,
       knowsAbout: [
-         'JavaScript',
-         'TypeScript',
-         'React.js',
-         'Node.js',
-         'Software Architecture',
-         'Team Leadership',
-         'Cloud Computing',
-         'Web Development',
-         'Full Stack Development',
-      ],
+         ...RESUME.keywords,
+         ...RESUME.skills.map(skill => skill.name),
+      ].slice(0, 15), // Limit to prevent too many items
       hasOccupation: {
          '@type': 'Occupation',
-         name: 'Chief Technology Officer',
+         name: RESUME.summary,
          occupationLocation: {
             '@type': 'Country',
-            name: 'Global',
+            name: RESUME.locations.map(loc => loc.name.split(',').slice(-1)[0].trim()).join(', ') || 'Global',
          },
          estimatedSalary: {
             '@type': 'MonetaryAmountDistribution',
@@ -236,11 +229,8 @@ export const structuredData = {
       foundingDate: '2009',
       areaServed: 'Worldwide',
       serviceType: [
-         'Software Architecture',
-         'Technical Leadership',
-         'Software Development',
-         'Team Management',
-         'Technology Consulting',
+         RESUME.summary,
+         ...RESUME.skills.slice(0, 4).map(skill => skill.name),
       ],
    },
 }
