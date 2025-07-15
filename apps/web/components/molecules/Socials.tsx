@@ -19,6 +19,7 @@ export const Socials = memo<Props>(({ resume, className, ...rest }) => {
                href={`mailto:${resume.contact.email}`}
                title={resume.contact.email}
                target="_blank"
+               rel="noopener noreferrer"
                className="border border-black transition-all duration-300 hover:scale-105 rounded size-8 items-center justify-center flex"
             >
                <span className="sr-only">{resume.contact.email}</span>
@@ -30,6 +31,7 @@ export const Socials = memo<Props>(({ resume, className, ...rest }) => {
                href={`tel:${resume.contact.phone}`}
                title={resume.contact.phone}
                target="_blank"
+               rel="noopener noreferrer"
                className="border border-black transition-all duration-300 hover:scale-105 rounded size-8 items-center justify-center flex"
             >
                <span className="sr-only">{resume.contact.phone}</span>
@@ -42,6 +44,7 @@ export const Socials = memo<Props>(({ resume, className, ...rest }) => {
                title={social.name}
                href={social.url}
                target="_blank"
+               rel="noopener noreferrer"
                className="border border-black transition-all duration-300 hover:scale-105 rounded size-8 items-center justify-center flex"
             >
                <span className="sr-only">{social.name}</span>
@@ -53,6 +56,7 @@ export const Socials = memo<Props>(({ resume, className, ...rest }) => {
                href={resume.contact.website}
                title="Website/Portfolio/Resume/CV"
                target="_blank"
+               rel="noopener noreferrer"
                className="border border-black transition-all duration-300 hover:scale-105 rounded size-8 items-center justify-center flex"
             >
                <span className="sr-only">Website/Portfolio/Resume/CV</span>
@@ -64,6 +68,7 @@ export const Socials = memo<Props>(({ resume, className, ...rest }) => {
                href={resume.contact.call}
                title="Book a Call"
                target="_blank"
+               rel="noopener noreferrer"
                className="border border-black transition-all duration-300 hover:scale-105 rounded size-8 items-center justify-center flex"
             >
                <span className="sr-only">Book a Call</span>

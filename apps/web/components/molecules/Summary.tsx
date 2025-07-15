@@ -14,6 +14,7 @@ export const Summary = memo<Props>(({ resume, className, ...rest }) => {
          <Link
             href={resume.summaryLink}
             target="_blank"
+            rel="noopener noreferrer"
             className="text-black/90 hover:underline font-bold text-lg"
             title={resume.summary}
          >

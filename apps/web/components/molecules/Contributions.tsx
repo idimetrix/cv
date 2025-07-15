@@ -21,6 +21,7 @@ export const Contributions = memo<Props>(({ resume, className, ...rest }) => {
                   href={contribution.link}
                   title={contribution.description || contribution.name}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="border border-black border px-1.5 text-sm py-0.5 leading-tight transition-all duration-300 hover:scale-105"
                >
                   {contribution.name}

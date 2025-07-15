@@ -14,6 +14,7 @@ export const Name = memo<Props>(({ resume, className, ...rest }) => {
          <Link
             href={resume.nameLink}
             target="_blank"
+            rel="noopener noreferrer"
             className="text-2xl mb-1.5 font-bold hover:underline"
             title={`${resume.name} ${resume.nick ? `(${resume.nick})` : ''}`}
          >

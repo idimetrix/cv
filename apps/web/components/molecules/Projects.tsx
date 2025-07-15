@@ -36,6 +36,7 @@ export const Project = memo<ProjectProps>(({ project, className, ...rest }) => {
             <Link
                href={project.link || '#'}
                target="_blank"
+               rel="noopener noreferrer"
                className="font-bold leading-tight hover:underline"
             >
                {project.title}

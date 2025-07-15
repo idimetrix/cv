@@ -33,6 +33,7 @@ export const Education = memo<Props>(({ resume, className, ...rest }) => {
                         <Link
                            href={education.link || '#'}
                            target="_blank"
+                           rel="noopener noreferrer"
                            className="text-left font-bold hover:underline"
                         >
                            {education.company}

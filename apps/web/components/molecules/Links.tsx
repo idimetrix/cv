@@ -18,6 +18,7 @@ export const Links = memo<Props>(({ resume, className, ...rest }) => {
                href={`mailto:${resume.contact.email}`}
                title={resume.contact.email}
                target="_blank"
+               rel="noopener noreferrer"
                className="flex items-center gap-1.5 hover:underline text-sm text-black/80"
             >
                <div className="h-4 w-4 bg-black/80 min-w-4 min-h-4 rounded-full text-white flex justify-center items-center text-xs" />
@@ -30,6 +31,7 @@ export const Links = memo<Props>(({ resume, className, ...rest }) => {
                href={`tel:${resume.contact.phone}`}
                title={resume.contact.phone}
                target="_blank"
+               rel="noopener noreferrer"
                className="flex items-center gap-1.5 hover:underline text-sm text-black/80"
             >
                <div className="h-4 w-4 bg-black/80 min-w-4 min-h-4 rounded-full text-white flex justify-center items-center text-xs" />

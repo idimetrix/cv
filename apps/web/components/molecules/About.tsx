@@ -15,7 +15,7 @@ export const About = memo<Props>(({ resume, className, ...rest }) => {
          <Heading level={2} className="">
             About
          </Heading>
-         <Link href={resume.aboutLink} target="_blank">
+         <Link href={resume.aboutLink} target="_blank" rel="noopener noreferrer">
             {resume.about}
          </Link>
       </div>

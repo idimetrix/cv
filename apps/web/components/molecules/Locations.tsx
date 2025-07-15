@@ -19,6 +19,7 @@ export const Locations = memo<Props>(({ resume, className, ...rest }) => {
                href={location.link}
                title={location.name}
                target="_blank"
+               rel="noopener noreferrer"
                className="flex items-center gap-1.5 hover:underline text-sm text-black/80"
             >
                <FontAwesomeIcon icon={faGlobe} className="h-4 w-4" />

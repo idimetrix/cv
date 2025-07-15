@@ -15,7 +15,7 @@ export const Help = memo<Props>(({ resume, className, ...rest }) => {
          <Heading level={2} className="">
             3 points I can help
          </Heading>
-         <Link href={resume.helpLink} target="_blank">
+         <Link href={resume.helpLink} target="_blank" rel="noopener noreferrer">
             {resume.help}
          </Link>
       </div>

@@ -33,6 +33,7 @@ export const Experience = memo<Props>(({ resume, className, ...rest }) => {
                         <Link
                            href={experience.link || '#'}
                            target="_blank"
+                           rel="noopener noreferrer"
                            className="text-left font-bold hover:underline"
                         >
                            {experience.company}
