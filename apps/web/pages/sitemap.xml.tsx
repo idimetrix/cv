@@ -6,15 +6,16 @@ const Sitemap = () => {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-   const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://dmitrii-selikhov.vercel.app'
-   
+   const baseUrl =
+      process.env.NEXT_PUBLIC_URL || 'https://dmitrii-selikhov.vercel.app'
+
    const staticPages = [
       {
          url: '',
          changefreq: 'weekly',
          priority: '1.0',
-         lastmod: new Date().toISOString()
-      }
+         lastmod: new Date().toISOString(),
+      },
    ]
 
    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -34,13 +35,16 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
    </urlset>`
 
    res.setHeader('Content-Type', 'text/xml')
-   res.setHeader('Cache-Control', 'public, s-maxage=1200, stale-while-revalidate=600')
+   res.setHeader(
+      'Cache-Control',
+      'public, s-maxage=1200, stale-while-revalidate=600'
+   )
    res.write(sitemap)
    res.end()
 
    return {
-      props: {}
+      props: {},
    }
 }
 
-export default Sitemap 
+export default Sitemap

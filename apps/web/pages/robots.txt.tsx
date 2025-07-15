@@ -6,8 +6,9 @@ const Robots = () => {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-   const baseUrl = process.env.NEXT_PUBLIC_URL || 'https://dmitrii-selikhov.vercel.app'
-   
+   const baseUrl =
+      process.env.NEXT_PUBLIC_URL || 'https://dmitrii-selikhov.vercel.app'
+
    const robots = `User-agent: *
 Allow: /
 
@@ -33,13 +34,16 @@ Sitemap: ${baseUrl}/sitemap.xml
 Crawl-delay: 1`
 
    res.setHeader('Content-Type', 'text/plain')
-   res.setHeader('Cache-Control', 'public, s-maxage=86400, stale-while-revalidate=43200')
+   res.setHeader(
+      'Cache-Control',
+      'public, s-maxage=86400, stale-while-revalidate=43200'
+   )
    res.write(robots)
    res.end()
 
    return {
-      props: {}
+      props: {},
    }
 }
 
-export default Robots 
+export default Robots

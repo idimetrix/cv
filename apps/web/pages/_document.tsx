@@ -10,8 +10,6 @@ import Script from 'next/script'
 import { ServerStyleSheet } from 'styled-components'
 import { WEBSITE } from '../constants'
 
-
-
 export default function PagesDocument({
    nonce,
 }: DocumentInitialProps & { nonce: string | undefined }) {

@@ -1,10 +1,15 @@
 import Link from 'next/link'
 import { NextSeo } from 'next-seo'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHome, faUser, faCode, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import {
+   faHome,
+   faUser,
+   faCode,
+   faEnvelope,
+} from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { Heading } from '../components/atoms'
-import { WEBSITE, RESUME } from '../constants'
+import { RESUME } from '../users'
 
 export default function NotFoundPage() {
    return (
@@ -15,7 +20,7 @@ export default function NotFoundPage() {
             noindex={true}
             nofollow={true}
          />
-         
+
          <div className="min-h-screen flex items-center justify-center px-4 py-8">
             <div className="max-w-2xl w-full text-center space-y-8">
                {/* 404 Header */}
@@ -23,12 +28,15 @@ export default function NotFoundPage() {
                   <div className="text-8xl md:text-9xl font-bold text-dark1 dark:text-white">
                      404
                   </div>
-                  <Heading level={1} className="text-3xl md:text-4xl border-b-0 mb-4">
+                  <Heading
+                     level={1}
+                     className="text-3xl md:text-4xl border-b-0 mb-4"
+                  >
                      Page Not Found
                   </Heading>
                   <p className="text-lg text-light1 dark:text-gray-300 max-w-lg mx-auto">
-                     The page you're looking for doesn't exist or has been moved. 
-                     Let me help you find what you're looking for.
+                     The page you&apos;re looking for doesn&apos;t exist or has been
+                     moved. Let me help you find what you&apos;re looking for.
                   </p>
                </div>
 
@@ -41,7 +49,7 @@ export default function NotFoundPage() {
                      <FontAwesomeIcon icon={faHome} className="w-5 h-5" />
                      <span className="font-medium">Go Home</span>
                   </Link>
-                  
+
                   <Link
                      href="/#about"
                      className="flex items-center justify-center gap-3 p-4 bg-dark1 hover:bg-dark2 text-white rounded-lg transition-colors duration-200"
@@ -67,7 +75,10 @@ export default function NotFoundPage() {
                         href="/#projects"
                         className="px-4 py-2 bg-light2 hover:bg-light1/20 text-dark1 rounded-full text-sm font-medium transition-colors duration-200"
                      >
-                        <FontAwesomeIcon icon={faCode} className="w-4 h-4 mr-2" />
+                        <FontAwesomeIcon
+                           icon={faCode}
+                           className="w-4 h-4 mr-2"
+                        />
                         Projects
                      </Link>
                      <Link
@@ -96,7 +107,10 @@ export default function NotFoundPage() {
                         className="flex items-center gap-2 text-blue1 hover:text-blue1/80 transition-colors duration-200"
                         aria-label="Send email"
                      >
-                        <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5" />
+                        <FontAwesomeIcon
+                           icon={faEnvelope}
+                           className="w-5 h-5"
+                        />
                         <span className="font-medium">Email</span>
                      </a>
                      <a
@@ -106,7 +120,10 @@ export default function NotFoundPage() {
                         className="flex items-center gap-2 text-blue1 hover:text-blue1/80 transition-colors duration-200"
                         aria-label="LinkedIn profile"
                      >
-                        <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5" />
+                        <FontAwesomeIcon
+                           icon={faLinkedin}
+                           className="w-5 h-5"
+                        />
                         <span className="font-medium">LinkedIn</span>
                      </a>
                      <a
@@ -125,9 +142,10 @@ export default function NotFoundPage() {
                {/* Professional Message */}
                <div className="bg-light3 dark:bg-dark1/20 p-6 rounded-lg border border-border">
                   <p className="text-sm text-light1 dark:text-gray-300">
-                     I'm {RESUME.name}, a {RESUME.summary}. If you're looking for specific information 
-                     about my background or want to discuss potential opportunities, 
-                     feel free to reach out through any of the contact methods above.
+                     I&apos;m {RESUME.name}, a {RESUME.summary}. If you&apos;re looking
+                     for specific information about my background or want to
+                     discuss potential opportunities, feel free to reach out
+                     through any of the contact methods above.
                   </p>
                </div>
             </div>

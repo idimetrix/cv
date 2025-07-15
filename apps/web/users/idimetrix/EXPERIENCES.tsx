@@ -1,4 +1,4 @@
-import { Experience } from '../types/Experience'
+import { Experience } from '../../types/Experience'
 
 // Responsibilities
 // Technologies

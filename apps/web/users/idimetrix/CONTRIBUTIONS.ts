@@ -1,4 +1,4 @@
-import { Contribution } from '../types/Contribution'
+import { Contribution } from '../../types/Contribution'
 
 export const CONTRIBUTIONS: Contribution[] = [
    {

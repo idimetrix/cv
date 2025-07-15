@@ -46,4 +46,6 @@ export type Resume = {
    contributions: Contribution[]
 
    characteristics: string[]
+
+   keywords: string[]
 }

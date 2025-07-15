@@ -10,7 +10,7 @@ import {
    faFileSvg,
    faHome,
 } from '@fortawesome/pro-solid-svg-icons'
-import { RESUME } from '../../constants'
+import { RESUME } from '../../users'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume

@@ -25,7 +25,7 @@ export const SEO = ({
    type = 'website',
    noIndex = false,
    structuredData = 'none',
-   articleData
+   articleData,
 }: SEOProps) => {
    const seoProps = generateSEO({
       title,
@@ -34,7 +34,7 @@ export const SEO = ({
       image,
       url,
       type,
-      noIndex
+      noIndex,
    })
 
    const getStructuredData = () => {
@@ -62,7 +62,7 @@ export const SEO = ({
             <script
                type="application/ld+json"
                dangerouslySetInnerHTML={{
-                  __html: JSON.stringify(structuredDataJson)
+                  __html: JSON.stringify(structuredDataJson),
                }}
             />
          )}
@@ -70,4 +70,4 @@ export const SEO = ({
    )
 }
 
-export default SEO 
+export default SEO

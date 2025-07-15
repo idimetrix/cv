@@ -2,7 +2,8 @@ const WEBSITE = {
    url: process.env.NEXT_PUBLIC_URL || 'https://dmitrii-selikhov.vercel.app',
    name: 'Dmitrii Selikhov - CTO, Software Architect, Technical Lead',
    title: 'Dmitrii Selikhov - CTO, Software Architect, Technical Lead',
-   description: 'Experienced CTO and Software Architect with 15+ years in web development, team management, and technical leadership. Specializing in JavaScript/TypeScript, React, Node.js, and cloud architecture.',
+   description:
+      'Experienced CTO and Software Architect with 15+ years in web development, team management, and technical leadership. Specializing in JavaScript/TypeScript, React, Node.js, and cloud architecture.',
    image: '/me.jpg',
    email: 'dmitrii.selikhov@gmail.com',
    linkedin: 'https://www.linkedin.com/in/dimetrix',
@@ -27,8 +28,8 @@ const WEBSITE = {
       'Resume',
       'Portfolio',
       'Dmitrii Selikhov',
-      'Dmitry Selikhov'
-   ]
+      'Dmitry Selikhov',
+   ],
 }
 
 /** @type {import('next-seo').DefaultSeoProps} */
@@ -37,7 +38,7 @@ const defaultSEO = {
    defaultTitle: WEBSITE.title,
    description: WEBSITE.description,
    canonical: WEBSITE.url,
-   
+
    openGraph: {
       type: 'website',
       locale: 'en_US',
@@ -59,91 +60,91 @@ const defaultSEO = {
             width: 800,
             height: 600,
             type: 'image/png',
-         }
+         },
       ],
    },
-   
+
    twitter: {
       handle: '@idimetrix',
       site: '@idimetrix',
       cardType: 'summary_large_image',
    },
-   
+
    additionalMetaTags: [
       {
          name: 'keywords',
-         content: WEBSITE.keywords.join(', ')
+         content: WEBSITE.keywords.join(', '),
       },
       {
          name: 'author',
-         content: 'Dmitrii Selikhov'
+         content: 'Dmitrii Selikhov',
       },
       {
          name: 'robots',
-         content: 'index,follow'
+         content: 'index,follow',
       },
       {
          name: 'googlebot',
-         content: 'index,follow'
+         content: 'index,follow',
       },
       {
          httpEquiv: 'content-language',
-         content: 'en-us'
+         content: 'en-us',
       },
       {
          name: 'classification',
-         content: 'Professional CV, Portfolio, Resume'
+         content: 'Professional CV, Portfolio, Resume',
       },
       {
          name: 'category',
-         content: 'Technology, Software Development, Leadership'
+         content: 'Technology, Software Development, Leadership',
       },
       {
          name: 'coverage',
-         content: 'Worldwide'
+         content: 'Worldwide',
       },
       {
          name: 'distribution',
-         content: 'Global'
+         content: 'Global',
       },
       {
          name: 'rating',
-         content: 'General'
+         content: 'General',
       },
       {
          name: 'revisit-after',
-         content: '7 days'
+         content: '7 days',
       },
       {
          name: 'theme-color',
-         content: '#051036'
+         content: '#051036',
       },
       {
          name: 'msapplication-TileColor',
-         content: '#051036'
-      }
+         content: '#051036',
+      },
    ],
-   
+
    additionalLinkTags: [
       {
          rel: 'icon',
-         href: '/favicon.ico'
+         href: '/favicon.ico',
       },
       {
          rel: 'apple-touch-icon',
          href: '/apple-icon-180.png',
-         sizes: '180x180'
+         sizes: '180x180',
       },
       {
          rel: 'manifest',
-         href: '/manifest.json'
+         href: '/manifest.json',
       },
       {
          rel: 'alternate',
          type: 'application/rss+xml',
-         href: '/feed.xml'
-      }
-   ]
+         href: '/feed.xml',
+      },
+   ],
 }
 
 const structuredData = {
@@ -155,7 +156,7 @@ const structuredData = {
       jobTitle: 'CTO, Software Architect, Technical Lead',
       worksFor: {
          '@type': 'Organization',
-         name: 'Technology Industry'
+         name: 'Technology Industry',
       },
       url: WEBSITE.url,
       image: `${WEBSITE.url}${WEBSITE.image}`,
@@ -164,7 +165,7 @@ const structuredData = {
          WEBSITE.github,
          'https://www.npmjs.com/~dimetrix',
          'https://t.me/dmitrii_selikhov',
-         'https://x.com/idimetrix'
+         'https://x.com/idimetrix',
       ],
       email: WEBSITE.email,
       knowsAbout: [
@@ -176,22 +177,22 @@ const structuredData = {
          'Team Leadership',
          'Cloud Computing',
          'Web Development',
-         'Full Stack Development'
+         'Full Stack Development',
       ],
       hasOccupation: {
          '@type': 'Occupation',
          name: 'Chief Technology Officer',
          occupationLocation: {
             '@type': 'Country',
-            name: 'Global'
+            name: 'Global',
          },
          estimatedSalary: {
             '@type': 'MonetaryAmountDistribution',
-            name: 'Senior Executive Level'
-         }
-      }
+            name: 'Senior Executive Level',
+         },
+      },
    },
-   
+
    website: {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
@@ -201,28 +202,29 @@ const structuredData = {
       inLanguage: 'en-US',
       author: {
          '@type': 'Person',
-         name: 'Dmitrii Selikhov'
+         name: 'Dmitrii Selikhov',
       },
       potentialAction: {
          '@type': 'SearchAction',
          target: {
             '@type': 'EntryPoint',
-            urlTemplate: `${WEBSITE.url}/?q={search_term_string}`
+            urlTemplate: `${WEBSITE.url}/?q={search_term_string}`,
          },
-         'query-input': 'required name=search_term_string'
-      }
+         'query-input': 'required name=search_term_string',
+      },
    },
-   
+
    organization: {
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',
       name: 'Dmitrii Selikhov - Technical Consulting',
       url: WEBSITE.url,
       logo: `${WEBSITE.url}${WEBSITE.image}`,
-      description: 'Professional software development and technical leadership consulting services',
+      description:
+         'Professional software development and technical leadership consulting services',
       founder: {
          '@type': 'Person',
-         name: 'Dmitrii Selikhov'
+         name: 'Dmitrii Selikhov',
       },
       foundingDate: '2009',
       areaServed: 'Worldwide',
@@ -231,13 +233,13 @@ const structuredData = {
          'Technical Leadership',
          'Software Development',
          'Team Management',
-         'Technology Consulting'
-      ]
-   }
+         'Technology Consulting',
+      ],
+   },
 }
 
 module.exports = {
    defaultSEO,
    structuredData,
-   WEBSITE
-} 
+   WEBSITE,
+}

@@ -16,7 +16,6 @@ import { ReactElement, ReactNode, useEffect, useState } from 'react'
 import Confetti from 'react-confetti'
 import { Toaster } from 'react-hot-toast'
 import { Jost } from 'next/font/google'
-import { WEBSITE } from '../constants'
 import { useConfettiStore } from '../store/confetti'
 import { GlobalProvider } from '../context/store'
 

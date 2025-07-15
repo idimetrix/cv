@@ -8,7 +8,7 @@ import { createContext } from '@cv/trpc/server/context'
 import { appRouter } from '@cv/trpc/server/router/_app'
 import { inferSSRProps } from '@cv/types/inferSSRProps'
 import { CV } from '../components/organism'
-import { RESUME } from '../constants'
+import { RESUME } from '../users'
 import { structuredData, WEBSITE } from '../next-seo.config'
 
 export default function Home() {
@@ -20,14 +20,15 @@ export default function Home() {
             canonical={WEBSITE.url}
             openGraph={{
                title: 'Dmitrii Selikhov - CTO, Software Architect, Technical Lead',
-               description: 'Professional CV and portfolio showcasing expertise in JavaScript/TypeScript, React, Node.js, cloud architecture, and technical leadership.',
+               description:
+                  'Professional CV and portfolio showcasing expertise in JavaScript/TypeScript, React, Node.js, cloud architecture, and technical leadership.',
                url: WEBSITE.url,
                type: 'profile',
                profile: {
                   firstName: 'Dmitrii',
                   lastName: 'Selikhov',
                   username: 'dimetrix',
-                  gender: 'male'
+                  gender: 'male',
                },
                images: [
                   {
@@ -36,17 +37,18 @@ export default function Home() {
                      width: 1200,
                      height: 630,
                      type: 'image/jpeg',
-                  }
+                  },
                ],
             }}
             additionalMetaTags={[
                {
                   name: 'keywords',
-                  content: 'Dmitrii Selikhov, CTO, Software Architect, Technical Lead, JavaScript, TypeScript, React, Node.js, CV, Resume, Portfolio'
-               }
+                  content:
+                     'Dmitrii Selikhov, CTO, Software Architect, Technical Lead, JavaScript, TypeScript, React, Node.js, CV, Resume, Portfolio',
+               },
             ]}
          />
-         
+
          <ProfilePageJsonLd
             type="Person"
             keywordsString="JavaScript, TypeScript, React, Node.js, Software Architecture, Technical Leadership"
@@ -58,18 +60,18 @@ export default function Home() {
                   position: 1,
                   name: 'Home',
                   item: WEBSITE.url,
-               }
+               },
             ]}
          />
-         
+
          <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{
                __html: JSON.stringify([
                   structuredData.person,
                   structuredData.website,
-                  structuredData.organization
-               ])
+                  structuredData.organization,
+               ]),
             }}
          />
 
