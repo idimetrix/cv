@@ -2,7 +2,7 @@ import { HTMLAttributes, memo, useCallback } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import Link from 'next/link'
-import { Heading, MarkdownText } from '../atoms'
+import { Heading, Markdown } from '../atoms'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
@@ -53,7 +53,7 @@ export const Education = memo<Props>(({ resume, className, ...rest }) => {
                   </div>
                   <div>{education.title}</div>
                   <div className="text-sm w-full text-black/70">
-                     <MarkdownText>{education.description}</MarkdownText>
+                     <Markdown>{education.description}</Markdown>
                   </div>
                </div>
             ))}

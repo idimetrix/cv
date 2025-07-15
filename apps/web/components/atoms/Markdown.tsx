@@ -3,8 +3,8 @@ import ReactMarkdown from 'react-markdown'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {}
 
-// Memoized MarkdownText component
-export const MarkdownText = memo<Props>(({ children, className, ...rest }) => {
+// Memoized Markdown component
+export const Markdown = memo<Props>(({ children, className, ...rest }) => {
    return (
       <div className={className} {...rest}>
          {typeof children === 'string' ? (
@@ -66,4 +66,4 @@ export const MarkdownText = memo<Props>(({ children, className, ...rest }) => {
    )
 })
 
-MarkdownText.displayName = 'MarkdownText'
+Markdown.displayName = 'Markdown'

@@ -3,7 +3,7 @@ import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Heading, MarkdownText } from '../atoms'
+import { Heading, Markdown } from '../atoms'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
@@ -46,7 +46,7 @@ export const Project = memo<ProjectProps>(({ project, className, ...rest }) => {
             className="text-sm text-black/80 leading-tight line-clamp-5"
             title={project.description}
          >
-            <MarkdownText>{project.description}</MarkdownText>
+            <Markdown>{project.description}</Markdown>
          </div>
          <div className="flex gap-1.5 mt-1.5 flex-wrap">
             {project.badges?.map((badge) => (

@@ -2,7 +2,7 @@ import { HTMLAttributes, memo } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import Link from 'next/link'
-import { Heading, MarkdownText } from '../atoms'
+import { Heading, Markdown } from '../atoms'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
    resume: Resume
@@ -25,7 +25,7 @@ export const Help = memo<Props>(({ resume, className, ...rest }) => {
                      <h3 className="font-bold">{content.title}</h3>
                      {content.description && (
                         <div>
-                           <MarkdownText>{content.description}</MarkdownText>
+                           <Markdown>{content.description}</Markdown>
                         </div>
                      )}
                      <ul className="">
@@ -37,13 +37,13 @@ export const Help = memo<Props>(({ resume, className, ...rest }) => {
                               return (
                                  <li key={itemIndex}>
                                     <strong>{beforeColon}</strong>:
-                                    <MarkdownText>{afterColon}</MarkdownText>
+                                    <Markdown>{afterColon}</Markdown>
                                  </li>
                               )
                            }
                            return (
                               <li key={itemIndex}>
-                                 <MarkdownText>{item}</MarkdownText>
+                                 <Markdown>{item}</Markdown>
                               </li>
                            )
                         })}

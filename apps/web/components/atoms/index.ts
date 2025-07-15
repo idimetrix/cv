@@ -1,2 +1,2 @@
 export * from './Heading'
-export * from './MarkdownText'
+export * from './Markdown'
