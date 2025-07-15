@@ -1,3 +1,4 @@
+import { NextSeoProps } from 'next-seo'
 import { RESUME } from '../users'
 
 // Helper function to extract username from social media URL or handle
@@ -218,8 +219,7 @@ export const WEBSITE = {
    phone: null,
 }
 
-/** @type {import('next-seo').DefaultSeoProps} */
-export const defaultSEO = {
+export const defaultSEO: NextSeoProps = {
    titleTemplate: `%s | ${RESUME.name}`,
    defaultTitle: WEBSITE.title,
    description: WEBSITE.description,
