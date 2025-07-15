@@ -15,7 +15,14 @@ import { createDefaultSEO } from '../utils/seo'
 import App from 'next/app'
 import { useRouter } from 'next/router'
 import NProgress from 'nprogress'
-import { ReactElement, ReactNode, useEffect, useState } from 'react'
+import {
+   ReactElement,
+   ReactNode,
+   useEffect,
+   useState,
+   useMemo,
+   useCallback,
+} from 'react'
 import Confetti from 'react-confetti'
 import { Toaster } from 'react-hot-toast'
 import { Jost } from 'next/font/google'
@@ -54,6 +61,47 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
 
    const { isConfetti, setConfetti } = useConfettiStore()
 
+   // Memoize window dimensions for confetti to avoid accessing window on every render
+   const windowDimensions = useMemo(() => {
+      if (typeof window !== 'undefined') {
+         return {
+            width: window.innerWidth,
+            height: window.innerHeight,
+         }
+      }
+      return { width: 1200, height: 800 } // fallback dimensions
+   }, [])
+
+   // Memoize default SEO configuration since RESUME and WEBSITE are static
+   const defaultSEOConfig = useMemo(() => createDefaultSEO(RESUME, WEBSITE), [])
+
+   // Memoized loading component
+   const LoadingComponent = useMemo(
+      () => (
+         <div className="flex h-screen w-full items-center justify-center">
+            <FontAwesomeIcon
+               icon={faSpinnerThird}
+               className="fa-spin h-8 w-8 text-black"
+            />
+         </div>
+      ),
+      []
+   )
+
+   // Memoized confetti complete handler
+   const handleConfettiComplete = useCallback(() => {
+      setConfetti(false)
+   }, [setConfetti])
+
+   // Memoized event handlers for router
+   const handleRouteStart = useCallback(() => {
+      NProgress.start()
+   }, [])
+
+   const handleRouteStop = useCallback(() => {
+      NProgress.done()
+   }, [])
+
    useEffect(() => {
       if (typeof window !== 'undefined') {
          setLoaded(true)
@@ -61,36 +109,19 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
    }, [])
 
    useEffect(() => {
-      const handleStart = () => {
-         NProgress.start()
-      }
-      const handleStop = () => {
-         NProgress.done()
-      }
-
-      router.events.on('routeChangeStart', handleStart)
-      router.events.on('routeChangeComplete', handleStop)
-      router.events.on('routeChangeError', handleStop)
+      router.events.on('routeChangeStart', handleRouteStart)
+      router.events.on('routeChangeComplete', handleRouteStop)
+      router.events.on('routeChangeError', handleRouteStop)
 
       return () => {
-         router.events.off('routeChangeStart', handleStart)
-         router.events.off('routeChangeComplete', handleStop)
-         router.events.off('routeChangeError', handleStop)
+         router.events.off('routeChangeStart', handleRouteStart)
+         router.events.off('routeChangeComplete', handleRouteStop)
+         router.events.off('routeChangeError', handleRouteStop)
       }
-   }, [router])
-
-   // Default SEO with comprehensive configuration
-   const defaultSEO = createDefaultSEO(RESUME, WEBSITE)
+   }, [router.events, handleRouteStart, handleRouteStop])
 
    if (!loaded) {
-      return (
-         <div className="flex h-screen w-full items-center justify-center">
-            <FontAwesomeIcon
-               icon={faSpinnerThird}
-               className="fa-spin h-8 w-8 text-black"
-            />
-         </div>
-      )
+      return LoadingComponent
    }
 
    return (
@@ -102,17 +133,17 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
             />
          </Head>
 
-         {/* Use comprehensive default SEO */}
-         <DefaultSeo {...defaultSEO} />
+         {/* Use memoized comprehensive default SEO */}
+         <DefaultSeo {...defaultSEOConfig} />
 
          <div className={cn(jost.variable, 'font-sans')}>
             {isConfetti && (
                <Confetti
-                  width={window.innerWidth}
-                  height={window.innerHeight}
+                  width={windowDimensions.width}
+                  height={windowDimensions.height}
                   recycle={false}
                   numberOfPieces={300}
-                  onConfettiComplete={() => setConfetti(false)}
+                  onConfettiComplete={handleConfettiComplete}
                />
             )}
 

@@ -6,6 +6,8 @@ import {
    ReactNode,
    Dispatch,
    SetStateAction,
+   useMemo,
+   memo,
 } from 'react'
 
 type Props = {
@@ -22,19 +24,26 @@ const GlobalContext = createContext<contextProps>({
    setValue: () => {},
 })
 
-export const GlobalProvider = ({ children }: Props) => {
+// Memoized GlobalProvider to prevent unnecessary re-renders
+export const GlobalProvider = memo<Props>(({ children }) => {
    const [value, setValue] = useState('light')
 
+   // Memoize context value to prevent recreation on every render
+   const contextValue = useMemo(
+      () => ({
+         value,
+         setValue,
+      }),
+      [value]
+   )
+
    return (
-      <GlobalContext.Provider
-         value={{
-            value,
-            setValue,
-         }}
-      >
+      <GlobalContext.Provider value={contextValue}>
          {children}
       </GlobalContext.Provider>
    )
-}
+})
+
+GlobalProvider.displayName = 'GlobalProvider'
 
 export const useGlobalContext = () => useContext(GlobalContext)
