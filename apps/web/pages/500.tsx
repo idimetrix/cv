@@ -11,13 +11,29 @@ import {
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { Heading } from '../components/atoms'
 import { RESUME } from '../users'
+import { WEBSITE } from '../constants'
 
 export default function ServerErrorPage() {
    return (
       <>
          <NextSeo
-            title="500 - Server Error"
-            description="Something went wrong on our server. Please try again later or contact Dmitrii Selikhov."
+            title={`500 - Server Error | ${WEBSITE.name}`}
+            description={`Something went wrong on our server. Please try again later or contact ${RESUME.name}.`}
+            canonical={`${WEBSITE.url}/500`}
+            openGraph={{
+               title: `500 - Server Error | ${WEBSITE.name}`,
+               description: `Something went wrong on our server. Please try again later or contact ${RESUME.name}.`,
+               url: `${WEBSITE.url}/500`,
+               siteName: WEBSITE.name,
+               images: [
+                  {
+                     url: WEBSITE.image,
+                     width: 800,
+                     height: 600,
+                     alt: RESUME.name,
+                  },
+               ],
+            }}
             noindex={true}
             nofollow={true}
          />
@@ -37,7 +53,8 @@ export default function ServerErrorPage() {
                   </Heading>
                   <p className="text-lg text-light1 dark:text-gray-300 max-w-lg mx-auto">
                      Something went wrong on our server. Please try refreshing
-                     the page or come back later. You can also explore other sections.
+                     the page or come back later. You can also explore other
+                     sections.
                   </p>
                </div>
 
@@ -147,10 +164,10 @@ export default function ServerErrorPage() {
                {/* Professional Message */}
                <div className="bg-light3 dark:bg-dark1/20 p-6 rounded-lg border border-border">
                   <p className="text-sm text-light1 dark:text-gray-300">
-                     I&apos;m {RESUME.name}, a {RESUME.summary}. If you&apos;re experiencing
-                     technical difficulties or need assistance, feel free to reach out
-                     through any of the contact methods above. I&apos;ll get back to you as soon
-                     as possible.
+                     I&apos;m {RESUME.name}, a {RESUME.summary}. If you&apos;re
+                     experiencing technical difficulties or need assistance,
+                     feel free to reach out through any of the contact methods
+                     above. I&apos;ll get back to you as soon as possible.
                   </p>
                </div>
             </div>

@@ -1,5 +1,6 @@
 import { NextSeoProps } from 'next-seo'
-import { WEBSITE } from '../next-seo.config'
+import { WEBSITE } from '../constants'
+import { RESUME } from '../users'
 
 interface SEOData {
    title: string
@@ -66,7 +67,7 @@ export const generateSEO = (data: SEOData): NextSeoProps => {
          },
          {
             name: 'author',
-            content: 'Dmitrii Selikhov',
+            content: RESUME.name,
          },
       ],
    }
@@ -76,19 +77,19 @@ export const generateStructuredData = {
    person: () => ({
       '@context': 'https://schema.org',
       '@type': 'Person',
-      name: 'Dmitrii Selikhov',
-      alternateName: 'Dmitry Selikhov',
-      jobTitle: 'CTO, Software Architect, Technical Lead',
+      name: RESUME.name,
+      alternateName: RESUME.name,
+      jobTitle: RESUME.summary,
       url: WEBSITE.url,
       image: `${WEBSITE.url}${WEBSITE.image}`,
       sameAs: [
-         WEBSITE.linkedin,
-         WEBSITE.github,
+         RESUME.contact.linkedin,
+         RESUME.contact.github,
          'https://www.npmjs.com/~dimetrix',
          'https://t.me/dmitrii_selikhov',
          'https://x.com/idimetrix',
       ],
-      email: WEBSITE.email,
+      email: RESUME.contact.email,
       knowsAbout: [
          'JavaScript',
          'TypeScript',

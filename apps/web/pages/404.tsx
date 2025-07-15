@@ -10,13 +10,29 @@ import {
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { Heading } from '../components/atoms'
 import { RESUME } from '../users'
+import { WEBSITE } from '../constants'
 
 export default function NotFoundPage() {
    return (
       <>
          <NextSeo
-            title="404 - Page Not Found"
-            description="The page you're looking for doesn't exist. Explore Dmitrii Selikhov's CV and portfolio."
+            title={`404 - Page Not Found | ${WEBSITE.name}`}
+            description={`The page you're looking for doesn't exist. Explore ${RESUME.name}'s CV and portfolio.`}
+            canonical={`${WEBSITE.url}/404`}
+            openGraph={{
+               title: `404 - Page Not Found | ${WEBSITE.name}`,
+               description: `The page you're looking for doesn't exist. Explore ${RESUME.name}'s CV and portfolio.`,
+               url: `${WEBSITE.url}/404`,
+               siteName: WEBSITE.name,
+               images: [
+                  {
+                     url: WEBSITE.image,
+                     width: 800,
+                     height: 600,
+                     alt: RESUME.name,
+                  },
+               ],
+            }}
             noindex={true}
             nofollow={true}
          />
@@ -35,8 +51,9 @@ export default function NotFoundPage() {
                      Page Not Found
                   </Heading>
                   <p className="text-lg text-light1 dark:text-gray-300 max-w-lg mx-auto">
-                     The page you&apos;re looking for doesn&apos;t exist or has been
-                     moved. Let me help you find what you&apos;re looking for.
+                     The page you&apos;re looking for doesn&apos;t exist or has
+                     been moved. Let me help you find what you&apos;re looking
+                     for.
                   </p>
                </div>
 
@@ -142,10 +159,10 @@ export default function NotFoundPage() {
                {/* Professional Message */}
                <div className="bg-light3 dark:bg-dark1/20 p-6 rounded-lg border border-border">
                   <p className="text-sm text-light1 dark:text-gray-300">
-                     I&apos;m {RESUME.name}, a {RESUME.summary}. If you&apos;re looking
-                     for specific information about my background or want to
-                     discuss potential opportunities, feel free to reach out
-                     through any of the contact methods above.
+                     I&apos;m {RESUME.name}, a {RESUME.summary}. If you&apos;re
+                     looking for specific information about my background or
+                     want to discuss potential opportunities, feel free to reach
+                     out through any of the contact methods above.
                   </p>
                </div>
             </div>

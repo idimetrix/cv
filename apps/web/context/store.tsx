@@ -1,21 +1,22 @@
 'use client'
+import { createContext, useState, useContext, ReactNode, Dispatch, SetStateAction } from 'react'
 
 type Props = {
-   children: React.ReactNode
+   children: ReactNode
 }
 
 interface contextProps {
    value: string
-   setValue: React.Dispatch<React.SetStateAction<string>>
+   setValue: Dispatch<SetStateAction<string>>
 }
 
-const GlobalContext = React.createContext<contextProps>({
+const GlobalContext = createContext<contextProps>({
    value: 'light',
    setValue: () => {},
 })
 
 export const GlobalProvider = ({ children }: Props) => {
-   const [value, setValue] = React.useState('light')
+   const [value, setValue] = useState('light')
 
    return (
       <GlobalContext.Provider
@@ -29,4 +30,4 @@ export const GlobalProvider = ({ children }: Props) => {
    )
 }
 
-export const useGlobalContext = () => React.useContext(GlobalContext)
+export const useGlobalContext = () => useContext(GlobalContext)

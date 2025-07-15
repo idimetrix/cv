@@ -9,7 +9,7 @@ import { appRouter } from '@cv/trpc/server/router/_app'
 import { inferSSRProps } from '@cv/types/inferSSRProps'
 import { CV } from '../components/organism'
 import { RESUME } from '../users'
-import { structuredData, WEBSITE } from '../next-seo.config'
+import { structuredData, WEBSITE } from '../constants'
 
 export default function Home() {
    return (
