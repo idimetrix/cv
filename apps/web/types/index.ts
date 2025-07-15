@@ -7,3 +7,4 @@ declare module 'react' {
 }
 
 export * from './Resume'
+export * from './Content'

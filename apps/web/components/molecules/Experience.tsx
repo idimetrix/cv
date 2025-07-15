@@ -54,8 +54,20 @@ export const Experience = memo<Props>(({ resume, className, ...rest }) => {
                   <div className="font-semibold flex items-center gap-1.5">
                      {experience.title}
                   </div>
-                  <div className="text-sm w-full text-black/70">
-                     {experience.description}
+                  <div className="text-sm w-full text-black/70 flex flex-col gap-2">
+                     {experience.contents?.map((content, contentIndex) => (
+                        <div
+                           key={`${content.title}-${contentIndex}`}
+                           className="flex flex-col gap-1"
+                        >
+                           <div className="font-bold text-black">
+                              {content.title}:
+                           </div>
+                           <div className="text-black/70">
+                              {content.description}
+                           </div>
+                        </div>
+                     ))}
                   </div>
                </div>
             ))}

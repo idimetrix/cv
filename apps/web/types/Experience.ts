@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import { Content } from './Content'
 
 export type Experience = {
    company: string
@@ -8,5 +9,5 @@ export type Experience = {
    logo: ReactNode
    start: string
    end?: string
-   description: ReactNode
+   contents: Content[]
 }
