@@ -131,6 +131,38 @@ export const SectionNavigation = ({
       }
    }
 
+   // Super compact mode - minimal vertical navigation with just icons
+   if (compact) {
+      return (
+         <div
+            className={cn(
+               'print:hidden fixed left-2 top-1/2 transform -translate-y-1/2 z-50',
+               'flex flex-col gap-1',
+               className
+            )}
+            {...rest}
+         >
+            {visibleSections.map((section) => (
+               <button
+                  key={section.id}
+                  onClick={() => handleSectionClick(section.id)}
+                  className={cn(
+                     'w-8 h-8 rounded-full flex items-center justify-center',
+                     'transition-all duration-200 hover:scale-110',
+                     'text-sm shadow-sm border border-gray-200',
+                     activeSection === section.id
+                        ? 'bg-blue-500 text-white shadow-lg scale-110'
+                        : 'bg-white text-gray-600 hover:bg-blue-50 hover:text-blue-600'
+                  )}
+                  title={`Navigate to ${section.title}`}
+               >
+                  <span className="text-xs">{section.icon}</span>
+               </button>
+            ))}
+         </div>
+      )
+   }
+
    if (position === 'static') {
       return (
          <nav className={cn('w-full', className)} {...rest}>

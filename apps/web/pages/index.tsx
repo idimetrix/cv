@@ -249,34 +249,15 @@ export default function Home() {
          />
 
          <main className="">
-            {/* Static Navigation at top - hidden on mobile for cleaner print view */}
-            <div className="hidden lg:block print:hidden bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
-               <div className="container mx-auto px-4">
-                  <SectionNavigation
-                     position="static"
-                     className="py-4"
-                     showKeyboardShortcuts={true}
-                  />
-               </div>
-            </div>
-
             {/* Main CV Content */}
             <CV resume={RESUME} />
 
-            {/* Floating Navigation - compact for mobile/tablet, full for larger screens */}
+            {/* Super Compact Fixed Left Navigation */}
             <SectionNavigation
                compact={true}
                position="fixed"
-               side="right"
-               className="lg:hidden" // Show compact version on smaller screens
-               showKeyboardShortcuts={false}
-            />
-            <SectionNavigation
-               compact={false}
-               position="fixed"
                side="left"
-               className="hidden lg:block" // Show full version on larger screens
-               showKeyboardShortcuts={true}
+               showKeyboardShortcuts={false}
             />
          </main>
       </>

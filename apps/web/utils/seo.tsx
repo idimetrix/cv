@@ -20,14 +20,14 @@ import {
    CollectionPageJsonLd,
    DatasetJsonLd,
 } from 'next-seo'
-import { 
-   WEBSITE, 
-   getSeniorityLevel, 
-   getPrimaryIndustry, 
-   getCoverageArea, 
+import {
+   WEBSITE,
+   getSeniorityLevel,
+   getPrimaryIndustry,
+   getCoverageArea,
    getDistributionScope,
    getTargetAudience,
-   getAudienceCompanies
+   getAudienceCompanies,
 } from '../constants'
 import { RESUME } from '../users'
 import { Resume } from '../types/Resume'
@@ -207,8 +207,8 @@ export const createDefaultSEO = (
             username:
                extractSocialHandle(resume.contact.github) ||
                resume.firstName.toLowerCase(),
-            ...(resume.gender && { 
-               gender: resume.gender 
+            ...(resume.gender && {
+               gender: resume.gender,
             }),
          },
       },
