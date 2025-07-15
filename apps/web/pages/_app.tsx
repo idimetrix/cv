@@ -9,6 +9,9 @@ import { DefaultSeo } from 'next-seo'
 import Head from 'next/head'
 import type { AppContext, AppInitialProps, AppProps } from 'next/app'
 import { defaultSEO } from '../constants'
+import { RESUME } from '../users'
+import { WEBSITE } from '../constants'
+import { createEnhancedDefaultSEO } from '../utils/comprehensive-seo'
 import App from 'next/app'
 import { useRouter } from 'next/router'
 import NProgress from 'nprogress'
@@ -49,126 +52,74 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
    // Use the layout defined at the page level, if available
    const getLayout = Component.getLayout ?? ((page) => page)
 
-   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
+   const { isConfetti, setConfetti } = useConfettiStore()
 
    useEffect(() => {
-      const handleRouteStart = () => NProgress.start()
-      const handleRouteDone = () => NProgress.done()
-      const handleRouteError = () => NProgress.done()
+      if (typeof window !== 'undefined') {
+         setLoaded(true)
+      }
+   }, [])
 
-      router.events.on('routeChangeStart', handleRouteStart)
-      router.events.on('routeChangeComplete', handleRouteDone)
-      router.events.on('routeChangeError', handleRouteError)
+   useEffect(() => {
+      const handleStart = () => {
+         NProgress.start()
+      }
+      const handleStop = () => {
+         NProgress.done()
+      }
+
+      router.events.on('routeChangeStart', handleStart)
+      router.events.on('routeChangeComplete', handleStop)
+      router.events.on('routeChangeError', handleStop)
 
       return () => {
-         // Make sure to remove the event handler on unmount!
-         router.events.off('routeChangeStart', handleRouteStart)
-         router.events.off('routeChangeComplete', handleRouteDone)
-         router.events.off('routeChangeError', handleRouteError)
+         router.events.off('routeChangeStart', handleStart)
+         router.events.off('routeChangeComplete', handleStop)
+         router.events.off('routeChangeError', handleStop)
       }
-   }, [router.events])
+   }, [router])
 
-   // const dialogs = useDialogsStore();
-   const confetti = useConfettiStore()
+   // Enhanced Default SEO with comprehensive configuration
+   const enhancedDefaultSEO = createEnhancedDefaultSEO(RESUME, WEBSITE)
 
-   useEffect(() => {
-      setWindowSize({
-         width: window.screen.width,
-         height: window.screen.height,
-      })
-   }, [])
-
-   useEffect(() => {
-      const timeout = setTimeout(() => {
-         setLoaded(true)
-      }, 200)
-      return () => clearTimeout(timeout)
-   }, [])
+   if (!loaded) {
+      return (
+         <div className="flex h-screen w-full items-center justify-center">
+            <FontAwesomeIcon
+               icon={faSpinnerThird}
+               className="fa-spin h-8 w-8 text-black"
+            />
+         </div>
+      )
+   }
 
    return (
-      <main className={cn(jost.className, 'group/page min-h-screen')}>
+      <GlobalProvider>
          <Head>
-            <meta
-               name="viewport"
-               content="width=device-width, initial-scale=1"
-            />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
          </Head>
-         <DefaultSeo {...defaultSEO} />
 
-         <GlobalProvider>
-            {/*<ContextProvider>*/}
-            {confetti.isConfetti && (
-               <div className="pointer-events-none fixed bottom-0 left-0 right-0 top-0 ">
-                  <Confetti
-                     width={windowSize.width}
-                     height={windowSize.height}
-                     numberOfPieces={500}
-                     onConfettiComplete={() => confetti.setConfetti(false)}
-                     recycle={false}
-                     gravity={0.25}
-                  />
-               </div>
+         {/* Use enhanced default SEO instead of basic defaultSEO */}
+         <DefaultSeo {...enhancedDefaultSEO} />
+
+         <div className={cn(jost.variable, 'font-sans')}>
+            {isConfetti && (
+               <Confetti
+                  width={window.innerWidth}
+                  height={window.innerHeight}
+                  recycle={false}
+                  numberOfPieces={300}
+                  onConfettiComplete={() => setConfetti(false)}
+               />
             )}
 
             {getLayout(<Component {...pageProps} />)}
 
-            <Analytics />
+            <Toaster />
+         </div>
 
-            <Toaster
-               position="top-center"
-               containerClassName=""
-               containerStyle={{}}
-               toastOptions={{
-                  duration: 5000,
-                  style: {
-                     background: 'var(--color-blue-1)',
-                     border: 'none',
-                     boxShadow: 'none',
-                     color: '#ffffff',
-                     fontSize: '16px',
-                     borderRadius: '4px',
-                  },
-                  success: {
-                     style: {
-                        background: 'var(--color-green-2)',
-                        color: '#fff',
-                     },
-                     iconTheme: {
-                        primary: '#fff',
-                        secondary: 'var(--color-green-2)',
-                     },
-                  },
-                  error: {
-                     style: {
-                        background: 'var(--color-red-1)',
-                        color: '#fff',
-                     },
-                     iconTheme: {
-                        primary: '#fff',
-                        secondary: 'var(--color-red-1)',
-                     },
-                  },
-                  loading: {
-                     style: {
-                        background: 'var(--color-blue-1)',
-                        color: '#fff',
-                     },
-                     icon: (
-                        <FontAwesomeIcon
-                           icon={faSpinnerThird}
-                           className="h-[20px] w-[20px] animate-spin text-white"
-                        />
-                     ),
-                     iconTheme: {
-                        primary: '#fff',
-                        secondary: 'var(--color-blue-1)',
-                     },
-                  },
-               }}
-            />
-            {/*</ContextProvider>*/}
-         </GlobalProvider>
-      </main>
+         <Analytics />
+      </GlobalProvider>
    )
 }
 

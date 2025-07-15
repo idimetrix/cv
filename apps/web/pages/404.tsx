@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { NextSeo } from 'next-seo'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
    faHome,
@@ -11,160 +10,173 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { Heading } from '../components/atoms'
 import { RESUME } from '../users'
 import { WEBSITE } from '../constants'
+import { SEO } from '../components/SEO'
 
 export default function NotFoundPage() {
    return (
       <>
-         <NextSeo
-            title={`404 - Page Not Found | ${WEBSITE.name}`}
-            description={`The page you're looking for doesn't exist. Explore ${RESUME.name}'s CV and portfolio.`}
-            canonical={`${WEBSITE.url}/404`}
-            openGraph={{
-               title: `404 - Page Not Found | ${WEBSITE.name}`,
-               description: `The page you're looking for doesn't exist. Explore ${RESUME.name}'s CV and portfolio.`,
-               url: `${WEBSITE.url}/404`,
-               siteName: WEBSITE.name,
-               images: [
-                  {
-                     url: WEBSITE.image,
-                     width: 800,
-                     height: 600,
-                     alt: RESUME.name,
-                  },
-               ],
-            }}
-            noindex={true}
-            nofollow={true}
+         {/* Comprehensive SEO for 404 page */}
+         <SEO
+            pageType="about"
+            pageTitle={`404 - Page Not Found`}
+            pageDescription={`The page you're looking for doesn't exist. Explore ${RESUME.name}'s professional CV and portfolio instead. Available for ${RESUME.summary.toLowerCase()} opportunities.`}
+            pageUrl={`${WEBSITE.url}/404`}
+            pageImage={WEBSITE.image}
+            noIndex={true}
+            customKeywords={[
+               '404 error',
+               'page not found',
+               'portfolio navigation',
+               RESUME.summary,
+               ...RESUME.skills.slice(0, 3).map(s => s.name),
+            ]}
+            customMetaTags={[
+               {
+                  name: 'error-type',
+                  content: '404 - Not Found',
+               },
+               {
+                  name: 'error-description',
+                  content: 'The requested page could not be found',
+               },
+               {
+                  name: 'suggested-action',
+                  content: 'Visit homepage or contact for assistance',
+               },
+               {
+                  name: 'available-services',
+                  content: RESUME.summary,
+               },
+               {
+                  name: 'contact-for-help',
+                  content: RESUME.contact.email,
+               },
+            ]}
          />
 
-         <div className="min-h-screen flex items-center justify-center px-4 py-8">
-            <div className="max-w-2xl w-full text-center space-y-8">
-               {/* 404 Header */}
-               <div className="space-y-4">
-                  <div className="text-8xl md:text-9xl font-bold text-dark1 dark:text-white">
+         <div className="min-h-screen bg-gray-50 px-4 py-16 sm:px-6 sm:py-24 md:grid md:place-items-center lg:px-8">
+            <div className="mx-auto max-w-max">
+               <main className="sm:flex">
+                  <p className="text-4xl font-extrabold text-blue-600 sm:text-5xl">
                      404
-                  </div>
-                  <Heading
-                     level={1}
-                     className="text-3xl md:text-4xl border-b-0 mb-4"
-                  >
-                     Page Not Found
-                  </Heading>
-                  <p className="text-lg text-light1 dark:text-gray-300 max-w-lg mx-auto">
-                     The page you&apos;re looking for doesn&apos;t exist or has
-                     been moved. Let me help you find what you&apos;re looking
-                     for.
                   </p>
-               </div>
+                  <div className="sm:ml-6">
+                     <div className="sm:border-l sm:border-gray-200 sm:pl-6">
+                        <Heading
+                           level={1}
+                           className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl"
+                        >
+                           Page not found
+                        </Heading>
+                        <p className="mt-1 text-base text-gray-500">
+                           The page you're looking for doesn't exist.
+                        </p>
+                        <p className="mt-2 text-sm text-gray-600">
+                           But you can explore{' '}
+                           <span className="font-semibold">{RESUME.name}'s</span>{' '}
+                           professional portfolio and CV instead!
+                        </p>
+                     </div>
+                     <div className="mt-10 flex space-x-3 sm:border-l sm:border-transparent sm:pl-6">
+                        <Link
+                           href="/"
+                           className="inline-flex items-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                        >
+                           <FontAwesomeIcon
+                              icon={faHome}
+                              className="mr-2 h-4 w-4"
+                           />
+                           Go back home
+                        </Link>
+                        <Link
+                           href="/#about"
+                           className="inline-flex items-center rounded-md border border-transparent bg-gray-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                        >
+                           <FontAwesomeIcon icon={faUser} className="mr-2 h-4 w-4" />
+                           About {RESUME.firstName}
+                        </Link>
+                     </div>
 
-               {/* Quick Navigation */}
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto">
-                  <Link
-                     href="/"
-                     className="flex items-center justify-center gap-3 p-4 bg-blue1 hover:bg-blue1/90 text-white rounded-lg transition-colors duration-200"
-                  >
-                     <FontAwesomeIcon icon={faHome} className="w-5 h-5" />
-                     <span className="font-medium">Go Home</span>
-                  </Link>
+                     {/* Professional Quick Links */}
+                     <div className="mt-8 sm:border-l sm:border-transparent sm:pl-6">
+                        <h3 className="text-sm font-medium text-gray-900">
+                           Quick Links
+                        </h3>
+                        <div className="mt-4 space-y-2">
+                           <div className="flex space-x-4">
+                              <Link
+                                 href="/#experience"
+                                 className="text-sm text-blue-600 hover:text-blue-500"
+                              >
+                                 View Experience
+                              </Link>
+                              <Link
+                                 href="/#projects"
+                                 className="text-sm text-blue-600 hover:text-blue-500"
+                              >
+                                 <FontAwesomeIcon
+                                    icon={faCode}
+                                    className="mr-1 h-3 w-3"
+                                 />
+                                 Projects
+                              </Link>
+                           </div>
+                           <div className="flex space-x-4">
+                              <a
+                                 href={RESUME.contact.linkedin}
+                                 target="_blank"
+                                 rel="noopener noreferrer"
+                                 className="text-sm text-blue-600 hover:text-blue-500"
+                              >
+                                 <FontAwesomeIcon
+                                    icon={faLinkedin}
+                                    className="mr-1 h-3 w-3"
+                                 />
+                                 LinkedIn
+                              </a>
+                              <a
+                                 href={RESUME.contact.github}
+                                 target="_blank"
+                                 rel="noopener noreferrer"
+                                 className="text-sm text-blue-600 hover:text-blue-500"
+                              >
+                                 <FontAwesomeIcon
+                                    icon={faGithub}
+                                    className="mr-1 h-3 w-3"
+                                 />
+                                 GitHub
+                              </a>
+                           </div>
+                           <div>
+                              <a
+                                 href={`mailto:${RESUME.contact.email}`}
+                                 className="text-sm text-blue-600 hover:text-blue-500"
+                              >
+                                 <FontAwesomeIcon
+                                    icon={faEnvelope}
+                                    className="mr-1 h-3 w-3"
+                                 />
+                                 Contact via Email
+                              </a>
+                           </div>
+                        </div>
+                     </div>
 
-                  <Link
-                     href="/#about"
-                     className="flex items-center justify-center gap-3 p-4 bg-dark1 hover:bg-dark2 text-white rounded-lg transition-colors duration-200"
-                  >
-                     <FontAwesomeIcon icon={faUser} className="w-5 h-5" />
-                     <span className="font-medium">About Me</span>
-                  </Link>
-               </div>
-
-               {/* Popular Sections */}
-               <div className="space-y-4">
-                  <h2 className="text-xl font-semibold text-dark1 dark:text-white">
-                     Popular Sections
-                  </h2>
-                  <div className="flex flex-wrap justify-center gap-3">
-                     <Link
-                        href="/#experience"
-                        className="px-4 py-2 bg-light2 hover:bg-light1/20 text-dark1 rounded-full text-sm font-medium transition-colors duration-200"
-                     >
-                        Experience
-                     </Link>
-                     <Link
-                        href="/#projects"
-                        className="px-4 py-2 bg-light2 hover:bg-light1/20 text-dark1 rounded-full text-sm font-medium transition-colors duration-200"
-                     >
-                        <FontAwesomeIcon
-                           icon={faCode}
-                           className="w-4 h-4 mr-2"
-                        />
-                        Projects
-                     </Link>
-                     <Link
-                        href="/#skills"
-                        className="px-4 py-2 bg-light2 hover:bg-light1/20 text-dark1 rounded-full text-sm font-medium transition-colors duration-200"
-                     >
-                        Skills
-                     </Link>
-                     <Link
-                        href="/#education"
-                        className="px-4 py-2 bg-light2 hover:bg-light1/20 text-dark1 rounded-full text-sm font-medium transition-colors duration-200"
-                     >
-                        Education
-                     </Link>
+                     {/* Professional Summary */}
+                     <div className="mt-8 sm:border-l sm:border-transparent sm:pl-6">
+                        <h3 className="text-sm font-medium text-gray-900">
+                           About {RESUME.firstName}
+                        </h3>
+                        <p className="mt-2 text-sm text-gray-600">
+                           {RESUME.summary} with expertise in{' '}
+                           {RESUME.skills.slice(0, 5).map(s => s.name).join(', ')}.
+                           Available for professional opportunities in{' '}
+                           {RESUME.locations.map(loc => loc.name.split(',')[0]).join(', ')}{' '}
+                           and remote work.
+                        </p>
+                     </div>
                   </div>
-               </div>
-
-               {/* Contact Information */}
-               <div className="border-t border-border pt-8 space-y-4">
-                  <h3 className="text-lg font-semibold text-dark1 dark:text-white">
-                     Get in Touch
-                  </h3>
-                  <div className="flex justify-center gap-6">
-                     <a
-                        href={`mailto:${RESUME.contact.email}`}
-                        className="flex items-center gap-2 text-blue1 hover:text-blue1/80 transition-colors duration-200"
-                        aria-label="Send email"
-                     >
-                        <FontAwesomeIcon
-                           icon={faEnvelope}
-                           className="w-5 h-5"
-                        />
-                        <span className="font-medium">Email</span>
-                     </a>
-                     <a
-                        href={RESUME.contact.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-blue1 hover:text-blue1/80 transition-colors duration-200"
-                        aria-label="LinkedIn profile"
-                     >
-                        <FontAwesomeIcon
-                           icon={faLinkedin}
-                           className="w-5 h-5"
-                        />
-                        <span className="font-medium">LinkedIn</span>
-                     </a>
-                     <a
-                        href={RESUME.contact.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-dark1 hover:text-dark2 transition-colors duration-200"
-                        aria-label="GitHub profile"
-                     >
-                        <FontAwesomeIcon icon={faGithub} className="w-5 h-5" />
-                        <span className="font-medium">GitHub</span>
-                     </a>
-                  </div>
-               </div>
-
-               {/* Professional Message */}
-               <div className="bg-light3 dark:bg-dark1/20 p-6 rounded-lg border border-border">
-                  <p className="text-sm text-light1 dark:text-gray-300">
-                     I&apos;m {RESUME.name}, a {RESUME.summary}. If you&apos;re
-                     looking for specific information about my background or
-                     want to discuss potential opportunities, feel free to reach
-                     out through any of the contact methods above.
-                  </p>
-               </div>
+               </main>
             </div>
          </div>
       </>
