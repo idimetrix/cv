@@ -10,9 +10,9 @@ import { inferSSRProps } from '@cv/types/inferSSRProps'
 import { CV } from '../components/organism'
 import { RESUME } from '../users'
 import { WEBSITE } from '../constants'
-import { 
-   createEnhancedPageSEO, 
-   ComprehensiveJsonLd 
+import {
+   createEnhancedPageSEO,
+   ComprehensiveJsonLd,
 } from '../utils/comprehensive-seo'
 
 export default function Home() {
@@ -20,10 +20,15 @@ export default function Home() {
    const enhancedSEO = createEnhancedPageSEO(RESUME, WEBSITE, {
       pageType: 'home',
       pageTitle: `${RESUME.name} - ${RESUME.summary}`,
-      pageDescription: `Professional portfolio and CV of ${RESUME.name}, ${RESUME.summary}. Explore ${RESUME.experiences.length}+ years of experience in ${RESUME.skills.slice(0, 5).map(s => s.name).join(', ')}. Available for ${RESUME.locations.map(l => l.name).join(', ')} and remote opportunities.`,
+      pageDescription: `Professional portfolio and CV of ${RESUME.name}, ${RESUME.summary}. Explore ${RESUME.experiences.length}+ years of experience in ${RESUME.skills
+         .slice(0, 5)
+         .map((s) => s.name)
+         .join(
+            ', '
+         )}. Available for ${RESUME.locations.map((l) => l.name).join(', ')} and remote opportunities.`,
       pageUrl: WEBSITE.url,
       pageImage: WEBSITE.image,
-      isHomePage: true
+      isHomePage: true,
    })
 
    return (
@@ -37,7 +42,8 @@ export default function Home() {
                profile: {
                   firstName: RESUME.firstName,
                   lastName: RESUME.lastName,
-                  username: RESUME.contact.github?.split('/').pop() || 'professional',
+                  username:
+                     RESUME.contact.github?.split('/').pop() || 'professional',
                   gender: 'male',
                },
                images: [
@@ -61,26 +67,40 @@ export default function Home() {
                      width: 800,
                      height: 800,
                      type: 'image/png',
-                  }
+                  },
                ],
             }}
             additionalMetaTags={[
-               ...enhancedSEO.additionalMetaTags || [],
+               ...(enhancedSEO.additionalMetaTags || []),
                {
                   name: 'keywords',
-                  content: `${RESUME.name}, ${RESUME.summary}, ${RESUME.skills.slice(0, 10).map(s => s.name).join(', ')}, ${RESUME.keywords.slice(0, 10).join(', ')}, CV, Resume, Portfolio, ${RESUME.locations.map(l => l.name.split(',')[0]).join(', ')}`,
+                  content: `${RESUME.name}, ${RESUME.summary}, ${RESUME.skills
+                     .slice(0, 10)
+                     .map((s) => s.name)
+                     .join(
+                        ', '
+                     )}, ${RESUME.keywords.slice(0, 10).join(', ')}, CV, Resume, Portfolio, ${RESUME.locations.map((l) => l.name.split(',')[0]).join(', ')}`,
                },
                {
                   name: 'description',
-                  content: `${RESUME.name} - ${RESUME.summary}. Professional with ${RESUME.experiences.length}+ years experience. Expert in ${RESUME.skills.slice(0, 5).map(s => s.name).join(', ')}. Contact: ${RESUME.contact.email}`,
+                  content: `${RESUME.name} - ${RESUME.summary}. Professional with ${RESUME.experiences.length}+ years experience. Expert in ${RESUME.skills
+                     .slice(0, 5)
+                     .map((s) => s.name)
+                     .join(', ')}. Contact: ${RESUME.contact.email}`,
                },
                {
                   name: 'subject',
-                  content: `${RESUME.summary}, Software Development, Technology Leadership, ${RESUME.skills.slice(0, 5).map(s => s.name).join(', ')}`,
+                  content: `${RESUME.summary}, Software Development, Technology Leadership, ${RESUME.skills
+                     .slice(0, 5)
+                     .map((s) => s.name)
+                     .join(', ')}`,
                },
                {
                   name: 'summary',
-                  content: `Professional portfolio of ${RESUME.name}, showcasing expertise in ${RESUME.summary.toLowerCase()} with experience at ${RESUME.experiences.slice(0, 3).map(exp => exp.company).join(', ')}.`,
+                  content: `Professional portfolio of ${RESUME.name}, showcasing expertise in ${RESUME.summary.toLowerCase()} with experience at ${RESUME.experiences
+                     .slice(0, 3)
+                     .map((exp) => exp.company)
+                     .join(', ')}.`,
                },
                {
                   name: 'classification',
@@ -88,15 +108,20 @@ export default function Home() {
                },
                {
                   name: 'category',
-                  content: `Technology, Software Development, ${RESUME.skills.slice(0, 3).map(s => s.name).join(', ')}`,
+                  content: `Technology, Software Development, ${RESUME.skills
+                     .slice(0, 3)
+                     .map((s) => s.name)
+                     .join(', ')}`,
                },
                {
                   name: 'target',
-                  content: 'employers, recruiters, clients, technology professionals, hiring managers',
+                  content:
+                     'employers, recruiters, clients, technology professionals, hiring managers',
                },
                {
                   name: 'audience',
-                  content: 'technology companies, startups, enterprises, recruitment agencies, professional networks',
+                  content:
+                     'technology companies, startups, enterprises, recruitment agencies, professional networks',
                },
                {
                   name: 'distribution',
@@ -104,7 +129,9 @@ export default function Home() {
                },
                {
                   name: 'coverage',
-                  content: RESUME.locations.map(loc => loc.name).join(', ') || 'Global',
+                  content:
+                     RESUME.locations.map((loc) => loc.name).join(', ') ||
+                     'Global',
                },
                {
                   name: 'rating',
@@ -116,7 +143,8 @@ export default function Home() {
                },
                {
                   name: 'industry',
-                  content: 'Technology, Software Development, Information Technology',
+                  content:
+                     'Technology, Software Development, Information Technology',
                },
                {
                   name: 'job-title',
@@ -124,23 +152,26 @@ export default function Home() {
                },
                {
                   name: 'skills',
-                  content: RESUME.skills.map(s => s.name).join(', '),
+                  content: RESUME.skills.map((s) => s.name).join(', '),
                },
                {
                   name: 'technologies',
-                  content: RESUME.technologies.map(t => t.name).join(', '),
+                  content: RESUME.technologies.map((t) => t.name).join(', '),
                },
                {
                   name: 'education',
-                  content: RESUME.educations.map(edu => `${edu.title} - ${edu.company}`).join('; '),
+                  content: RESUME.educations
+                     .map((edu) => `${edu.title} - ${edu.company}`)
+                     .join('; '),
                },
                {
                   name: 'location',
-                  content: RESUME.locations.map(loc => loc.name).join('; '),
+                  content: RESUME.locations.map((loc) => loc.name).join('; '),
                },
                {
                   name: 'availability',
-                  content: 'Available for full-time, contract, and consulting opportunities',
+                  content:
+                     'Available for full-time, contract, and consulting opportunities',
                },
                {
                   name: 'remote-work',
@@ -160,7 +191,10 @@ export default function Home() {
                },
                {
                   name: 'professional-summary',
-                  content: typeof RESUME.about === 'string' ? RESUME.about : 'Professional software developer and technology leader',
+                  content:
+                     typeof RESUME.about === 'string'
+                        ? RESUME.about
+                        : 'Professional software developer and technology leader',
                },
             ]}
             additionalLinkTags={[
@@ -175,7 +209,7 @@ export default function Home() {
                },
                {
                   rel: 'alternate',
-                  type: 'application/pdf', 
+                  type: 'application/pdf',
                   href: `${WEBSITE.url}/resume.pdf`,
                },
                {
@@ -202,9 +236,9 @@ export default function Home() {
          />
 
          {/* Comprehensive JsonLd components - ALL available types used */}
-         <ComprehensiveJsonLd 
-            resume={RESUME} 
-            website={WEBSITE} 
+         <ComprehensiveJsonLd
+            resume={RESUME}
+            website={WEBSITE}
             pageType="home"
             isHomePage={true}
          />

@@ -18,7 +18,7 @@ export default function NotFoundPage() {
          {/* Comprehensive SEO for 404 page */}
          <SEO
             pageType="about"
-            pageTitle={`404 - Page Not Found`}
+            pageTitle="404 - Page Not Found"
             pageDescription={`The page you're looking for doesn't exist. Explore ${RESUME.name}'s professional CV and portfolio instead. Available for ${RESUME.summary.toLowerCase()} opportunities.`}
             pageUrl={`${WEBSITE.url}/404`}
             pageImage={WEBSITE.image}
@@ -28,7 +28,7 @@ export default function NotFoundPage() {
                'page not found',
                'portfolio navigation',
                RESUME.summary,
-               ...RESUME.skills.slice(0, 3).map(s => s.name),
+               ...RESUME.skills.slice(0, 3).map((s) => s.name),
             ]}
             customMetaTags={[
                {
@@ -73,7 +73,9 @@ export default function NotFoundPage() {
                         </p>
                         <p className="mt-2 text-sm text-gray-600">
                            But you can explore{' '}
-                           <span className="font-semibold">{RESUME.name}'s</span>{' '}
+                           <span className="font-semibold">
+                              {RESUME.name}'s
+                           </span>{' '}
                            professional portfolio and CV instead!
                         </p>
                      </div>
@@ -92,7 +94,10 @@ export default function NotFoundPage() {
                            href="/#about"
                            className="inline-flex items-center rounded-md border border-transparent bg-gray-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
                         >
-                           <FontAwesomeIcon icon={faUser} className="mr-2 h-4 w-4" />
+                           <FontAwesomeIcon
+                              icon={faUser}
+                              className="mr-2 h-4 w-4"
+                           />
                            About {RESUME.firstName}
                         </Link>
                      </div>
@@ -169,9 +174,14 @@ export default function NotFoundPage() {
                         </h3>
                         <p className="mt-2 text-sm text-gray-600">
                            {RESUME.summary} with expertise in{' '}
-                           {RESUME.skills.slice(0, 5).map(s => s.name).join(', ')}.
-                           Available for professional opportunities in{' '}
-                           {RESUME.locations.map(loc => loc.name.split(',')[0]).join(', ')}{' '}
+                           {RESUME.skills
+                              .slice(0, 5)
+                              .map((s) => s.name)
+                              .join(', ')}
+                           . Available for professional opportunities in{' '}
+                           {RESUME.locations
+                              .map((loc) => loc.name.split(',')[0])
+                              .join(', ')}{' '}
                            and remote work.
                         </p>
                      </div>
