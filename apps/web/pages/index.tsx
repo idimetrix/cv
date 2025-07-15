@@ -21,8 +21,7 @@ export const getServerSideProps = async ({
    req,
    res,
 }: GetServerSidePropsContext) => {
-   // Create a minimal context for server-side calls
-   const ctx = {
+   const caller = appRouter.createCaller({
       mongo: {} as any, // Simplified context
       ip: '127.0.0.1',
       md: {} as any,
@@ -30,9 +29,7 @@ export const getServerSideProps = async ({
       telegram: {} as any,
       req: req as NextApiRequest,
       res: res as NextApiResponse,
-   }
-
-   const caller = appRouter.createCaller(ctx)
+   })
 
    // You can now call tRPC procedures directly on the server
    // const data = await caller.someRouter.someQuery({ input });
