@@ -10,7 +10,7 @@ import Script from 'next/script'
 import { ServerStyleSheet } from 'styled-components'
 import { WEBSITE } from '../constants'
 
-import React from 'react'
+
 
 export default function PagesDocument({
    nonce,

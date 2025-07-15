@@ -8,6 +8,7 @@ import { NextPage } from 'next'
 import { DefaultSeo } from 'next-seo'
 import Head from 'next/head'
 import type { AppContext, AppInitialProps, AppProps } from 'next/app'
+import { defaultSEO } from '../next-seo.config'
 import App from 'next/app'
 import { useRouter } from 'next/router'
 import NProgress from 'nprogress'
@@ -93,7 +94,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
                content="width=device-width, initial-scale=1"
             />
          </Head>
-         <DefaultSeo titleTemplate="%s" title={WEBSITE.description} />
+         <DefaultSeo {...defaultSEO} />
 
          <GlobalProvider>
             {/*<ContextProvider>*/}

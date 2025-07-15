@@ -3,17 +3,80 @@ import {
    NextApiRequest,
    NextApiResponse,
 } from 'next'
+import { NextSeo, BreadcrumbJsonLd, ProfilePageJsonLd } from 'next-seo'
 import { createContext } from '@cv/trpc/server/context'
 import { appRouter } from '@cv/trpc/server/router/_app'
 import { inferSSRProps } from '@cv/types/inferSSRProps'
 import { CV } from '../components/organism'
 import { RESUME } from '../constants'
+import { structuredData, WEBSITE } from '../next-seo.config'
 
 export default function Home() {
    return (
-      <main className="">
-         <CV resume={RESUME} />
-      </main>
+      <>
+         <NextSeo
+            title="Home"
+            description="Dmitrii Selikhov's professional CV and portfolio. CTO, Software Architect, and Technical Lead with 15+ years of experience in web development, team management, and technical leadership."
+            canonical={WEBSITE.url}
+            openGraph={{
+               title: 'Dmitrii Selikhov - CTO, Software Architect, Technical Lead',
+               description: 'Professional CV and portfolio showcasing expertise in JavaScript/TypeScript, React, Node.js, cloud architecture, and technical leadership.',
+               url: WEBSITE.url,
+               type: 'profile',
+               profile: {
+                  firstName: 'Dmitrii',
+                  lastName: 'Selikhov',
+                  username: 'dimetrix',
+                  gender: 'male'
+               },
+               images: [
+                  {
+                     url: `${WEBSITE.url}${WEBSITE.image}`,
+                     alt: 'Dmitrii Selikhov - Professional Photo',
+                     width: 1200,
+                     height: 630,
+                     type: 'image/jpeg',
+                  }
+               ],
+            }}
+            additionalMetaTags={[
+               {
+                  name: 'keywords',
+                  content: 'Dmitrii Selikhov, CTO, Software Architect, Technical Lead, JavaScript, TypeScript, React, Node.js, CV, Resume, Portfolio'
+               }
+            ]}
+         />
+         
+         <ProfilePageJsonLd
+            type="Person"
+            keywordsString="JavaScript, TypeScript, React, Node.js, Software Architecture, Technical Leadership"
+            images={[`${WEBSITE.url}${WEBSITE.image}`]}
+            profileUrl={WEBSITE.url}
+            name="Dmitrii Selikhov"
+            breadcrumb={[
+               {
+                  position: 1,
+                  name: 'Home',
+                  item: WEBSITE.url,
+               }
+            ]}
+         />
+         
+         <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+               __html: JSON.stringify([
+                  structuredData.person,
+                  structuredData.website,
+                  structuredData.organization
+               ])
+            }}
+         />
+
+         <main className="">
+            <CV resume={RESUME} />
+         </main>
+      </>
    )
 }
 
