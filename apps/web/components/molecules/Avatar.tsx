@@ -17,8 +17,7 @@ export const Avatar = ({ resume, className, ...rest }: Props) => {
             width={200}
             height={200}
             className={cn(
-               'aspect-square max-h-32 max-w-32 transition-all duration-300 hover:scale-105',
-               false && 'shake'
+               'aspect-square max-h-32 max-w-32 transition-all duration-300 hover:scale-105'
             )}
          />
       </div>

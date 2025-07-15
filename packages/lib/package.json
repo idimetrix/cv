@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "clsx": "2.1.1",
-    "tailwind-merge": "2.5.4"
+    "tailwind-merge": "3.3.1"
   },
   "devDependencies": {
     "@cv/tsconfig": "workspace:*",
     "@cv/types": "workspace:*",
-    "@types/node": "22.9.1",
-    "typescript": "5.6.3"
+    "@types/node": "24.0.14",
+    "typescript": "5.8.3"
   }
 }

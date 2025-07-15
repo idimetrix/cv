@@ -1,17 +1,14 @@
 import { initTRPC } from "@trpc/server";
 import { performance } from "node:perf_hooks";
-import superjson from "superjson";
 import { type Context } from "./context";
 
-const t = initTRPC.context<Context>().create({
-  transformer: superjson,
-});
+const t = initTRPC.context<Context>().create();
 
 const maintenanceMiddleware = t.middleware(async ({ next }) => {
   return next();
 });
 
-const performanceMiddleware = t.middleware(async ({ path, type, ctx, rawInput, next }) => {
+const performanceMiddleware = t.middleware(async ({ path, type, ctx, next }) => {
   const startTime = performance.now();
 
   const result = await next({ ctx });
@@ -22,13 +19,11 @@ const performanceMiddleware = t.middleware(async ({ path, type, ctx, rawInput, n
 
   const duration = endTime - startTime;
 
-  if (result.ok)
-    console.log(name, `${duration.toFixed(2)} ms / ${(duration / 1000).toFixed(4)} s`, rawInput, undefined);
+  if (result.ok) console.log(name, `${duration.toFixed(2)} ms / ${(duration / 1000).toFixed(4)} s`);
   else
     console.error(
       name,
       `${duration.toFixed(2)} ms / ${(duration / 1000).toFixed(4)} s`,
-      rawInput,
       result.error?.message
     );
 

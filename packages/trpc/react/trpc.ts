@@ -1,14 +1,12 @@
 import { NextPageContext } from "next";
-import superjson from "superjson";
 
-import { httpBatchLink, httpLink, loggerLink, splitLink } from "@trpc/client";
+import { httpBatchLink, loggerLink } from "@trpc/client";
 import { createTRPCNext } from "@trpc/next";
 
 import type { inferRouterInputs, inferRouterOutputs } from "../server";
 import type { AppRouter } from "../server/router/_app";
 
 function getBaseUrl() {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   if (typeof window !== "undefined") {
     return "";
@@ -62,10 +60,6 @@ export const trpc = createTRPCNext<AppRouter, SSRContext>({
         },
       },
       /**
-       * @link https://trpc.io/docs/data-transformers
-       */
-      transformer: superjson,
-      /**
        * @link https://trpc.io/docs/links
        */
       links: [
@@ -75,18 +69,8 @@ export const trpc = createTRPCNext<AppRouter, SSRContext>({
             process.env.NODE_ENV === "development" ||
             (operation.direction === "down" && operation.result instanceof Error),
         }),
-        splitLink({
-          condition(operation) {
-            return operation.context.skipBatch === true;
-          },
-          // when condition is true, use normal request
-          true: httpLink({
-            url: `${getBaseUrl()}/api/trpc`,
-          }),
-          // when condition is false, use batching
-          false: httpBatchLink({
-            url: `${getBaseUrl()}/api/trpc`,
-          }),
+        httpBatchLink({
+          url: `${getBaseUrl()}/api/trpc`,
         }),
       ],
       /**
