@@ -47,58 +47,114 @@ export const CV = ({ resume, className, ...rest }: Props) => {
                color-adjust: exact !important; /* Firefox 48 – 96 */
                print-color-adjust: exact !important; /* Firefox 97+, Safari 15.4+ */
             }
+
+            /* Smooth scrolling for hash links */
+            html {
+               scroll-behavior: smooth;
+            }
+
+            /* Scroll offset to account for any fixed headers */
+            section[id] {
+               scroll-margin-top: 2rem;
+            }
+
+            /* Highlight section when targeted by hash */
+            section[id]:target {
+               animation: highlightSection 2s ease-in-out;
+            }
+
+            @keyframes highlightSection {
+               0% {
+                  background-color: rgba(59, 130, 246, 0.1);
+               }
+               50% {
+                  background-color: rgba(59, 130, 246, 0.2);
+               }
+               100% {
+                  background-color: transparent;
+               }
+            }
          `}</style>
          <div
             className="m-0 flex min-h-[297mm] relative w-[210mm] flex-col bg-white p-[10mm] text-base print:bg-none"
             id="cv"
          >
             <div className="flex w-full gap-9 flex-col">
-               <div className="flex w-full flex-col-reverse gap-6 justify-between sm:flex-row">
+               {/* Header Section */}
+               <section
+                  id="header"
+                  className="flex w-full flex-col-reverse gap-6 justify-between sm:flex-row"
+               >
                   <div className="flex flex-col gap-1.5">
-                     <div className="flex flex-col">
+                     <div id="name-summary" className="flex flex-col">
                         <Name resume={resume} className="" />
-
                         <Summary resume={resume} className="" />
                      </div>
 
-                     <Locations resume={resume} className="" />
+                     <div id="locations">
+                        <Locations resume={resume} className="" />
+                     </div>
 
-                     <div className="mt-1.5 flex flex-col gap-3">
+                     <div id="contact" className="mt-1.5 flex flex-col gap-3">
                         <Links resume={resume} />
-
                         <Socials resume={resume} />
                      </div>
                   </div>
-                  <Avatar
-                     resume={resume}
-                     className="bg-aluminum sm:bg-transparent"
-                  />
-               </div>
+                  <div id="avatar">
+                     <Avatar
+                        resume={resume}
+                        className="bg-aluminum sm:bg-transparent"
+                     />
+                  </div>
+               </section>
 
+               {/* Main Content Sections */}
                <div className="flex w-full gap-9 flex-col">
-                  <About resume={resume} className="" />
+                  <section id="about">
+                     <About resume={resume} className="" />
+                  </section>
 
-                  <Help resume={resume} className="hidden" />
+                  <section id="help" className="hidden">
+                     <Help resume={resume} className="" />
+                  </section>
 
-                  <Technologies resume={resume} className="hidden" />
+                  <section id="technologies" className="hidden">
+                     <Technologies resume={resume} className="" />
+                  </section>
                </div>
 
-               <Experience resume={resume} className="" />
+               <section id="experience">
+                  <Experience resume={resume} className="" />
+               </section>
 
-               <Education resume={resume} className="" />
+               <section id="education">
+                  <Education resume={resume} className="" />
+               </section>
 
-               <Skills resume={resume} className="" />
+               <section id="skills">
+                  <Skills resume={resume} className="" />
+               </section>
 
-               <Languages resume={resume} className="" />
+               <section id="languages">
+                  <Languages resume={resume} className="" />
+               </section>
 
-               <Projects resume={resume} className="" />
+               <section id="projects">
+                  <Projects resume={resume} className="" />
+               </section>
 
-               <Characteristics resume={resume} className="hidden" />
+               <section id="characteristics" className="hidden">
+                  <Characteristics resume={resume} className="" />
+               </section>
 
-               <Contributions resume={resume} className="" />
+               <section id="contributions">
+                  <Contributions resume={resume} className="" />
+               </section>
             </div>
 
-            <Actions resume={resume} className="" />
+            <section id="actions">
+               <Actions resume={resume} className="" />
+            </section>
          </div>
       </div>
    )

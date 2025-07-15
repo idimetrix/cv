@@ -10,7 +10,7 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { Heading } from '../components/atoms'
 import { RESUME } from '../users'
 import { WEBSITE } from '../constants'
-import { SEO } from '../components/SEO'
+import { SEO } from '../utils/seo'
 
 export default function NotFoundPage() {
    return (
@@ -69,12 +69,12 @@ export default function NotFoundPage() {
                            Page not found
                         </Heading>
                         <p className="mt-1 text-base text-gray-500">
-                           The page you're looking for doesn't exist.
+                           The page you&apos;re looking for doesn&apos;t exist.
                         </p>
                         <p className="mt-2 text-sm text-gray-600">
                            But you can explore{' '}
                            <span className="font-semibold">
-                              {RESUME.name}'s
+                              {RESUME.name}&apos;s
                            </span>{' '}
                            professional portfolio and CV instead!
                         </p>

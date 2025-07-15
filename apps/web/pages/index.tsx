@@ -8,28 +8,23 @@ import { createContext } from '@cv/trpc/server/context'
 import { appRouter } from '@cv/trpc/server/router/_app'
 import { inferSSRProps } from '@cv/types/inferSSRProps'
 import { CV } from '../components/organism'
+import { SectionNavigation } from '../components/molecules'
 import { RESUME } from '../users'
 import { WEBSITE } from '../constants'
-import {
-   createEnhancedPageSEO,
-   ComprehensiveJsonLd,
-} from '../utils/comprehensive-seo'
+import { createEnhancedDefaultSEO, ComprehensiveJsonLd } from '../utils/seo'
 
 export default function Home() {
-   // Enhanced SEO configuration for home page
-   const enhancedSEO = createEnhancedPageSEO(RESUME, WEBSITE, {
-      pageType: 'home',
-      pageTitle: `${RESUME.name} - ${RESUME.summary}`,
-      pageDescription: `Professional portfolio and CV of ${RESUME.name}, ${RESUME.summary}. Explore ${RESUME.experiences.length}+ years of experience in ${RESUME.skills
+   // Enhanced SEO configuration for home page - use generateSEO instead
+   const enhancedSEO = {
+      ...createEnhancedDefaultSEO(RESUME, WEBSITE),
+      title: `${RESUME.name} - ${RESUME.summary}`,
+      description: `Professional portfolio and CV of ${RESUME.name}, ${RESUME.summary}. Explore ${RESUME.experiences.length}+ years of experience in ${RESUME.skills
          .slice(0, 5)
          .map((s) => s.name)
          .join(
             ', '
          )}. Available for ${RESUME.locations.map((l) => l.name).join(', ')} and remote opportunities.`,
-      pageUrl: WEBSITE.url,
-      pageImage: WEBSITE.image,
-      isHomePage: true,
-   })
+   }
 
    return (
       <>
@@ -244,7 +239,35 @@ export default function Home() {
          />
 
          <main className="">
+            {/* Static Navigation at top - hidden on mobile for cleaner print view */}
+            <div className="hidden lg:block print:hidden bg-white border-b border-gray-200 sticky top-0 z-40 shadow-sm">
+               <div className="container mx-auto px-4">
+                  <SectionNavigation
+                     position="static"
+                     className="py-4"
+                     showKeyboardShortcuts={true}
+                  />
+               </div>
+            </div>
+
+            {/* Main CV Content */}
             <CV resume={RESUME} />
+
+            {/* Floating Navigation - compact for mobile/tablet, full for larger screens */}
+            <SectionNavigation
+               compact={true}
+               position="fixed"
+               side="right"
+               className="lg:hidden" // Show compact version on smaller screens
+               showKeyboardShortcuts={false}
+            />
+            <SectionNavigation
+               compact={false}
+               position="fixed"
+               side="left"
+               className="hidden lg:block" // Show full version on larger screens
+               showKeyboardShortcuts={true}
+            />
          </main>
       </>
    )
