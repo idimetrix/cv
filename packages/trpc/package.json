@@ -19,8 +19,8 @@
     "@trpc/react-query": "11.4.3",
     "@trpc/server": "11.4.3",
     "aws-sdk": "2.1692.0",
-    "axios": "1.10.0",
-    "next": "15.4.1",
+    "axios": "1.11.0",
+    "next": "15.4.3",
     "slugify": "1.6.6",
     "sanitize-html": "2.17.0",
     "nanoid": "5.1.5",
@@ -29,7 +29,7 @@
     "node-telegram-bot-api": "0.66.0",
     "superjson": "2.2.2",
     "uuid": "11.1.0",
-    "zod": "4.0.5",
+    "zod": "4.0.8",
     "md5": "2.3.0"
   },
   "devDependencies": {

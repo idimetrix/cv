@@ -15,7 +15,7 @@
   "devDependencies": {
     "@cv/tsconfig": "workspace:*",
     "@cv/types": "workspace:*",
-    "@types/node": "24.0.14",
+    "@types/node": "24.1.0",
     "typescript": "5.8.3"
   }
 }
