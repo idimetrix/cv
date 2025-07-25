@@ -12,9 +12,9 @@
   "dependencies": {
     "@cv/tsconfig": "workspace:*",
     "@typegoose/typegoose": "12.17.0",
-    "dotenv": "17.2.0",
+    "dotenv": "17.2.1",
     "mongodb": "6.18.0",
-    "mongoose": "8.16.4",
+    "mongoose": "8.16.5",
     "nanoid": "5.1.5"
   },
   "devDependencies": {

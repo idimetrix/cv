@@ -39,10 +39,10 @@
     "turbo": "2.5.5"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "15.4.3",
+    "@next/eslint-plugin-next": "15.4.4",
     "@typescript-eslint/eslint-plugin": "8.38.0",
     "@typescript-eslint/parser": "8.38.0",
-    "eslint-config-next": "15.4.3",
+    "eslint-config-next": "15.4.4",
     "@trivago/prettier-plugin-sort-imports": "5.2.2",
     "eslint-config-prettier": "10.1.8",
     "eslint-config-turbo": "2.5.5",
