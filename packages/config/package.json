@@ -11,7 +11,7 @@
   "devDependencies": {
     "@tailwindcss/forms": "0.5.10",
     "@tailwindcss/typography": "0.5.16",
-    "daisyui": "5.0.47",
+    "daisyui": "5.0.48",
     "tailwind-scrollbar": "4.0.2",
     "tailwindcss": "4.1.11",
     "tailwindcss-3d": "1.1.0",
