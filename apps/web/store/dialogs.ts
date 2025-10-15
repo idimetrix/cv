@@ -3,9 +3,9 @@ import { devtools } from 'zustand/middleware'
 
 interface DialogsState {
    signIn: boolean
-   setSignIn: (value: boolean) => void
+   setSignIn: (_value: boolean) => void
    signUp: boolean
-   setSignUp: (value: boolean) => void
+   setSignUp: (_value: boolean) => void
 }
 
 export const useDialogsStore = create<DialogsState>()(

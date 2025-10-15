@@ -5,7 +5,6 @@ import { Project } from './Project'
 import { Location } from './Location'
 import { Skill } from './Skill'
 import { Contribution } from './Contribution'
-import { ReactNode } from 'react'
 import { Technology } from './Technology'
 import { Content } from './Content'
 

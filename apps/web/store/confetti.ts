@@ -3,7 +3,7 @@ import { devtools, persist } from 'zustand/middleware'
 
 interface ConfettiState {
    isConfetti: boolean
-   setConfetti: (value: boolean) => void
+   setConfetti: (_value: boolean) => void
 }
 
 export const useConfettiStore = create<ConfettiState>()(

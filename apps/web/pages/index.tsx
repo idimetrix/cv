@@ -4,9 +4,7 @@ import {
    NextApiResponse,
 } from 'next'
 import { NextSeo } from 'next-seo'
-import { createContext } from '@cv/trpc/server/context'
 import { appRouter } from '@cv/trpc/server/router/_app'
-import { inferSSRProps } from '@cv/types/inferSSRProps'
 import { CV } from '../components/organism'
 import { RESUME } from '../users'
 import {
@@ -252,7 +250,8 @@ export const getServerSideProps = async ({
    req,
    res,
 }: GetServerSidePropsContext) => {
-   const caller = appRouter.createCaller({
+   // Create caller for potential server-side tRPC calls
+   const _caller = appRouter.createCaller({
       mongo: {} as any, // Simplified context
       ip: '127.0.0.1',
       md: {} as any,
@@ -263,7 +262,7 @@ export const getServerSideProps = async ({
    })
 
    // You can now call tRPC procedures directly on the server
-   // const data = await caller.someRouter.someQuery({ input });
+   // const data = await _caller.someRouter.someQuery({ input });
 
    return {
       props: {},

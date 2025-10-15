@@ -5,7 +5,7 @@
       "cache": false
     },
     "@cv/web#build": {
-      "env": ["NEXT_PUBLIC_URL", "VERCEL_URL", "MONGODB_URI"],
+      "env": ["NEXT_PUBLIC_URL", "VERCEL_URL", "MONGODB_URI", "ANALYZE"],
       "outputs": ["dist/**", ".next/**"]
     },
     "@cv/web#start": {

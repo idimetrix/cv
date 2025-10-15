@@ -294,7 +294,6 @@ export const useActiveSection = (): SectionId | null => {
             observerRef.current.disconnect()
             observerRef.current = null
          }
-         sectionsRef.current.clear()
       }
    }, [])
 
@@ -303,7 +302,7 @@ export const useActiveSection = (): SectionId | null => {
 
 // Keyboard navigation hook
 export const useKeyboardNavigation = (
-   onNavigate: (sectionId: SectionId) => void
+   onNavigate: (_sectionId: SectionId) => void
 ) => {
    useEffect(() => {
       const handleKeyDown = (event: KeyboardEvent) => {
@@ -321,14 +320,17 @@ export const useKeyboardNavigation = (
 
          switch (event.key) {
             case 'ArrowDown':
-            case 'j': // Vim-style navigation
+            case 'j': {
+               // Vim-style navigation
                event.preventDefault()
                const nextIndex = (currentIndex + 1) % AVAILABLE_SECTIONS.length
                onNavigate(AVAILABLE_SECTIONS[nextIndex])
                break
+            }
 
             case 'ArrowUp':
-            case 'k': // Vim-style navigation
+            case 'k': {
+               // Vim-style navigation
                event.preventDefault()
                const prevIndex =
                   currentIndex > 0
@@ -336,6 +338,7 @@ export const useKeyboardNavigation = (
                      : AVAILABLE_SECTIONS.length - 1
                onNavigate(AVAILABLE_SECTIONS[prevIndex])
                break
+            }
 
             case 'Home':
                event.preventDefault()

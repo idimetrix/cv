@@ -1,7 +1,8 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  extends: ["next", "plugin:prettier/recommended", "turbo"],
+  extends: ["next", "plugin:prettier/recommended", "plugin:turbo/recommended"],
+  plugins: ["turbo"],
   parserOptions: {
     tsconfigRootDir: __dirname,
     project: ["./apps/*/tsconfig.json", "./packages/*/tsconfig.json"],

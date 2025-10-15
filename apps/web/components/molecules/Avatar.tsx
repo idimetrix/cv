@@ -1,7 +1,6 @@
 import { HTMLAttributes, memo } from 'react'
 import { Resume } from '../../types'
 import { cn } from '@cv/lib'
-import Link from 'next/link'
 import Image from 'next/image'
 
 interface Props extends HTMLAttributes<HTMLDivElement> {

@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react'
+import React, { useMemo } from 'react'
 import {
    DefaultSeoProps,
    NextSeoProps,
@@ -20,15 +20,7 @@ import {
    CollectionPageJsonLd,
    DatasetJsonLd,
 } from 'next-seo'
-import {
-   WEBSITE,
-   getSeniorityLevel,
-   getPrimaryIndustry,
-   getCoverageArea,
-   getDistributionScope,
-   getTargetAudience,
-   getAudienceCompanies,
-} from '../constants'
+import { WEBSITE } from '../constants'
 import { RESUME } from '../users'
 import { Resume } from '../types/Resume'
 
@@ -167,13 +159,13 @@ export const generateCanonicalUrl = (path: string): string => {
 const extractSocialHandle = (url?: string): string | undefined => {
    if (!url) return undefined
    const match = url.match(
-      /(?:twitter\.com|x\.com|linkedin\.com|github\.com)\/([^\/\?]+)/
+      /(?:twitter\.com|x\.com|linkedin\.com|github\.com)\/([^/?]+)/
    )
    return match ? match[1] : undefined
 }
 
 // Helper function to filter out undefined values from arrays
-const filterValidUrls = (urls: (string | undefined)[]): string[] => {
+const _filterValidUrls = (urls: (string | undefined)[]): string[] => {
    return urls.filter((url): url is string => Boolean(url))
 }
 
@@ -411,30 +403,23 @@ export const generateSEO = (options: SEOOptions = {}): NextSeoProps => {
    const image = optimizeImageUrl(pageImage || WEBSITE.image, 1200, 630)
 
    // Generate keywords - optimized
-   const allKeywords = useMemo(
-      () =>
-         generateMetaKeywords([
-            ...customKeywords,
-            pageType,
-            ...title.split(' ').filter((word) => word.length > 3),
-         ]),
-      [customKeywords, pageType, title]
-   )
+   const allKeywords = generateMetaKeywords([
+      ...customKeywords,
+      pageType,
+      ...title.split(' ').filter((word) => word.length > 3),
+   ])
 
-   const additionalMetaTags = useMemo(
-      () => [
-         { name: 'keywords', content: allKeywords },
-         { name: 'author', content: RESUME.name },
-         { name: 'page-type', content: pageType },
-         { name: 'site-section', content: pageType },
-         {
-            name: 'content-type',
-            content: pageType === 'article' ? 'article' : 'webpage',
-         },
-         ...customMetaTags,
-      ],
-      [allKeywords, pageType, customMetaTags]
-   )
+   const additionalMetaTags = [
+      { name: 'keywords', content: allKeywords },
+      { name: 'author', content: RESUME.name },
+      { name: 'page-type', content: pageType },
+      { name: 'site-section', content: pageType },
+      {
+         name: 'content-type',
+         content: pageType === 'article' ? 'article' : 'webpage',
+      },
+      ...customMetaTags,
+   ]
 
    return {
       title,
@@ -489,7 +474,12 @@ export const generateSEO = (options: SEOOptions = {}): NextSeoProps => {
 
 // Comprehensive JsonLd Components - Heavily Optimized with React.memo and useMemo
 export const ComprehensiveJsonLd: React.FC<ComprehensiveSEOProps> = React.memo(
-   ({ resume, website, pageType = 'home', isHomePage = false }) => {
+   ({
+      resume,
+      website,
+      pageType: _pageType = 'home',
+      isHomePage: _isHomePage = false,
+   }) => {
       // Memoize expensive calculations
       const currentDate = useMemo(() => new Date().toISOString(), [])
       const {
@@ -792,7 +782,7 @@ export const ComprehensiveJsonLd: React.FC<ComprehensiveSEOProps> = React.memo(
                description={`Collection of projects and work by ${resume.name}, showcasing expertise in ${topSkillsString}.`}
                id={`${website.url}/#projects`}
                url={`${website.url}/#projects`}
-               hasPart={resume.projects.slice(0, 10).map((project, index) => ({
+               hasPart={resume.projects.slice(0, 10).map((project) => ({
                   about:
                      typeof project.description === 'string'
                         ? project.description
@@ -874,7 +864,7 @@ export const SEO: React.FC<SEOProps> = React.memo(
       includeJsonLd = true,
    }) => {
       // Memoize SEO props to prevent recreation on every render
-      const seoProps = useMemo(
+      const _seoProps = useMemo(
          () =>
             generateSEO({
                pageType,

@@ -3,7 +3,7 @@ import { devtools } from 'zustand/middleware'
 
 interface MenuState {
    active: boolean
-   setActive: (value: boolean) => void
+   setActive: (_value: boolean) => void
 }
 
 export const useMenuStore = create<MenuState>()(

@@ -15,7 +15,7 @@
   "version": "1.0.0",
   "private": true,
   "npmClient": "pnpm",
-  "packageManager": "pnpm@10.13.1",
+  "packageManager": "pnpm@10.18.3",
   "engines": {
     "node": ">=20.x",
     "npm": ">=10.0.0",
@@ -33,25 +33,25 @@
     "format": "pnpm prettier && pnpm lint && pnpm type",
     "bootstrap": "pnpm install && pnpm format",
     "lt": "lt --port 3000 --subdomain blogs",
-    "prepare": "husky install"
+    "prepare": "husky || true"
   },
   "dependencies": {
-    "turbo": "2.5.5"
+    "turbo": "2.5.8"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "15.4.4",
-    "@typescript-eslint/eslint-plugin": "8.38.0",
-    "@typescript-eslint/parser": "8.38.0",
-    "eslint-config-next": "15.4.4",
+    "@next/eslint-plugin-next": "15.5.5",
+    "@typescript-eslint/eslint-plugin": "8.46.1",
+    "@typescript-eslint/parser": "8.46.1",
+    "eslint-config-next": "15.5.5",
     "@trivago/prettier-plugin-sort-imports": "5.2.2",
     "eslint-config-prettier": "10.1.8",
-    "eslint-config-turbo": "2.5.5",
-    "eslint-plugin-prettier": "5.5.3",
+    "eslint-config-turbo": "2.5.8",
+    "eslint-plugin-prettier": "5.5.4",
     "prettier": "3.6.2",
-    "prettier-plugin-organize-imports": "4.2.0",
-    "prettier-plugin-tailwindcss": "0.6.14",
+    "prettier-plugin-organize-imports": "4.3.0",
+    "prettier-plugin-tailwindcss": "0.7.0",
     "husky": "9.1.7",
     "localtunnel": "2.0.2",
-    "eslint-plugin-unused-imports": "4.1.4"
+    "eslint-plugin-unused-imports": "4.2.0"
   }
 }

@@ -5,7 +5,7 @@ import { RESUME } from '../users'
 const extractSocialHandle = (url?: string): string | undefined => {
    if (!url) return undefined
    // Extract from URL (e.g., https://x.com/username -> username)
-   const match = url.match(/(?:twitter\.com|x\.com)\/([^\/\?]+)/)
+   const match = url.match(/(?:twitter\.com|x\.com)\/([^/?]+)/)
    if (match) return match[1]
    // If it's already a handle (e.g., @username or username)
    return url.replace('@', '')
@@ -143,15 +143,6 @@ const getPrimaryIndustry = (
    return 'Professional Services'
 }
 
-// Helper function to get service description
-const getServiceDescription = (summary: string, skills: any[] = []): string => {
-   const topSkills = skills
-      .slice(0, 3)
-      .map((s) => s.name)
-      .join(', ')
-   return `Professional ${summary.toLowerCase()} services specializing in ${topSkills}`
-}
-
 // Helper function to get coverage area
 const getCoverageArea = (locations: any[] = []): string => {
    if (locations.length === 0) return 'Worldwide'
@@ -182,7 +173,7 @@ const getRevisitFrequency = (
 // Helper function to get target audience based on skills and experience
 const getTargetAudience = (
    experiences: any[] = [],
-   skills: any[] = []
+   _skills: any[] = []
 ): string => {
    const industries = experiences
       .map((exp) =>

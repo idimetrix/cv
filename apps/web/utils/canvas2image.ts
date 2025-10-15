@@ -1,14 +1,13 @@
-enum ImageType {
-   PNG = 'image/png',
-   JPEG = 'image/jpeg',
-   BMP = 'image/bmp',
-   WEBP = 'image/webp',
-}
+const ImageType = {
+   PNG: 'image/png',
+} as const
+
+type ImageTypeValue = (typeof ImageType)[keyof typeof ImageType]
 
 interface Parameters {
    canvas: HTMLCanvasElement
    scale?: number // Optional, defaults to 1 if not provided
-   imageType?: ImageType // Optional, defaults to PNG
+   imageType?: ImageTypeValue // Optional, defaults to PNG
    name?: string // Optional, defaults to 'canvas_image'
 }
 

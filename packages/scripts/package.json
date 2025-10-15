@@ -13,12 +13,12 @@
     "@cv/lib": "workspace:*",
     "@cv/tsconfig": "workspace:*",
     "ts-node": "10.9.2",
-    "@faker-js/faker": "9.9.0",
-    "uuid": "11.1.0"
+    "@faker-js/faker": "10.1.0",
+    "uuid": "13.0.0"
   },
   "devDependencies": {
-    "@types/node": "24.1.0",
-    "@types/uuid": "10.0.0",
-    "typescript": "5.8.3"
+    "@types/node": "24.7.2",
+    "@types/uuid": "11.0.0",
+    "typescript": "5.9.3"
   }
 }

@@ -8,7 +8,6 @@ import { NextPage } from 'next'
 import { DefaultSeo } from 'next-seo'
 import Head from 'next/head'
 import type { AppContext, AppInitialProps, AppProps } from 'next/app'
-import { defaultSEO } from '../constants'
 import { RESUME } from '../users'
 import { WEBSITE } from '../constants'
 import { createDefaultSEO } from '../utils/seo'
@@ -44,7 +43,7 @@ config.autoAddCss = false
 NProgress.configure({ showSpinner: false })
 
 export type NextPageWithLayout = NextPage & {
-   getLayout?: (page: ReactElement) => ReactNode
+   getLayout?: (_page: ReactElement) => ReactNode
 }
 
 type AppPropsWithLayout = AppProps & {

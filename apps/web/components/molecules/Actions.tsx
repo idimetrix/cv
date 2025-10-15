@@ -4,7 +4,6 @@ import { Resume } from '../../types'
 import { cn } from '@cv/lib'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
-   faFilePdf,
    faFilePng,
    faFileJpg,
    faFileSvg,

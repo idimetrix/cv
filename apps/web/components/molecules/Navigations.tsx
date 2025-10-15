@@ -58,7 +58,7 @@ export const Navigations = memo<Props>(({ className, ...rest }) => {
          }
 
          // Validate that all required sections exist
-         const validation = validateSections()
+         validateSections()
          const availableSections = sections.filter(
             (section) => document.getElementById(section.id) !== null
          )

@@ -4,7 +4,7 @@
   "main": "./index.ts",
   "scripts": {},
   "dependencies": {
-    "dayjs": "1.11.13"
+    "dayjs": "1.11.18"
   },
   "devDependencies": {}
 }
