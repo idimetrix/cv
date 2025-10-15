@@ -26,6 +26,8 @@ A modern, minimalist CV builder designed for professionals who value **simplicit
 - 🎓 Recent graduates building their first CV
 - 👨‍💻 Developers showcasing their technical skills
 - 🚀 Professionals who need quick, reliable CV generation
+- 🏢 Organizations managing CVs for multiple team members
+- 🌐 Platforms hosting CVs for 1000+ users
 
 ---
 
@@ -61,6 +63,14 @@ A modern, minimalist CV builder designed for professionals who value **simplicit
 - Download as PDF
 - Export as PNG, JPG, or SVG
 - Share via unique URL
+
+### 👥 **Multi-User Support**
+
+- Support for unlimited users (tested with 1000+)
+- Dynamic loading - only loads data when needed
+- Each user gets their own URL: `/user/{username}`
+- API endpoints for user management
+- Scales effortlessly with your needs
 
 ---
 
@@ -122,6 +132,21 @@ pnpm web:dev
 ```
 
 🎉 **That's it!** Open [http://localhost:3000](http://localhost:3000) to see your CV.
+
+### 👥 Adding More Users
+
+Want to host multiple CVs? Check out the [Multi-User Guide](USERS_GUIDE.md) for detailed instructions.
+
+```bash
+# Quick: Create a new user
+mkdir apps/web/users/johndoe
+cp -r apps/web/users/idimetrix/* apps/web/users/johndoe/
+
+# Edit the user data
+# Then add to apps/web/utils/users.ts
+
+# Access at http://localhost:3000/user/johndoe
+```
 
 ---
 
@@ -305,10 +330,18 @@ cv/
 │       │   └── organism/      # Page-level components
 │       ├── constants/         # Configuration & constants
 │       ├── pages/             # Next.js pages
+│       │   ├── index.tsx      # Homepage (default user)
+│       │   ├── user/          # Multi-user routes
+│       │   │   └── [username].tsx  # Dynamic user pages
+│       │   └── api/           # API endpoints
+│       │       └── users/     # User API
 │       ├── styles/            # Global styles
 │       ├── types/             # TypeScript types
-│       ├── users/             # User CV data
+│       ├── users/             # User CV data ⭐ Multi-user support
+│       │   ├── idimetrix/     # Example user
+│       │   └── {username}/    # Add more users here
 │       └── utils/             # Utility functions
+│           └── users.ts       # User management utilities
 ├── packages/                   # Shared packages
 │   ├── config/                # Shared configuration
 │   ├── dayjs/                 # Date utilities
@@ -316,6 +349,7 @@ cv/
 │   ├── mongodb/               # Database utilities
 │   ├── trpc/                  # API layer
 │   └── tsconfig/              # TypeScript configs
+├── USERS_GUIDE.md             # Multi-user setup guide ⭐
 └── turbo.json                 # Turbo configuration
 ```
 
@@ -372,6 +406,17 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - Inspired by the need for simple, effective CV creation
 - Built with amazing open-source technologies
 - Community feedback and contributions
+
+---
+
+## 📚 Resources
+
+- **[Multi-User Guide](USERS_GUIDE.md)** - Complete guide for hosting multiple CVs ⭐
+- [Next.js Documentation](https://nextjs.org/docs)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [Resume Type Definition](apps/web/types/Resume.ts)
+- [Example User Data](apps/web/users/idimetrix/)
+- [User API Documentation](apps/web/pages/api/users/)
 
 ---
 
