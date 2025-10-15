@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
    faHome,
@@ -38,6 +39,17 @@ export default function ServerErrorPage() {
 
    const handleRefresh = () => {
       window.location.reload()
+   }
+
+   const handleNavigateWithHash = (hash: string) => {
+      router.push('/').then(() => {
+         setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+               element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }
+         }, 100)
+      })
    }
 
    return (
@@ -148,7 +160,7 @@ export default function ServerErrorPage() {
                      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                         {[
                            {
-                              href: '/#experience',
+                              hash: 'experience',
                               title: 'Experience',
                               icon: '💼',
                               color: 'from-blue-50 to-blue-100',
@@ -156,7 +168,7 @@ export default function ServerErrorPage() {
                                  'hover:from-blue-100 hover:to-blue-200',
                            },
                            {
-                              href: '/#projects',
+                              hash: 'projects',
                               title: 'Projects',
                               icon: '🚀',
                               color: 'from-purple-50 to-purple-100',
@@ -164,7 +176,7 @@ export default function ServerErrorPage() {
                                  'hover:from-purple-100 hover:to-purple-200',
                            },
                            {
-                              href: '/#skills',
+                              hash: 'skills',
                               title: 'Skills',
                               icon: '⚡',
                               color: 'from-pink-50 to-pink-100',
@@ -172,7 +184,7 @@ export default function ServerErrorPage() {
                                  'hover:from-pink-100 hover:to-pink-200',
                            },
                            {
-                              href: '/#education',
+                              hash: 'education',
                               title: 'Education',
                               icon: '🎓',
                               color: 'from-green-50 to-green-100',
@@ -180,16 +192,16 @@ export default function ServerErrorPage() {
                                  'hover:from-green-100 hover:to-green-200',
                            },
                         ].map((item) => (
-                           <Link
-                              key={item.href}
-                              href={item.href}
-                              className={`group block rounded-2xl bg-gradient-to-br ${item.color} ${item.hoverColor} p-6 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+                           <button
+                              key={item.title}
+                              onClick={() => handleNavigateWithHash(item.hash)}
+                              className={`group block w-full rounded-2xl bg-gradient-to-br ${item.color} ${item.hoverColor} p-6 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer`}
                            >
                               <div className="mb-3 text-4xl">{item.icon}</div>
                               <h4 className="text-lg font-bold text-gray-900">
                                  {item.title}
                               </h4>
-                           </Link>
+                           </button>
                         ))}
                      </div>
                   </div>
@@ -199,9 +211,11 @@ export default function ServerErrorPage() {
                      <div className="bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 p-1">
                         <div className="rounded-3xl bg-white p-8">
                            <div className="mb-6 flex items-center justify-center">
-                              <img
+                              <Image
                                  src={RESUME.avatar}
                                  alt={RESUME.name}
+                                 width={96}
+                                 height={96}
                                  className="h-24 w-24 rounded-full border-4 border-white shadow-lg ring-4 ring-gray-100"
                               />
                            </div>

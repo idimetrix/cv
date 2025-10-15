@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
    faHome,
@@ -33,6 +34,17 @@ export default function NotFoundPage() {
       } else {
          router.push('/')
       }
+   }
+
+   const handleNavigateWithHash = (hash: string) => {
+      router.push('/').then(() => {
+         setTimeout(() => {
+            const element = document.getElementById(hash)
+            if (element) {
+               element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }
+         }, 100)
+      })
    }
 
    return (
@@ -122,20 +134,20 @@ export default function NotFoundPage() {
                         Go Home
                      </Link>
 
-                     <Link
-                        href="/#about"
+                     <button
+                        onClick={() => handleNavigateWithHash('about')}
                         className="inline-flex items-center gap-2 rounded-full border-2 border-gray-300 bg-white px-8 py-3.5 text-base font-semibold text-gray-700 shadow-sm transition-all duration-300 hover:border-gray-400 hover:bg-gray-50 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
                      >
                         <FontAwesomeIcon icon={faSearch} className="h-5 w-5" />
                         Explore Profile
-                     </Link>
+                     </button>
                   </div>
 
                   {/* Quick navigation cards */}
                   <div className="mx-auto mb-12 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
                      {[
                         {
-                           href: '/#experience',
+                           hash: 'experience',
                            title: 'Experience',
                            description: 'Work history',
                            icon: '💼',
@@ -143,7 +155,7 @@ export default function NotFoundPage() {
                            hoverColor: 'hover:from-blue-100 hover:to-blue-200',
                         },
                         {
-                           href: '/#projects',
+                           hash: 'projects',
                            title: 'Projects',
                            description: 'Portfolio',
                            icon: '🚀',
@@ -152,7 +164,7 @@ export default function NotFoundPage() {
                               'hover:from-purple-100 hover:to-purple-200',
                         },
                         {
-                           href: '/#skills',
+                           hash: 'skills',
                            title: 'Skills',
                            description: 'Expertise',
                            icon: '⚡',
@@ -160,7 +172,7 @@ export default function NotFoundPage() {
                            hoverColor: 'hover:from-pink-100 hover:to-pink-200',
                         },
                         {
-                           href: '/#education',
+                           hash: 'education',
                            title: 'Education',
                            description: 'Background',
                            icon: '🎓',
@@ -169,10 +181,10 @@ export default function NotFoundPage() {
                               'hover:from-green-100 hover:to-green-200',
                         },
                      ].map((item) => (
-                        <Link
-                           key={item.href}
-                           href={item.href}
-                           className={`group block rounded-2xl bg-gradient-to-br ${item.color} ${item.hoverColor} p-6 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+                        <button
+                           key={item.title}
+                           onClick={() => handleNavigateWithHash(item.hash)}
+                           className={`group block w-full rounded-2xl bg-gradient-to-br ${item.color} ${item.hoverColor} p-6 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl cursor-pointer`}
                         >
                            <div className="mb-3 text-4xl">{item.icon}</div>
                            <h3 className="mb-1 text-lg font-bold text-gray-900">
@@ -181,7 +193,7 @@ export default function NotFoundPage() {
                            <p className="text-sm text-gray-600">
                               {item.description}
                            </p>
-                        </Link>
+                        </button>
                      ))}
                   </div>
 
@@ -190,9 +202,11 @@ export default function NotFoundPage() {
                      <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 p-1">
                         <div className="rounded-3xl bg-white p-8">
                            <div className="mb-6 flex items-center justify-center">
-                              <img
+                              <Image
                                  src={RESUME.avatar}
                                  alt={RESUME.name}
+                                 width={96}
+                                 height={96}
                                  className="h-24 w-24 rounded-full border-4 border-white shadow-lg ring-4 ring-gray-100"
                               />
                            </div>

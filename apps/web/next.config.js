@@ -27,6 +27,12 @@ const moduleExports = {
          }
       }
 
+      // Exclude markdown files from being processed by webpack
+      config.module.rules.push({
+         test: /\.md$/,
+         type: 'asset/source',
+      })
+
       return config
    },
 }
