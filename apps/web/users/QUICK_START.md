@@ -44,6 +44,7 @@ touch janedoe/index.ts
 ## 📁 Folder Structure
 
 ### Simple (all in one file):
+
 ```
 users/
   ├── idimetrix/
@@ -53,6 +54,7 @@ users/
 ```
 
 ### Advanced (split files for better organization):
+
 ```
 users/
   ├── idimetrix/
@@ -81,11 +83,13 @@ users/
 ## 🔍 Viewing All Users
 
 You can access the list of all users via API:
+
 ```
 GET http://localhost:3000/api/users
 ```
 
 Or check a specific user:
+
 ```
 GET http://localhost:3000/api/users/johndoe
 ```
@@ -106,4 +110,3 @@ GET http://localhost:3000/api/users/johndoe
 ---
 
 That's it! Adding new users is literally just creating a folder and a file. 🎉
-
