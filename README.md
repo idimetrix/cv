@@ -437,3 +437,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 [⬆ Back to Top](#-professional-cv-maker)
 
 </div>
+
+---
+
+Built by the team behind [Planoda](https://planoda.com/?utm_source=github&utm_medium=referral&utm_campaign=cv) — an AI-native work platform, currently pre-launch and building in public.
